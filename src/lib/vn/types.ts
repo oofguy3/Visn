@@ -44,6 +44,8 @@ export type Story = {
   characters: Character[];
   start: string;
   scenes: Scene[];
+  /** Set on opt-in stories. A public build keeps these off the shelf and out of the picker. */
+  optIn?: boolean;
 };
 
 export type ChatTurn = {

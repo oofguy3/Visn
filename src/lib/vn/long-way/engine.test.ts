@@ -9,6 +9,10 @@ const storyPath = fileURLToPath(
   new URL("../../../../public/vn/long-way/story.json", import.meta.url),
 );
 const artRoot = fileURLToPath(new URL("../../../../public/vn/long-way/", import.meta.url));
+const privateStoryPath = fileURLToPath(
+  new URL("../../../../private/long-way-18/story.json", import.meta.url),
+);
+const privateRoot = fileURLToPath(new URL("../../../../private/long-way-18/", import.meta.url));
 
 function loadStory(): Script {
   return prepareScript(JSON.parse(readFileSync(storyPath, "utf8")));
@@ -392,5 +396,124 @@ describe("The Long Way Round", () => {
     });
     assert.equal(declined.runtime.flags.high_route_eligible, true);
     assert.equal(declined.runtime.flags.high_route, false);
+  });
+});
+
+describe("The Long Way Round (18+)", () => {
+  const script = prepareScript(JSON.parse(readFileSync(privateStoryPath, "utf8")));
+
+  test("adds the gated pictures without new scenes", () => {
+    assert.equal(script.chapters.length, 11);
+    assert.equal(script.sceneIndex.size, 97);
+    assert.equal(Object.keys(script.assets).length, 70);
+    const spicy = Object.entries(script.assets).filter(([, rel]) => rel.startsWith("spicy/"));
+    assert.equal(spicy.length, 11);
+    for (const [id, rel] of Object.entries(script.assets)) {
+      assert.equal(rel.endsWith(".webp"), true, id);
+      const file = rel.startsWith("spicy/")
+        ? `${privateRoot}${rel}`
+        : `${artRoot}${rel.replace(/^art\//, "")}`;
+      assert.equal(existsSync(file), true, file);
+    }
+    assert.equal(readFileSync(storyPath, "utf8").includes("cg_spicy_"), false);
+  });
+
+  test("keeps each extra scene on its own route", () => {
+    const seen = (picks: Record<string, string>) =>
+      autoplay(script, picks).runtime.seenCg.filter((id) => id.startsWith("cg_spicy_"));
+
+    const truth = autoplay(script, {
+      C1: "B",
+      C2: "A",
+      C3: "B",
+      C4: "A",
+      C5: "B",
+      C6: "A",
+      C7a: "A",
+      C7: "C",
+      C8: "A",
+      C9: "B",
+      C10: "A",
+    });
+    assert.equal(truth.beat.kind === "ending" && truth.beat.id, "true");
+    assert.equal(readMeter(script, truth.runtime, "trust"), 8);
+    assert.equal(readMeter(script, truth.runtime, "heart"), 10);
+    for (const id of [
+      "cg_spicy_ch11_guesthouse_window",
+      "cg_spicy_ch11_ferry_morning",
+      "cg_spicy_ch11t_quilt_morning",
+      "cg_spicy_ch11t_top_of_stairs",
+    ]) {
+      assert.equal(truth.runtime.seenCg.includes(id), true, id);
+    }
+    assert.equal(truth.runtime.seenCg.includes("cg_spicy_ch09_divider_down"), false);
+    assert.equal(truth.runtime.seenCg.includes("cg_spicy_ch11g_landing_kiss"), false);
+
+    const high = seen({
+      C1: "A",
+      C2: "A",
+      C3: "B",
+      C4: "A",
+      C5: "A",
+      C6: "A",
+      C7a: "A",
+      C7: "B",
+      C8: "A",
+      C9: "A",
+      C10: "A",
+    });
+    assert.equal(high.includes("cg_spicy_ch09_divider_down"), true);
+    assert.equal(high.includes("cg_spicy_ch09_predawn_tangle"), true);
+
+    const good = seen({
+      C1: "A",
+      C2: "A",
+      C3: "A",
+      C4: "A",
+      C5: "A",
+      C6: "B",
+      C7a: "A",
+      C7: "A",
+      C8: "B",
+      C9: "A",
+      C10: "A",
+    });
+    assert.equal(good.includes("cg_spicy_ch11g_landing_kiss"), true);
+    assert.equal(good.includes("cg_spicy_ch11g_morning_quilt"), true);
+    assert.equal(good.includes("cg_spicy_ch09_divider_down"), false);
+    assert.equal(good.includes("cg_spicy_ch11_guesthouse_window"), false);
+
+    assert.deepEqual(
+      seen({
+        C1: "A",
+        C2: "A",
+        C3: "A",
+        C4: "A",
+        C5: "A",
+        C6: "B",
+        C7a: "B",
+        C7: "B",
+        C8: "C",
+        C9: "C",
+        C10: "B",
+      }),
+      [],
+    );
+    assert.deepEqual(
+      seen({
+        C1: "A",
+        C2: "A",
+        C3: "A",
+        C4: "C",
+        C5: "C",
+        C6: "B",
+        C7a: "B",
+        C7: "B",
+        C8: "A",
+        C9: "C",
+        C10: "C",
+      }),
+      [],
+    );
   });
 });

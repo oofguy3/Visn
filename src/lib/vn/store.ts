@@ -48,12 +48,24 @@ function placeOf(state: { sceneId: string; line: number; log: Place["log"] }): P
   return { sceneId: state.sceneId, line: state.line, log: state.log };
 }
 
-function findStory(state: VNState, id: string): Story | undefined {
-  if (state.story.id === id) return state.story;
-  return state.shelf.find((item) => item.id === id) ?? LIBRARY.find((item) => item.id === id);
+const LIBRARY_IDS = new Set(LIBRARY.map((item) => item.id));
+const OPT_IN: Story[] = [];
+
+/** Called only from the opt-in bundle, after the build flag has included it. */
+export function registerOptInStory(story: Story) {
+  if (LIBRARY_IDS.has(story.id)) return;
+  OPT_IN.push(story);
+  LIBRARY_IDS.add(story.id);
 }
 
-const LIBRARY_IDS = new Set(LIBRARY.map((item) => item.id));
+function findStory(state: VNState, id: string): Story | undefined {
+  if (state.story.id === id) return state.story;
+  return (
+    state.shelf.find((item) => item.id === id) ??
+    OPT_IN.find((item) => item.id === id) ??
+    LIBRARY.find((item) => item.id === id)
+  );
+}
 
 export const useVN = create<VNState>()(
   persist(
@@ -118,9 +130,13 @@ export const useVN = create<VNState>()(
         set((state) => {
           const same = state.story.id === story.id;
           const places = { ...state.places, [state.story.id]: placeOf(state) };
-          const kept = state.shelf.filter((item) => item.id !== story.id && !LIBRARY_IDS.has(item.id));
+          const kept = state.shelf.filter(
+            (item) => item.id !== story.id && !LIBRARY_IDS.has(item.id) && !item.optIn,
+          );
           const shelf =
-            same || LIBRARY_IDS.has(state.story.id) ? kept : [state.story, ...kept].slice(0, 8);
+            same || LIBRARY_IDS.has(state.story.id) || state.story.optIn
+              ? kept
+              : [state.story, ...kept].slice(0, 8);
           return {
             ...freshRead(story),
             shelf,
@@ -139,8 +155,8 @@ export const useVN = create<VNState>()(
         const places = { ...state.places, [state.story.id]: placeOf(state) };
         const saved = places[id];
         const sceneOk = !!saved && next.scenes.some((scene) => scene.id === saved.sceneId);
-        let shelf = state.shelf.filter((item) => item.id !== id);
-        if (!LIBRARY_IDS.has(state.story.id)) {
+        let shelf = state.shelf.filter((item) => item.id !== id && !item.optIn);
+        if (!LIBRARY_IDS.has(state.story.id) && !state.story.optIn) {
           shelf = [state.story, ...shelf.filter((item) => item.id !== state.story.id)].slice(0, 8);
         }
         set({
@@ -195,6 +211,21 @@ export const useVN = create<VNState>()(
         log: state.log,
         messages: state.messages,
       }),
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+        if (import.meta.env.VITE_ENABLE_PRIVATE_STORIES === "true") return;
+        const shelf = state.shelf.filter((item) => !item.optIn);
+        if (!state.story.optIn && shelf.length === state.shelf.length) return;
+        const story = state.story.optIn ? STARTER : state.story;
+        useVN.setState({
+          story,
+          shelf,
+          phase: state.story.optIn ? "title" : state.phase,
+          sceneId: state.story.optIn ? story.start : state.sceneId,
+          line: state.story.optIn ? 0 : state.line,
+          log: state.story.optIn ? [] : state.log,
+        });
+      },
     },
   ),
 );
