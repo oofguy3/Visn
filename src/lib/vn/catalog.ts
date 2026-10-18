@@ -20,19 +20,21 @@ export const PLACES: Record<BackgroundId, string> = {
   dawn: "First light in the kitchen",
 };
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 const portrait = (cast: CastId, expression: Expression) =>
-  `/vn/${cast}-${expression}.png`;
+  asset(`vn/${cast}-${expression}.png`);
 
 export function portraitSrc(cast: CastId, expression: Expression = "neutral"): string {
   return portrait(cast, expression);
 }
 
 export function backgroundSrc(id: BackgroundId): string {
-  return `/vn/bg-${id}.jpg`;
+  return asset(`vn/bg-${id}.jpg`);
 }
 
 export function stillSrc(id: StillId): string {
-  return `/vn/still-${id}.jpg`;
+  return asset(`vn/still-${id}.jpg`);
 }
 
 export const STARTER: Story = {
