@@ -9,10 +9,6 @@ const storyPath = fileURLToPath(
   new URL("../../../../public/vn/long-way/story.json", import.meta.url),
 );
 const artRoot = fileURLToPath(new URL("../../../../public/vn/long-way/", import.meta.url));
-const privateStoryPath = fileURLToPath(
-  new URL("../../../../private/long-way-18/story.json", import.meta.url),
-);
-const privateRoot = fileURLToPath(new URL("../../../../private/long-way-18/", import.meta.url));
 
 function loadStory(): Script {
   return prepareScript(JSON.parse(readFileSync(storyPath, "utf8")));
@@ -204,7 +200,11 @@ describe("The Long Way Round", () => {
   test("ships webp art for every asset the script names", () => {
     assert.equal(script.chapters.length, 11);
     assert.equal(script.sceneIndex.size, 97);
-    assert.equal(Object.keys(script.assets).length, 59);
+    assert.equal(Object.keys(script.assets).length, 70);
+    assert.equal(
+      Object.values(script.assets).filter((rel) => rel.startsWith("spicy/")).length,
+      11,
+    );
     for (const [id, rel] of Object.entries(script.assets)) {
       assert.equal(rel.endsWith(".webp"), true, id);
       const file = `${artRoot}${rel.replace(/^art\//, "")}`;
@@ -399,24 +399,8 @@ describe("The Long Way Round", () => {
   });
 });
 
-describe("The Long Way Round (18+)", () => {
-  const script = prepareScript(JSON.parse(readFileSync(privateStoryPath, "utf8")));
-
-  test("adds the gated pictures without new scenes", () => {
-    assert.equal(script.chapters.length, 11);
-    assert.equal(script.sceneIndex.size, 97);
-    assert.equal(Object.keys(script.assets).length, 70);
-    const spicy = Object.entries(script.assets).filter(([, rel]) => rel.startsWith("spicy/"));
-    assert.equal(spicy.length, 11);
-    for (const [id, rel] of Object.entries(script.assets)) {
-      assert.equal(rel.endsWith(".webp"), true, id);
-      const file = rel.startsWith("spicy/")
-        ? `${privateRoot}${rel}`
-        : `${artRoot}${rel.replace(/^art\//, "")}`;
-      assert.equal(existsSync(file), true, file);
-    }
-    assert.equal(readFileSync(storyPath, "utf8").includes("cg_spicy_"), false);
-  });
+describe("The Long Way Round extra scenes", () => {
+  const script = loadStory();
 
   test("keeps each extra scene on its own route", () => {
     const seen = (picks: Record<string, string>) =>

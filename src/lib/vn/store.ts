@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { LIBRARY, STARTER } from "./catalog";
+import { LIBRARY, LONG_WAY, STARTER } from "./catalog";
 import type { ChatTurn, Story } from "./types";
 
 type Phase = "title" | "read";
@@ -49,22 +49,15 @@ function placeOf(state: { sceneId: string; line: number; log: Place["log"] }): P
 }
 
 const LIBRARY_IDS = new Set(LIBRARY.map((item) => item.id));
-const OPT_IN: Story[] = [];
 
-/** Called only from the opt-in bundle, after the build flag has included it. */
-export function registerOptInStory(story: Story) {
-  if (LIBRARY_IDS.has(story.id)) return;
-  OPT_IN.push(story);
-  LIBRARY_IDS.add(story.id);
+/** The removed 18+ card. Old saves that still point at it open the one story instead. */
+export function isRetiredLongWay(story: { id: string }): boolean {
+  return story.id === "long-way-round-18" || (story as { optIn?: boolean }).optIn === true;
 }
 
 function findStory(state: VNState, id: string): Story | undefined {
   if (state.story.id === id) return state.story;
-  return (
-    state.shelf.find((item) => item.id === id) ??
-    OPT_IN.find((item) => item.id === id) ??
-    LIBRARY.find((item) => item.id === id)
-  );
+  return state.shelf.find((item) => item.id === id) ?? LIBRARY.find((item) => item.id === id);
 }
 
 export const useVN = create<VNState>()(
@@ -131,10 +124,10 @@ export const useVN = create<VNState>()(
           const same = state.story.id === story.id;
           const places = { ...state.places, [state.story.id]: placeOf(state) };
           const kept = state.shelf.filter(
-            (item) => item.id !== story.id && !LIBRARY_IDS.has(item.id) && !item.optIn,
+            (item) => item.id !== story.id && !LIBRARY_IDS.has(item.id) && !isRetiredLongWay(item),
           );
           const shelf =
-            same || LIBRARY_IDS.has(state.story.id) || state.story.optIn
+            same || LIBRARY_IDS.has(state.story.id) || isRetiredLongWay(state.story)
               ? kept
               : [state.story, ...kept].slice(0, 8);
           return {
@@ -155,8 +148,8 @@ export const useVN = create<VNState>()(
         const places = { ...state.places, [state.story.id]: placeOf(state) };
         const saved = places[id];
         const sceneOk = !!saved && next.scenes.some((scene) => scene.id === saved.sceneId);
-        let shelf = state.shelf.filter((item) => item.id !== id && !item.optIn);
-        if (!LIBRARY_IDS.has(state.story.id) && !state.story.optIn) {
+        let shelf = state.shelf.filter((item) => item.id !== id && !isRetiredLongWay(item));
+        if (!LIBRARY_IDS.has(state.story.id) && !isRetiredLongWay(state.story)) {
           shelf = [state.story, ...shelf.filter((item) => item.id !== state.story.id)].slice(0, 8);
         }
         set({
@@ -213,17 +206,17 @@ export const useVN = create<VNState>()(
       }),
       onRehydrateStorage: () => (state) => {
         if (!state) return;
-        if (import.meta.env.VITE_ENABLE_PRIVATE_STORIES === "true") return;
-        const shelf = state.shelf.filter((item) => !item.optIn);
-        if (!state.story.optIn && shelf.length === state.shelf.length) return;
-        const story = state.story.optIn ? STARTER : state.story;
+        const shelf = state.shelf.filter((item) => !isRetiredLongWay(item));
+        if (!isRetiredLongWay(state.story) && shelf.length === state.shelf.length) return;
+        const retired = isRetiredLongWay(state.story);
+        const story = retired ? LONG_WAY : state.story;
         useVN.setState({
           story,
           shelf,
-          phase: state.story.optIn ? "title" : state.phase,
-          sceneId: state.story.optIn ? story.start : state.sceneId,
-          line: state.story.optIn ? 0 : state.line,
-          log: state.story.optIn ? [] : state.log,
+          phase: retired ? "title" : state.phase,
+          sceneId: retired ? story.start : state.sceneId,
+          line: retired ? 0 : state.line,
+          log: retired ? [] : state.log,
         });
       },
     },
