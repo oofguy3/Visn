@@ -4,16 +4,18 @@ import { LongWayGallery, LongWayRead } from "@/components/vn/LongWayRead";
 import { directStory } from "@/lib/vn/direct.functions";
 import {
   CAST_BLURBS,
+  ECHOES_ID,
   LIBRARY,
   LONG_WAY_ID,
   PLACES,
   PROMPTS,
   STARTER,
   backgroundSrc,
+  isScriptedStory,
   portraitSrc,
   stillSrc,
 } from "@/lib/vn/catalog";
-import { ensureLongWayScript, useLongWay } from "@/lib/vn/long-way/store";
+import { ensureLongWayScript, useLongWay, type ScriptSlot } from "@/lib/vn/long-way/store";
 import { isRetiredLongWay, useVN } from "@/lib/vn/store";
 import {
   BACKGROUNDS,
@@ -147,8 +149,14 @@ export function NightMargin() {
   const choices = atLast && reveal.done && scene?.choices ? scene.choices : [];
   const ended = atLast && reveal.done && !!scene?.end && choices.length === 0;
   const longGallery = useLongWay((s) => s.galleryOpen);
-  const longRuntime = useLongWay((s) => s.runtime);
-  const longActive = story.id === LONG_WAY_ID || isRetiredLongWay(story);
+  const scriptedSlot: ScriptSlot | null =
+    story.id === ECHOES_ID
+      ? "echoes"
+      : story.id === LONG_WAY_ID || isRetiredLongWay(story)
+        ? "long-way"
+        : null;
+  const longRuntime = useLongWay((s) => (scriptedSlot ? s.saves[scriptedSlot] : null));
+  const longActive = scriptedSlot !== null;
   const longRead = phase === "read" && longActive;
   const continued = longActive
     ? !!longRuntime &&
@@ -210,7 +218,7 @@ export function NightMargin() {
       if (target && (target.tagName === "TEXTAREA" || target.tagName === "INPUT")) return;
       if (event.key !== " " && event.key !== "Enter") return;
       const state = useVN.getState();
-      if (state.story.id === LONG_WAY_ID || isRetiredLongWay(state.story)) return;
+      if (isScriptedStory(state.story.id) || isRetiredLongWay(state.story)) return;
       if (state.directorOpen || state.logOpen || state.phase !== "read" || storiesOpen) return;
       event.preventDefault();
       onAdvance();
@@ -220,7 +228,12 @@ export function NightMargin() {
   });
 
   function openStory(id: string) {
-    if (id === LONG_WAY_ID) void ensureLongWayScript();
+    const slot: ScriptSlot | null =
+      id === ECHOES_ID ? "echoes" : id === LONG_WAY_ID ? "long-way" : null;
+    if (slot) {
+      useLongWay.getState().setStory(slot);
+      void ensureLongWayScript(slot);
+    }
     if (useVN.getState().story.id !== id) selectStory(id);
     useVN.getState().play();
     setStoriesOpen(false);
@@ -232,7 +245,7 @@ export function NightMargin() {
     const history = useVN.getState().messages;
     const currentStory = useVN.getState().story;
     const seed =
-      currentStory.id === LONG_WAY_ID || isRetiredLongWay(currentStory) ? STARTER : currentStory;
+      isScriptedStory(currentStory.id) || isRetiredLongWay(currentStory) ? STARTER : currentStory;
     setDraft("");
     pushUser(message);
     useVN.getState().setBusy(true);
@@ -392,8 +405,9 @@ export function NightMargin() {
         </>
       )}
 
-      {longRead && (
+      {longRead && scriptedSlot && (
         <LongWayRead
+          slot={scriptedSlot}
           paused={storiesOpen || directorOpen}
           onTitle={toTitle}
           onStories={() => {
@@ -460,7 +474,10 @@ export function NightMargin() {
               <button
                 type="button"
                 onClick={() => {
-                  if (longActive) void ensureLongWayScript();
+                  if (scriptedSlot) {
+                    useLongWay.getState().setStory(scriptedSlot);
+                    void ensureLongWayScript(scriptedSlot);
+                  }
                   play();
                 }}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-lamp px-6 font-medium text-ink transition-transform duration-150 ease-out active:scale-[0.96]"
@@ -487,9 +504,10 @@ export function NightMargin() {
               <button
                 type="button"
                 onClick={() => {
-                  if (longActive) {
+                  if (scriptedSlot) {
+                    useLongWay.getState().setStory(scriptedSlot);
                     useLongWay.getState().restart();
-                    void ensureLongWayScript();
+                    void ensureLongWayScript(scriptedSlot);
                     play();
                     return;
                   }

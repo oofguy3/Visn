@@ -1,6 +1,6 @@
 # Visn
 
-Zizzy & Pony, a visual novel you play in the browser. The story list includes the short nights, Until Morning, and The Long Way Round.
+Zizzy & Pony, a visual novel you play in the browser. The story list includes the short nights, Until Morning, The Long Way Round, and Echoes of Regret.
 
 **Piggy: Echoes of Regret** is also included as a complete standalone visual novel.
 
