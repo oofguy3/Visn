@@ -3,13 +3,15 @@
  "version": 1,
  "meta": {
   "title": "The Long Way Round",
-  "source": "chapter_01..11_polished.md",
+  "source": "chapter_01..11_polished.md + spicy/ch09_after_fireworks.md, spicy/true_ending_summit_night.md, spicy/true_coda_salle_morning.md, spicy/ch11_good_first_date.md",
   "asset_paths_relative_to": "project root (/workspace/vn-new-story), i.e. '../' from build/",
   "sprite_expressions": [
    "neutral",
    "smile",
    "tense"
-  ]
+  ],
+  "build": "private",
+  "private_notice": "PRIVATE BUILD ONLY. Contains non-public scenes and art; never ship as the public story.json."
  },
  "start": "ch01_s01",
  "cast": [
@@ -291,7 +293,18 @@
   "cg_ch11_good_finish": "art/cg/cg_ch11_good_finish.png",
   "cg_ch11_hollow_trophy": "art/cg/cg_ch11_hollow_trophy.png",
   "cg_ch11_true_salle_coda": "art/cg/cg_ch11_true_salle_coda.png",
-  "cg_ch11_true_summit_kiss": "art/cg/cg_ch11_true_summit_kiss.png"
+  "cg_ch11_true_summit_kiss": "art/cg/cg_ch11_true_summit_kiss.png",
+  "bg_salle_flat_morning": "spicy/art/bg_salle_flat_morning.png",
+  "bg_zizzy_flat_morning": "spicy/art/bg_zizzy_flat_morning.png",
+  "bg_zizzy_flat_night": "spicy/art/bg_zizzy_flat_night.png",
+  "cg_spicy_ch09_divider_down": "spicy/art/cg_spicy_ch09_divider_down.png",
+  "cg_spicy_ch09_predawn_tangle": "spicy/art/cg_spicy_ch09_predawn_tangle.png",
+  "cg_spicy_ch11_ferry_morning": "spicy/art/cg_spicy_ch11_ferry_morning.png",
+  "cg_spicy_ch11_guesthouse_window": "spicy/art/cg_spicy_ch11_guesthouse_window.png",
+  "cg_spicy_ch11g_landing_kiss": "spicy/art/cg_spicy_ch11g_landing_kiss.png",
+  "cg_spicy_ch11g_morning_quilt": "spicy/art/cg_spicy_ch11g_morning_quilt.png",
+  "cg_spicy_ch11t_quilt_morning": "spicy/art/cg_spicy_ch11t_quilt_morning.png",
+  "cg_spicy_ch11t_top_of_stairs": "spicy/art/cg_spicy_ch11t_top_of_stairs.png"
  },
  "chapters": [
   {
@@ -15680,6 +15693,477 @@
         },
         {
          "type": "bg",
+         "id": "bg_campsite_night"
+        },
+        {
+         "type": "narrate",
+         "text": "He takes her hand. That's all. It's the easiest thing either of them has done in eight days."
+        },
+        {
+         "type": "narrate",
+         "text": "Inside, the tent smells of sun cream, nylon and Saltmere. Pony clicks on the little camping lantern and hangs it from the ceiling loop. Everything turns gold and very close."
+        },
+        {
+         "type": "narrate",
+         "text": "She sets the cream envelope down on the groundsheet. *Do not open until morning.* Neither of them looks at it again."
+        },
+        {
+         "type": "narrate",
+         "text": "Her hat is still in her hand. It's been off since the harbour. She sets it by the door. His glasses have been folded in his shirt pocket since the kiss. He takes them out and puts them back on."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "whispering",
+         "text": "Sorry. I want to see this bit."
+        },
+        {
+         "type": "narrate",
+         "text": "Then they're kneeling on either side of the divider, the strip of green nylon that has hung between them every night since Brackenholm. *Left side's mine. Right side's yours.*"
+        },
+        {
+         "type": "narrate",
+         "text": "Zizzy looks at it for a long moment, the way she'd look at an opponent's blade before she commits."
+        },
+        {
+         "type": "narrate",
+         "text": "Under her breath she counts, the way her grandmother taught her. *Un, deux, trois.* So that nothing she does next is done in a temper. Nothing about this is a temper."
+        },
+        {
+         "type": "narrate",
+         "text": "She takes hold of the zip pull. It sticks halfway, the way it always sticks."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "careful",
+         "text": "Can I — ?"
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "quiet",
+         "text": "Together."
+        },
+        {
+         "type": "narrate",
+         "text": "His hand closes over hers on the pull. They draw it down together, and the divider falls open between them like a curtain."
+        },
+        {
+         "type": "narrate",
+         "text": "Then, because he is Pony, he rolls it up. Neatly. Into the corner. As if it might be needed for a museum."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "dry",
+         "text": "You're tidying."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "tense",
+         "expr_raw": "flustered",
+         "text": "It felt — it felt like it should be done properly."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "very quiet",
+         "text": "It should."
+        },
+        {
+         "type": "cg",
+         "id": "cg_spicy_ch09_divider_down"
+        },
+        {
+         "type": "narrate",
+         "text": "There's nothing between them now. Without the hat they're exactly level. He has a centimetre on her. She'll concede it tonight, only tonight, and never out loud."
+        },
+        {
+         "type": "narrate",
+         "text": "He kisses her, carefully, like he's checking the ground before he puts his weight on it. His glasses bump her nose. He says \"sorry\" against her mouth. She says \"shut up\" against his. Neither of them stops."
+        },
+        {
+         "type": "narrate",
+         "text": "It's slow at first, then not slow at all. Her hands find the buttons of his mustard shirt, done up wrong by one as always, and stop there."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "quiet",
+         "text": "Off. If you want."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "breathless",
+         "text": "I — yes. Glasses stay on, though. I can't see you otherwise, and I really, really want to see you."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "dry",
+         "text": "That's the most romantic thing anyone's ever said to me about astigmatism."
+        },
+        {
+         "type": "narrate",
+         "text": "She has to fix the buttons before she can undo them. He laughs, shakily, and then the shirt is gone. He keeps the beanie on, because it's his comfort hat and tonight he needs every comfort going. She likes him in nothing but that and his glasses so much that she doesn't say a word about it."
+        },
+        {
+         "type": "narrate",
+         "text": "Under her palm his heart is going like the duck bell on a cobbled hill."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "tense",
+         "expr_raw": "nervous",
+         "text": "Can I — your shirt. Is that —"
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "calm",
+         "text": "Yes."
+        },
+        {
+         "type": "narrate",
+         "text": "He undoes the purple linen shirt one button at a time, so carefully it takes about a year. In the pocket he finds the ammonite. He holds it up, and she holds his eyes, and neither of them says anything. He sets it on the hat brim by the door like an offering."
+        },
+        {
+         "type": "narrate",
+         "text": "Then he slides the shirt off her shoulders and stops talking completely."
+        },
+        {
+         "type": "narrate",
+         "text": "Nobody has ever looked at her like this. Not as an opponent, or a problem, or a woman in a hat who doesn't need anybody. He looks at her the way he looks when a riddle finally turns over and makes sense."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "whispering",
+         "text": "Your stripes go all the way round."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "flat",
+         "text": "That's how stripes work."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "smile",
+         "expr_raw": "whispering, warm",
+         "text": "I know. I just didn't *know*."
+        },
+        {
+         "type": "narrate",
+         "text": "His thumb finds the thin scar on her left forearm and follows it, wrist to elbow, like a road on a map. She lets him. She has never let anyone."
+        },
+        {
+         "type": "narrate",
+         "text": "They get the rest of their clothes off clumsily, in a tent built for sleeping and nothing else. An elbow catches the lantern. His trousers end up, somehow, hooked over the ceiling loop. Pony laughs, startled and helpless, and that's what does it. It stops being frightening."
+        },
+        {
+         "type": "narrate",
+         "text": "She pushes him down onto the sleeping bags and follows him. Her curly black-and-white hair falls around both their faces like a second tent. She kisses down his throat into the warm fur of his chest and feels him go taut and shivery under her. He's hard against her thigh, and the blush has climbed all the way to the tips of his ears."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "breathless",
+         "text": "Zizzy — I should say — I haven't. Ever. In case that wasn't — obvious."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "quiet",
+         "text": "It's fine."
+        },
+        {
+         "type": "narrate",
+         "text": "She hesitates. Then she says the true thing."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "very quiet",
+         "text": "Once. It wasn't like this. I kept my hat on. In every sense."
+        },
+        {
+         "type": "narrate",
+         "text": "He reaches up and tucks a white streak of hair behind her ear."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "gentle",
+         "text": "Then it's new for both of us. Back marker's pace."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "dry",
+         "text": "You've been waiting all week to use cycling words in bed."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "tense",
+         "expr_raw": "sheepish",
+         "text": "Since the bunting."
+        },
+        {
+         "type": "narrate",
+         "text": "There's a practical pause. Zizzy digs in the side pocket of her pannier and comes back with a small foil square, crumpled from three islands of travel."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "astonished",
+         "text": "You brought —"
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "flat",
+         "text": "Clover. At the fête. She slipped it into my pocket when nobody was looking, with a spare lolly, and said, very quietly, \"Just in case. Don't be weird about it.\" I was going to throw it in the sea."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "smile",
+         "expr_raw": "grinning",
+         "text": "I'm so glad you didn't throw it in the sea."
+        },
+        {
+         "type": "narrate",
+         "text": "He's nervous enough that it takes him two goes. She doesn't laugh. She puts her hand over his and steadies it, the way she'd steady a foil, and on the second try his hands remember how to be sure."
+        },
+        {
+         "type": "narrate",
+         "text": "Then she settles over him, slowly, and sinks down."
+        },
+        {
+         "type": "narrate",
+         "text": "For a second neither of them moves. His hands are on her hips. Behind the lantern-gold glasses, his eyes have gone very wide."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "whispering",
+         "text": "Is — is it okay?"
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "breathless",
+         "text": "Give me a second."
+        },
+        {
+         "type": "narrate",
+         "text": "He gives her a second. He'd give her the whole night. When she starts to move, it's careful and unhurried, and every time she does, he says her name like he's checking she's still there."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "breathless",
+         "text": "Stop asking. I'm here."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "breathless",
+         "text": "I know. I like hearing it."
+        },
+        {
+         "type": "narrate",
+         "text": "It isn't graceful. Her tail keeps whacking the nylon wall, and somewhere on the terraces an owl has opinions. But they find a rhythm the way they found it on the tandem: badly, then all at once, two people pushing the same pedals."
+        },
+        {
+         "type": "narrate",
+         "text": "She takes his hand and moves it where she wants it, between her thighs, and shows him how with her fingers over his. He learns it the way he learns everything, by paying complete attention. The stammer is gone."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "low",
+         "text": "Like that?"
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "whispering, barely",
+         "text": "Like that. Don't stop."
+        },
+        {
+         "type": "narrate",
+         "text": "He doesn't. She leans down until her forehead rests on his. The heat builds under his steady fingers and the slow roll of her hips until her breath catches and stays caught. She comes with a small, startled sound pressed into his neck, the least controlled thing she has done in twenty years."
+        },
+        {
+         "type": "narrate",
+         "text": "He holds her through it, and then he can't hold on any longer either. His hips stutter up into her, and her name comes apart in his mouth, and his hands go tight on her waist. Then he's boneless and shaking under her, glasses crooked, tail limp across the sleeping bag."
+        },
+        {
+         "type": "narrate",
+         "text": "For a long time there's just breathing, and the owl, and the sea."
+        },
+        {
+         "type": "bg",
+         "id": "bg_campsite_night"
+        },
+        {
+         "type": "narrate",
+         "text": "Later, they lie tangled under his sleeping bag, unzipped all the way and spread over both of them."
+        },
+        {
+         "type": "if",
+         "cond": {
+          "flag": "coat_given"
+         },
+         "cond_raw": "coat_given",
+         "then": [
+          {
+           "type": "narrate",
+           "text": "Over the top she throws the purple coat. It still smells of geraniums and gun oil, and since the Spit, faintly, of him. She doesn't mind as much as she'd have expected."
+          }
+         ],
+         "else": [
+          {
+           "type": "narrate",
+           "text": "Over the top she throws the purple coat, her grandmother's. It smells of geraniums and gun oil. She has never shared it with anyone. She shares it now without thinking about it."
+          }
+         ]
+        },
+        {
+         "type": "narrate",
+         "text": "Her head is on his chest. He traces the stripes on her shoulder one by one, like counting stairs."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "earnest",
+         "text": "I've quit everything I started this year. All week I've been scared I'd find a way to quit this. You. And I just realised I don't want to. I don't even want to want to."
+        },
+        {
+         "type": "narrate",
+         "text": "She doesn't answer straight away."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "quiet",
+         "text": "I still might lose the salle. Win or not. You need to know that."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "gentle",
+         "text": "I know."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "very quiet",
+         "text": "I'm scared of tomorrow."
+        },
+        {
+         "type": "narrate",
+         "text": "She has never said that sentence out loud before, about anything."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "neutral",
+         "expr_raw": "soft",
+         "text": "Me too. We'll be scared on the same bike. That's a tandem's whole point."
+        },
+        {
+         "type": "narrate",
+         "text": "She huffs into his fur, which is as close as she'll get to crying tonight. He pretends not to notice, which is as close as he'll get to showing off."
+        },
+        {
+         "type": "narrate",
+         "text": "Before he falls asleep, he reaches over and takes the beanie off at last. He sets it by the door, right beside her hat, brim to brim."
+        },
+        {
+         "type": "say",
+         "speaker": "zizzy",
+         "expression": "neutral",
+         "expr_raw": "whispering",
+         "text": "…Up."
+        },
+        {
+         "type": "say",
+         "speaker": "pony",
+         "expression": "smile",
+         "expr_raw": "whispering, warm",
+         "text": "Up."
+        },
+        {
+         "type": "bg",
+         "id": "bg_campsite_night"
+        },
+        {
+         "type": "narrate",
+         "text": "The sky through the vent has gone from black to the deep grey-blue that comes right before dawn. The lantern is out."
+        },
+        {
+         "type": "cg",
+         "id": "cg_spicy_ch09_predawn_tangle"
+        },
+        {
+         "type": "narrate",
+         "text": "Zizzy wakes first, the way she always does, and for once she doesn't get up. His arm is heavy across her waist. His tail has curled round her ankle. He's asleep with his glasses on, slipping down his nose. She nudges them straight with one finger and leaves them where they are."
+        },
+        {
+         "type": "narrate",
+         "text": "She lies there and memorises it, the way she'd memorise a route before a race. Just in case."
+        },
+        {
+         "type": "narrate",
+         "text": "Then she closes her eyes again. Not yet. There's still a little dark left, and she means to use all of it."
+        },
+        {
+         "type": "narrate",
+         "text": "In the corner, the divider is rolled up neatly, the way he left it. By the door, a beanie and a purple hat lie side by side, brim to brim. Between their feet, the envelope waits."
+        },
+        {
+         "type": "narrate",
+         "text": "Up the hill, the first gull clears its throat. Pony sleeps on. And Zizzy, who has never once in her life gone back to sleep on purpose, goes back to sleep."
+        },
+        {
+         "type": "bg",
          "id": "bg_hallow_key_dawn"
         },
         {
@@ -18937,6 +19421,516 @@
        "text": "Pony lays the beech sword, still wrapped in its yellow scarf, carefully on the chair. Zizzy puts the purple hat on top of it."
       },
       {
+       "type": "bg",
+       "id": "bg_lastlight_guesthouse_night"
+      },
+      {
+       "type": "narrate",
+       "text": "For a moment neither of them moves. They just look at it: the sword on the chair, wrapped in yellow, and the hat on top, its feather bent at its new angle like a question mark that's lost its nerve."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "They look like they've had a day."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "They've had nine."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony looks at the bed, and makes a small involuntary noise."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "reverent",
+       "text": "A mattress."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "Don't propose to it."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "I'm going to lie on it and tell it about my week. It doesn't have to say anything back."
+      },
+      {
+       "type": "narrate",
+       "text": "Zizzy takes Fenn's envelope out of her shirt pocket, from where it's been sitting next to the ammonite all evening. She puts it on the nightstand and looks at it as if it might go off."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "A year of lessons. Fenn. With his back arm."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "smiling",
+       "text": "You'll be terrible to him."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "I'll be exactly as terrible as she was."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "gentle",
+       "text": "That's the nicest thing you've ever said about anyone."
+      },
+      {
+       "type": "narrate",
+       "text": "She doesn't answer that. She goes to the window instead and pushes it open onto the harbour. The night smells of salt and gorse. Down in the village, the brass band is still playing somewhere, slow and wobbly. Somewhere down there, a rabbit is asleep with her leg up and a fox is sitting beside her, not letting go of her hand."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony comes up behind her and, after a moment of visible courage, puts his arms round her waist. She leans back into him at once, as if she'd been waiting."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11_guesthouse_window"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Third."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "Third. Six minutes and a bit behind the otters. I looked."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "Of course you looked."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "We stopped. I'd stop again."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "I know. So would I."
+      },
+      {
+       "type": "narrate",
+       "text": "She says it like it surprises her. Then, quieter:"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "very quiet",
+       "text": "You tied your sword to her leg. You didn't even look at it first."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "simply",
+       "text": "It's a stick. The good bit was the feet."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "very quiet",
+       "text": "Shut up. It wasn't a stick to you."
+      },
+      {
+       "type": "narrate",
+       "text": "He doesn't argue. His arms tighten round her."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "tense",
+       "expr_raw": "unsure",
+       "text": "I'm so happy it's frightening. Is that normal?"
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "whispering, warm",
+       "text": "I don't know. I've never finished anything before. I think this might be what it feels like."
+      },
+      {
+       "type": "narrate",
+       "text": "She turns round in his arms. There's no hat now, no brim to look down from. Just her violet eyes holding his a beat longer than is comfortable, the way they always have. Except now he doesn't look away."
+      },
+      {
+       "type": "narrate",
+       "text": "She kisses him slowly. The summit had wind, a sunset and seven islands, very cinematic. This one is only theirs."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Bed."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "Is that an order or an invitation?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Yes."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "grinning",
+       "text": "Okay. I just like knowing the format."
+      },
+      {
+       "type": "bg",
+       "id": "bg_lastlight_guesthouse_night"
+      },
+      {
+       "type": "narrate",
+       "text": "No tent wall, no divider, no zip to fight. Bruno asked. They have room, and time, and for once there's no starting bell at dawn."
+      },
+      {
+       "type": "narrate",
+       "text": "So they take it slowly, on purpose."
+      },
+      {
+       "type": "narrate",
+       "text": "She undresses him the way she oils the tandem chain, methodically, link by link. The mustard shirt first, button by button (done up wrong by one, again). It smells of nine days of sun and suncream and of him. She kisses each new stretch of cream-tan fur as she uncovers it, and he laughs when she gets to his ribs."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "flustered",
+       "text": "That tickles. That really — Zizzy, that's tactical —"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "Everything I do is tactical."
+      },
+      {
+       "type": "narrate",
+       "text": "She leaves him the beanie. He'd only put it back on."
+      },
+      {
+       "type": "narrate",
+       "text": "He undresses her more slowly still, because he keeps stopping. To kiss the scar on her forearm. To follow one stripe with his finger, from her shoulder down her side, to see where it goes. To look."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Can I tell you something you'll pretend to hate?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "You're going to anyway."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "sincere",
+       "text": "You're the most beautiful thing on seven islands. And I've seen the lighthouse."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "The lighthouse is very beautiful."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "It's a strong field."
+      },
+      {
+       "type": "narrate",
+       "text": "She pulls him down onto the bed, which creaks with tremendous drama. They both stop dead to listen, then laugh into each other's mouths until neither of them can kiss properly."
+      },
+      {
+       "type": "narrate",
+       "text": "He moves down her body, kiss by kiss. He's nervous and he says so, but he learned to read a coastline in nine days, and he reads her the same way: total attention."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "careful",
+       "text": "Tell me if — anything. Good or bad. I want the notes."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "You'll get notes."
+      },
+      {
+       "type": "narrate",
+       "text": "She gives him notes, at first. Slower. There. Not — yes. There. Then the notes stop being words. Her fingers knot in his messy blond hair and knock the beanie askew. His glasses, which he refuses to take off, are fogged and crooked. She can feel him smiling against the inside of her thigh, and she thinks, distantly, that she will never be able to look at him across a breakfast table again."
+      },
+      {
+       "type": "narrate",
+       "text": "She comes with her heel pressed into his back and her own hand over her mouth, because the window's open and half of Lastlight is asleep below it. Her whole body draws tight and then lets go at once, like a sail when the wind drops."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony crawls back up beside her, very pleased with himself, pink to the ears."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "shy, delighted",
+       "text": "Were those good notes?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "Shut up. Come here."
+      },
+      {
+       "type": "narrate",
+       "text": "He reaches for the little box on the nightstand, next to Fenn's envelope. He bought it at the harbour chemist that afternoon, while she was getting the last stamp, with a face so red the pharmacist offered him water. They manage the condom together, with only a little fumbling. A week ago they couldn't manage a bicycle together."
+      },
+      {
+       "type": "narrate",
+       "text": "She draws him over her and in, then wraps her legs round him and holds him there, still. Just to feel it. Just to have him."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Stay a second."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "As long as you want."
+      },
+      {
+       "type": "narrate",
+       "text": "They move slowly. The bed creaks in time, which is undignified, and neither of them cares. He props himself on his elbows so he can see her face. When she opens her eyes, he's already looking. He's always looking, and he's stopped apologising for it."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "low",
+       "text": "Still okay?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "More than. Don't you dare stop."
+      },
+      {
+       "type": "narrate",
+       "text": "He doesn't stammer once. He finds a rhythm that makes her breath hitch, and keeps it, and keeps it. Somewhere in the middle she rolls them over, because she's still Zizzy and the bed is still a contest. He laughs, breathless, and lets her win. She rides him with her hands flat on his chest and her curly black-and-white hair falling round them like a curtain. He comes with her name in his mouth and his hands spread across her striped back, holding on as if she's the only fixed point on the map."
+      },
+      {
+       "type": "narrate",
+       "text": "Afterwards she collapses forward onto him. He wraps both arms round her. Down in the harbour, the band has found a slow waltz."
+      },
+      {
+       "type": "bg",
+       "id": "bg_lastlight_guesthouse_night"
+      },
+      {
+       "type": "narrate",
+       "text": "Much later, under the sheet, with the window still open, she lies with her ear over his heart."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "You carried the back of the bike up a mountain today."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "sleepy",
+       "text": "Hill. Technically. Two thousand feet. It's a big hill."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "You carried it anyway."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "You carried the front."
+      },
+      {
+       "type": "narrate",
+       "text": "She doesn't answer. She presses her face into his chest. He feels her smile against him, and her tail curls over his leg and stays there."
+      },
+      {
+       "type": "narrate",
+       "text": "He falls asleep with his glasses on. She straightens them for him, one finger on the bridge, and leaves them exactly where they are."
+      },
+      {
+       "type": "bg",
+       "id": "bg_lastlight_guesthouse_night"
+      },
+      {
+       "type": "narrate",
+       "text": "Morning comes through the window pale gold. Gulls. The smell of the fish van on the quay. The ferry gives its first mournful hoot from the harbour."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11_ferry_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "Zizzy is awake and propped on one elbow, watching him sleep, which she will deny under oath. His hair is a disaster. His glasses have left a dent. The beanie has migrated to the pillow. He's smiling at something in a dream."
+      },
+      {
+       "type": "narrate",
+       "text": "The ferry hoots again, two short blasts. Twenty minutes."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Pony."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "mumbling",
+       "text": "Five more islands."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "There are no more islands. We did all of them. Up. The ferry waits for nobody."
+      },
+      {
+       "type": "narrate",
+       "text": "She dresses with a fencer's efficiency. Purple linen shirt, shorts, lipstick in four seconds without a mirror. The ammonite into her shirt pocket. Fenn's envelope into the other one, buttoned shut."
+      },
+      {
+       "type": "narrate",
+       "text": "She reaches for the hat on the chair. Before she can get there, something soft and black lands on her head and slides down over her ears."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "grinning, sleepy",
+       "text": "Wool *blend*."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "tense",
+       "expr_raw": "dangerous",
+       "text": "Take it off me."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "You take it off."
+      },
+      {
+       "type": "narrate",
+       "text": "She doesn't. She looks at herself in the little mirror by the door, a zebra in a horse's beanie, and her mouth does something she can't stop in time."
+      },
+      {
+       "type": "if",
+       "cond": {
+        "flag": "coat_given"
+       },
+       "cond_raw": "coat_given",
+       "then": [
+        {
+         "type": "narrate",
+         "text": "He picks up the purple coat from the end of the bed and holds it out to her. She pushes it back at him. He puts it on without a word."
+        }
+       ],
+       "else": []
+      },
+      {
+       "type": "narrate",
+       "text": "He picks up the beech sword, still wrapped in its yellow scarf, and the hat, kinked feather and all, and hands her the hat. She carries it under her arm. Her head is taken."
+      },
+      {
        "type": "jump",
        "target": "ch11_end_true_05"
       }
@@ -19081,6 +20075,528 @@
       {
        "type": "narrate",
        "text": "Downstairs, the salle is swept and silent and waiting. The first children's class is at ten."
+      },
+      {
+       "type": "bg",
+       "id": "bg_salle_flat_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "Seven-forty. Zizzy is awake and Pony isn't, and she's lying very still, looking at him the way she has never once admitted to looking at him."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11t_quilt_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "He sleeps on his front, one arm flung across her, face mashed into her grandmother's old quilt, glasses still on and pushed up crooked onto his forehead. Blond hair everywhere. His tail is draped over her shin as if it's moved in too."
+      },
+      {
+       "type": "narrate",
+       "text": "Which, technically, it has. A toothbrush in the cup by the sink. His maps pinned up by the kitchen window. His beanie on the hook by the door, beside the purple coat. A copy of *A Short History of Saltmere Lighthouses* on her grandmother's bookshelf, which she has decided not to mention."
+      },
+      {
+       "type": "narrate",
+       "text": "On the bedpost hangs the purple hat. The kinked feather catches the light at its new, permanent angle."
+      },
+      {
+       "type": "narrate",
+       "text": "Downstairs, under the floorboards, is a salle with a repainted sign, a year's lease and one board by the window that still squeaks, because Bruno was made to unfix it."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Pony."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "muffled",
+       "text": "Mmf."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "You've got glasses on your forehead."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "muffled",
+       "text": "That's where I keep them. For emergencies."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "What emergency needs forehead glasses?"
+      },
+      {
+       "type": "narrate",
+       "text": "He lifts his head, nudges the glasses down onto his nose, blinks at her, and smiles so widely and so stupidly that she has to look at the ceiling."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "sleepy, delighted",
+       "text": "That one. I needed to see that one."
+      },
+      {
+       "type": "narrate",
+       "text": "She lets that sit for exactly three seconds."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "En garde."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "confused",
+       "text": "What —"
+      },
+      {
+       "type": "narrate",
+       "text": "She rolls on top of him in one smooth movement, a fencer's lunge, knees either side of his hips, the quilt sliding off her striped shoulders. He goes \"oof\", then laughs helplessly, flat on his back."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Touch. One-nil."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "indignant",
+       "text": "I wasn't ready! I didn't even salute!"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "Nobody's ready at seven-forty. That's the point of seven-forty."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "grinning",
+       "text": "I'm lodging a formal protest with the referee."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "I'm the referee. It's my salle."
+      },
+      {
+       "type": "narrate",
+       "text": "It comes out before she's thought about it. *My salle.* She hears herself say it, and for a moment she goes quiet, sitting on him in the sunlight with her hair falling round her face."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony sees it. He reaches up and tucks a white streak of hair behind her ear."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "Your salle."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "very quiet",
+       "text": "Mine."
+      },
+      {
+       "type": "narrate",
+       "text": "Then she blinks it away and narrows her eyes, because on principle she refuses to cry before eight a.m."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "Still one-nil."
+      },
+      {
+       "type": "narrate",
+       "text": "He hooks a leg round hers, says \"sorry\" for no reason, and flips them over."
+      },
+      {
+       "type": "narrate",
+       "text": "He's not quick. He's never been quick. But he's tidy, he's been on that floor downstairs every evening for three weeks, and he has learned exactly how she shifts her weight. She ends up flat on her back in the old quilt with him braced over her, his green eyes bright behind his glasses and his tail swishing so hard it rustles the sheets."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "breathless, pleased",
+       "text": "Riposte. One-all."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "tense",
+       "expr_raw": "narrowing eyes",
+       "text": "That was a takedown. That's not even fencing."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "It's — modern pentathlon? Possibly?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "You don't know what modern pentathlon is."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "sheepish",
+       "text": "I know it's got a horse in it."
+      },
+      {
+       "type": "narrate",
+       "text": "She laughs, the real one, the creaking door, and reaches up to pull him down by his collar. He isn't wearing anything with a collar. She pulls him down by the chin instead."
+      },
+      {
+       "type": "narrate",
+       "text": "The kiss goes slow, and then it doesn't. His hands slide under the quilt, over her ribs, her waist, the long dip of her back, as if he's tracing a route he's studied so often he could draw it blind. She arches up into him."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "low",
+       "text": "Do we have time?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "We have an hour and twenty minutes before you need to be dressed."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "grinning, low",
+       "text": "You counted."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "I always count. Don't waste it."
+      },
+      {
+       "type": "narrate",
+       "text": "He doesn't. He kisses down her throat, across her collarbone where the stripes narrow and meet, and lower. He takes his time with her breasts until her breathing goes uneven, then keeps going, unhurried, until he's settled between her thighs. His glasses are fogging and his ears are pink, and he is entirely, gloriously sure of himself."
+      },
+      {
+       "type": "narrate",
+       "text": "This he knows. He knows her. He doesn't stammer, and he doesn't need notes any more. He works her open with his mouth and his patient fingers until one of her hands has a fistful of the old quilt and the other is in his hair, and the beams of her grandmother's ceiling swim above her."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "Pony — don't you dare stop —"
+      },
+      {
+       "type": "narrate",
+       "text": "He doesn't dare. She comes with her heels dug into the mattress and her head thrown back, in a long, shaking breath that ends in his name. She has never once said it like that downstairs."
+      },
+      {
+       "type": "narrate",
+       "text": "He surfaces looking unbearably smug for someone with fogged glasses and his hair standing straight up."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "breathless, pleased",
+       "text": "Two-one?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "I'll allow it. Come here."
+      },
+      {
+       "type": "narrate",
+       "text": "The box lives in the nightstand drawer now, next to her grandmother's old needle case. In July that would have been strange. In September it's ordinary. She rolls the condom onto him herself, slowly, watching his face while she does it. He makes a small, desperate noise and covers his eyes with his forearm."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "You're blushing."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "muffled",
+       "text": "I'm always blushing. It's my natural colour now."
+      },
+      {
+       "type": "narrate",
+       "text": "She straddles him again, slowly this time, no lunge, and sinks down onto him. They breathe out together, like riders on the first flat after a long climb."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "Good?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Good. You?"
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "whispering, warm",
+       "text": "I'm in a fencing salle that's open, with you, on a Saturday. I'm the best I've ever been."
+      },
+      {
+       "type": "narrate",
+       "text": "She rides him unhurriedly in the sideways sun. His hands go to her hips, then her thighs, then slide up her back to pull her down so he can kiss her while they move. The old bed creaks in rhythm. Down below, a floorboard by the window creaks back, as if the whole building approves."
+      },
+      {
+       "type": "narrate",
+       "text": "When it builds, it builds together. She buries her face in his neck. He says her name once, then again, sure and unbroken, and holds her as tightly as he can as they both come undone within a breath of each other."
+      },
+      {
+       "type": "narrate",
+       "text": "Afterwards they lie in a sweaty tangle under the quilt, her ear on his chest, his heartbeat slowing under her cheek."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "dreamy",
+       "text": "Final score?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Draw."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "surprised",
+       "text": "You never give draws."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "I'm giving this one."
+      },
+      {
+       "type": "bg",
+       "id": "bg_salle_flat_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "On the dresser across the room, her grandmother looks out of a silver frame, smiling, mask under one arm."
+      },
+      {
+       "type": "narrate",
+       "text": "Zizzy looks at the photo. Looks at the tangled sheets. Looks at the photo."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "I should have turned her round."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "horrified",
+       "text": "Oh no. Oh, she saw everything. She saw the takedown."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "She'd have marked you down for it."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "She'd have marked *you* down for lunging at seven-forty. No salute."
+      },
+      {
+       "type": "narrate",
+       "text": "Zizzy thinks about that. Then, for the first time, she laughs while looking at the photo, and it doesn't hurt."
+      },
+      {
+       "type": "bg",
+       "id": "bg_salle_flat_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "Showers, one at a time, because the boiler is as old as the quilt and has strong opinions about sharing. Toast. Tea in two mugs, his chipped one and hers that says WORLD'S OKAYEST FENCER. The radio on low. A strip of last night's bunting, Clover's work from her crutches, still hangs from the kitchen window."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony gets dressed as if it's his first day at a new job and his last day on earth. The white fencing jacket, crisp and new, fastened down the side. He gets it wrong. He does it again and gets it wrong somewhere else."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "nervous",
+       "text": "What if they don't listen to me? What if I say \"en garde\" and they just stare? What if one of them cries? What if I cry?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Then you hand somebody a tissue. That's teaching."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "worried",
+       "text": "That's not in the manual."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "There's no manual. There's you."
+      },
+      {
+       "type": "narrate",
+       "text": "He scratches the back of his neck. His tail has gone completely still. She knows exactly what that means."
+      },
+      {
+       "type": "narrate",
+       "text": "She steps in close and does the jacket up herself, every fastening, right. He reaches for the beanie on the hook by the door, out of habit. She takes his hand and gently moves it away."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "Not today. Today they get to see your hair."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "horrified",
+       "text": "That's worse. That's so much worse."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11t_top_of_stairs"
+      },
+      {
+       "type": "narrate",
+       "text": "They stand at the top of the narrow staircase. Below, sunlight lies in long bars across the sprung beech floor, the rack of foils, the old masks and the mirror with its 1989 crack. On the far wall, on two brass hooks she put up herself, the beech sword hangs where it lives now, with the yellow scarf knotted round its hilt. In fifty minutes he'll take it down."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "You're scared."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Yes."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "calm",
+       "text": "Good. You do it anyway. That's the whole job. *Allez.*"
+      },
+      {
+       "type": "narrate",
+       "text": "He looks at her for a long moment. Then the stammer goes, the way it always does when he's sure."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "firm, unexpectedly",
+       "text": "Okay."
+      },
+      {
+       "type": "narrate",
+       "text": "Somewhere a church clock strikes nine. He pushes his glasses up his nose."
+      },
+      {
+       "type": "narrate",
+       "text": "*One*, Zizzy thinks, and puts on her hat, kinked feather and all, and follows him down the stairs."
+      },
+      {
+       "type": "bg",
+       "id": "bg_salle_interior_day",
+       "synthetic": true
       },
       {
        "type": "narrate",
@@ -19611,6 +21127,417 @@
        "expression": "smile",
        "expr_raw": "barely, smiling",
        "text": "Up."
+      },
+      {
+       "type": "bg",
+       "id": "bg_zizzy_flat_night"
+      },
+      {
+       "type": "narrate",
+       "text": "He takes her hand, and she pulls, and he steps up onto the bottom stair beside her. That makes him a centimetre taller again, and he looks so pleased about it that she lets it go."
+      },
+      {
+       "type": "narrate",
+       "text": "The stairwell is narrow and steep and smells of old wood and geraniums. Halfway up, the timer light clicks off."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "tense",
+       "expr_raw": "tense",
+       "text": "There's a sofa. It pulls out. It's terrible, but it's flat. If you'd rather."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "careful",
+       "text": "Okay."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quieter",
+       "text": "Or not the sofa."
+      },
+      {
+       "type": "narrate",
+       "text": "In the dark she hears him take a breath."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "I'd like not the sofa. If you would. And if you wouldn't, the sofa's great. I've slept on worse. I slept on a tandem saddle once for about four minutes."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "I would."
+      },
+      {
+       "type": "narrate",
+       "text": "She can't see his face, but she can hear him smile. Then he finds her in the dark: his hands on her jaw, his glasses bumping the brim of her hat and knocking the kinked feather sideways. He kisses her as if he's spent three weeks practising on postcards."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11g_landing_kiss"
+      },
+      {
+       "type": "narrate",
+       "text": "She fumbles the flat key twice. The third time, they practically fall through the door."
+      },
+      {
+       "type": "bg",
+       "id": "bg_zizzy_flat_night"
+      },
+      {
+       "type": "narrate",
+       "text": "Her grandmother's flat: low beams, the radio, the armchair, the geraniums still alive on the sill. Just. On the fridge, stuck in a row with fruit-shaped magnets, are his postcards. All of them."
+      },
+      {
+       "type": "narrate",
+       "text": "Pony sees them and goes very still."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "touched",
+       "text": "You kept them."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "I was going to use them as kindling."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "whispering, warm",
+       "text": "In September?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "I'm a planner."
+      },
+      {
+       "type": "narrate",
+       "text": "He props the beech sword against the armchair, still wrapped in its yellow scarf, as carefully as if it were asleep. She puts his crushed flowers in a jam jar, because she owns no vase. Then she takes off the hat and hangs it on the bedpost, and his laugh fades into something else. He knows what the hat means. They both do."
+      },
+      {
+       "type": "narrate",
+       "text": "The clock on the cooker says ten-forty. The last train is at eleven. Neither of them looks at it again."
+      },
+      {
+       "type": "narrate",
+       "text": "They're awkward. Of course they are. Three weeks and five days of postcards, and now there's a real door and a real bed, no ferry to make, and no excuse that the race made them do anything. It's just two people in a small flat in September, choosing this."
+      },
+      {
+       "type": "narrate",
+       "text": "She starts on his mustard shirt and finds it buttoned wrong by one, as always, so she has to redo it in order to undo it. He laughs into her hair. When she tugs the beanie off, his glasses come with it. She catches them in mid-air with a fencer's reflexes and puts them straight back on his nose."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "Stay on."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "flustered",
+       "text": "Yes. Good. Thank you. Glasses stay on."
+      },
+      {
+       "type": "narrate",
+       "text": "He undresses her with an attention that makes her face hot: shirt buttons, then shorts, then the rest, like he's turning the pages of something he's been waiting to read. When she's bare in the light from the street lamp, he just breathes out."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "Hi."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "We've met."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "It's a different hi."
+      },
+      {
+       "type": "narrate",
+       "text": "They lie down facing each other on her narrow bed, not quite touching, as if there's still a divider down the middle."
+      },
+      {
+       "type": "narrate",
+       "text": "Then she says the true thing, quickly, before she can stop herself."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "very quiet",
+       "text": "I was scared you wouldn't come. That it was a race thing, and it'd stay on the islands."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "gentle",
+       "text": "I was scared you'd meet me at the station and say \"Fine. Keep up.\""
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "smile",
+       "expr_raw": "small smile",
+       "text": "I nearly did."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "I know. I saw you nearly do it."
+      },
+      {
+       "type": "narrate",
+       "text": "She closes the gap."
+      },
+      {
+       "type": "narrate",
+       "text": "It's slow. Slower than either of them expected. They kiss for a long time with their hands just learning, his down the curve of her striped back, hers in his hopeless blond hair. He keeps checking without words, a pause and a look, and she keeps answering by pulling him closer."
+      },
+      {
+       "type": "narrate",
+       "text": "When her hand slides down between them and closes around him, his breath goes ragged and his ears turn the colour of a postbox."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "Zizzy — sorry, I — that's very — good. That's good. I'm saying words."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "You're always saying words."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "It's how you know I'm alive."
+      },
+      {
+       "type": "narrate",
+       "text": "She stops long enough to reach into the drawer by the bed. He goes even redder, rummages in his bag, and holds up an identical box."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "tense",
+       "expr_raw": "mortified",
+       "text": "I — also. In case. Not assuming! Hoping. Assuming is rude. Hoping is just —"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "flat",
+       "text": "Pony. We're very prepared. It's fine."
+      },
+      {
+       "type": "narrate",
+       "text": "He touches her the way she shows him. She guides his hand, and he follows, and when the stammer goes out of his voice and his fingers turn sure and slow, she has to turn her face into the pillow."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "low",
+       "text": "Is this right?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "whispering, barely",
+       "text": "Yes. Keep — yes."
+      },
+      {
+       "type": "narrate",
+       "text": "When she's shaking and impatient and done waiting, she pulls him over her and guides him in, and they both go still at once, foreheads together."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "Okay?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "Okay. Move."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "smile",
+       "expr_raw": "whispering, warm",
+       "text": "Is that an order?"
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "breathless",
+       "text": "It's a request. Said firmly."
+      },
+      {
+       "type": "narrate",
+       "text": "They don't find the rhythm straight away. The bed is too narrow, an elbow slips off the edge, and at one point they both start laughing so hard he has to stop and press his face into her shoulder. But they get there, the way they got the tandem down the long hill on Brackenholm: a wobble, a correction, and then that sudden glide."
+      },
+      {
+       "type": "narrate",
+       "text": "She comes first, holding on to him, with a quiet, broken sound he'll be thinking about on the train for the rest of his life. He follows a few breathless strokes later, her name half-said into her hair, his glasses knocked sideways, his tail swishing so hard against the duvet it sounds like rain."
+      },
+      {
+       "type": "bg",
+       "id": "bg_zizzy_flat_night"
+      },
+      {
+       "type": "narrate",
+       "text": "Afterwards they lie squashed together on the narrow bed, because there's no other way to fit. Her head is on his shoulder. His arm is going to sleep and he doesn't care."
+      },
+      {
+       "type": "narrate",
+       "text": "Through the window, Mill Street is quiet. Under the floorboards is a dark salle with three months on its lease and a list of names for a class that has no teacher yet. Neither of them mentions it. It's there all night anyway."
+      },
+      {
+       "type": "narrate",
+       "text": "Somewhere across town, the eleven o'clock train has long since gone. Neither of them says a word about it."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "soft",
+       "text": "Can I come back? Not to — I mean, also to, if — but just. Come back."
+      },
+      {
+       "type": "narrate",
+       "text": "She is quiet so long that he starts to apologise. She puts one finger over his mouth."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "quiet",
+       "text": "You haven't left yet."
+      },
+      {
+       "type": "narrate",
+       "text": "He falls asleep with his glasses on. She straightens them with one finger and leaves them where they are."
+      },
+      {
+       "type": "bg",
+       "id": "bg_zizzy_flat_morning"
+      },
+      {
+       "type": "narrate",
+       "text": "Morning comes in grey-gold through the thin curtains. Out on Mill Street, a milk float hums past. Downstairs, the salle is silent, the way it's been silent all summer."
+      },
+      {
+       "type": "cg",
+       "id": "cg_spicy_ch11g_morning_quilt"
+      },
+      {
+       "type": "narrate",
+       "text": "Zizzy wakes with his arm across her and his tail round her ankle, and lies very still, the way she would on a strip, waiting to see what the other person does."
+      },
+      {
+       "type": "narrate",
+       "text": "What he does is wake up, look at her, and go pink from the muzzle to the ears as if he's only just found out where he is."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "whispering",
+       "text": "Hi."
+      },
+      {
+       "type": "say",
+       "speaker": "zizzy",
+       "expression": "neutral",
+       "expr_raw": "dry",
+       "text": "Another one."
+      },
+      {
+       "type": "say",
+       "speaker": "pony",
+       "expression": "neutral",
+       "expr_raw": "earnest",
+       "text": "They're all different."
+      },
+      {
+       "type": "narrate",
+       "text": "He climbs out over her, apologising to her knee, and looks around for something to wear. He finds her grandmother's dressing gown on the back of the door: quilted, faded, far too short for him."
+      },
+      {
+       "type": "narrate",
+       "text": "He looks at her, asking."
+      },
+      {
+       "type": "narrate",
+       "text": "Six months ago nobody would have been allowed to touch that dressing gown. She nods."
+      },
+      {
+       "type": "narrate",
+       "text": "He puts it on and pads into the kitchen. She hears the toaster, the kettle, and then the click of the old radio, tuned to the station she hasn't been able to stand since March."
+      },
+      {
+       "type": "narrate",
+       "text": "She opens her mouth to tell him to turn it off."
+      },
+      {
+       "type": "narrate",
+       "text": "She doesn't."
+      },
+      {
+       "type": "bg",
+       "id": "bg_salle_interior_day",
+       "synthetic": true
       },
       {
        "type": "narrate",
@@ -20356,6 +22283,190 @@
      "ending_branch": "hollow"
     }
    ]
+  }
+ ],
+ "private_anchors": [
+  {
+   "scene": "ch09_s04",
+   "container": "steps[9].then",
+   "insert_before_index": 47,
+   "kind": "pick_up",
+   "file": "ch09_after_fireworks.md",
+   "source_line": 255,
+   "raw": "ch09_after_fireworks.md, high route only, picks up here",
+   "anchor_id": "spice_ch09_after_fireworks_in",
+   "note": "pick_up: private build inserts spicy/ch09_after_fireworks.md at this position; return: main script resumes here",
+   "resolved": true,
+   "inserted_top_level_steps": 87
+  },
+  {
+   "scene": "ch09_s04",
+   "container": "steps[9].then",
+   "insert_before_index": 134,
+   "kind": "return",
+   "file": "ch09_after_fireworks.md",
+   "source_line": 256,
+   "raw": "returns here",
+   "anchor_id": "spice_ch09_after_fireworks_out",
+   "note": "pick_up: private build inserts spicy/ch09_after_fireworks.md at this position; return: main script resumes here",
+   "resolved": true
+  },
+  {
+   "scene": "ch11_end_true_04",
+   "container": "steps",
+   "insert_before_index": 13,
+   "kind": "pick_up",
+   "file": "true_ending_summit_night.md",
+   "source_line": 292,
+   "raw": "true_ending_summit_night.md, picks up here",
+   "anchor_id": "spice_true_ending_summit_night_in",
+   "note": "pick_up: private build inserts spicy/true_ending_summit_night.md at this position; return: main script resumes here",
+   "resolved": true,
+   "inserted_top_level_steps": 89
+  },
+  {
+   "scene": "ch11_end_true_04",
+   "container": "steps",
+   "insert_before_index": 102,
+   "kind": "return",
+   "file": "true_ending_summit_night.md",
+   "source_line": 293,
+   "raw": "returns here",
+   "anchor_id": "spice_true_ending_summit_night_out",
+   "note": "pick_up: private build inserts spicy/true_ending_summit_night.md at this position; return: main script resumes here",
+   "resolved": true
+  },
+  {
+   "scene": "ch11_end_true_06",
+   "container": "steps",
+   "insert_before_index": 11,
+   "kind": "pick_up",
+   "file": "true_coda_salle_morning.md",
+   "source_line": 321,
+   "raw": "true_coda_salle_morning.md, picks up here",
+   "anchor_id": "spice_true_coda_salle_morning_in",
+   "note": "pick_up: private build inserts spicy/true_coda_salle_morning.md at this position; return: main script resumes here",
+   "resolved": true,
+   "inserted_top_level_steps": 92
+  },
+  {
+   "scene": "ch11_end_true_06",
+   "container": "steps",
+   "insert_before_index": 103,
+   "kind": "return",
+   "file": "true_coda_salle_morning.md",
+   "source_line": 322,
+   "raw": "returns here",
+   "anchor_id": "spice_true_coda_salle_morning_out",
+   "note": "pick_up: private build inserts spicy/true_coda_salle_morning.md at this position; return: main script resumes here",
+   "resolved": true
+  },
+  {
+   "scene": "ch11_end_good_03",
+   "container": "steps",
+   "insert_before_index": 20,
+   "kind": "pick_up",
+   "file": "ch11_good_first_date.md",
+   "source_line": 430,
+   "raw": "ch11_good_first_date.md, picks up here",
+   "anchor_id": "spice_ch11_good_first_date_in",
+   "note": "pick_up: private build inserts spicy/ch11_good_first_date.md at this position; return: main script resumes here",
+   "resolved": true,
+   "inserted_top_level_steps": 77
+  },
+  {
+   "scene": "ch11_end_good_03",
+   "container": "steps",
+   "insert_before_index": 97,
+   "kind": "return",
+   "file": "ch11_good_first_date.md",
+   "source_line": 431,
+   "raw": "returns here",
+   "anchor_id": "spice_ch11_good_first_date_out",
+   "note": "pick_up: private build inserts spicy/ch11_good_first_date.md at this position; return: main script resumes here",
+   "resolved": true
+  }
+ ],
+ "private_inserts": [
+  {
+   "file": "spicy/ch09_after_fireworks.md",
+   "title": "After the Fireworks",
+   "subtitle": "Day 8 (Saturday) night, Hallow Key, the terraced campsite. Private build only.",
+   "anchor_in": "spice_ch09_after_fireworks_in",
+   "anchor_out": "spice_ch09_after_fireworks_out",
+   "scene": "ch09_s04",
+   "container": "steps[9].then",
+   "first_index": 47,
+   "end_index": 134,
+   "route_raw": "Ch9 high route — told_salle AND NOT took_deal AND Affection >= 3 (checked before C9) AND C9 != C",
+   "route": {
+    "flag": "high_route"
+   },
+   "gate": "inside steps[9].then [IF told_salle AND NOT took_deal AND Affection >= 3 AND C9 != C] of ch09_s04, cond {\"flag\": \"high_route\"}",
+   "steps_added": 89,
+   "script_steps": 89,
+   "words_added": 1649,
+   "bg_restored_at_out": null
+  },
+  {
+   "file": "spicy/true_ending_summit_night.md",
+   "title": "Room Six",
+   "subtitle": "Day 9 (Sunday) night, the guesthouse above Lastlight harbour. Private build only.",
+   "anchor_in": "spice_true_ending_summit_night_in",
+   "anchor_out": "spice_true_ending_summit_night_out",
+   "scene": "ch11_end_true_04",
+   "container": "steps",
+   "first_index": 13,
+   "end_index": 102,
+   "route_raw": "True ending — C10 = A AND NOT took_deal AND Trust >= 4 AND Heart >= 8",
+   "route": {
+    "ending": "true"
+   },
+   "gate": "inside ending branch 'true' (scene ch11_end_true_04, reached only via the ending dispatch)",
+   "steps_added": 90,
+   "script_steps": 90,
+   "words_added": 1442,
+   "bg_restored_at_out": null
+  },
+  {
+   "file": "spicy/true_coda_salle_morning.md",
+   "title": "The Morning After the Salle Opens",
+   "subtitle": "A Saturday in September. The flat above 14 Mill Street. Private build only.",
+   "anchor_in": "spice_true_coda_salle_morning_in",
+   "anchor_out": "spice_true_coda_salle_morning_out",
+   "scene": "ch11_end_true_06",
+   "container": "steps",
+   "first_index": 11,
+   "end_index": 103,
+   "route_raw": "True ending — C10 = A AND NOT took_deal AND Trust >= 4 AND Heart >= 8",
+   "route": {
+    "ending": "true"
+   },
+   "gate": "inside ending branch 'true' (scene ch11_end_true_06, reached only via the ending dispatch)",
+   "steps_added": 92,
+   "script_steps": 91,
+   "words_added": 1446,
+   "bg_restored_at_out": "bg_salle_interior_day"
+  },
+  {
+   "file": "spicy/ch11_good_first_date.md",
+   "title": "Up",
+   "subtitle": "Friday 20 September, the flat above 14 Mill Street. Private build only.",
+   "anchor_in": "spice_ch11_good_first_date_in",
+   "anchor_out": "spice_ch11_good_first_date_out",
+   "scene": "ch11_end_good_03",
+   "container": "steps",
+   "first_index": 20,
+   "end_index": 97,
+   "route_raw": "Good ending — C10 = A AND Heart >= 5 AND NOT TRUE",
+   "route": {
+    "ending": "good"
+   },
+   "gate": "inside ending branch 'good' (scene ch11_end_good_03, reached only via the ending dispatch)",
+   "steps_added": 77,
+   "script_steps": 76,
+   "words_added": 1258,
+   "bg_restored_at_out": "bg_salle_interior_day"
   }
  ]
 }

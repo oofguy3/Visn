@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIGGY: ECHOES OF REGRET - Complete Visual Novel</title>
+<style>
+body { margin: 0; background: #0a0a0a; color: #e0e0e0; font-family: Georgia, serif; height: 100vh; overflow: hidden; }
+#title { position: absolute; inset: 0; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 10; }
+#title h1 { color: #ff4444; text-shadow: 0 0 20px #000; font-size: 2.8em; margin: 0; }
+#start { margin-top: 30px; padding: 14px 36px; font-size: 1.4em; background: #5a0000; color: white; border: 3px solid #ff6666; border-radius: 8px; cursor: pointer; }
+#vn { position: absolute; inset: 0; display: none; }
+#textbox { position: absolute; bottom: 20px; left: 5%; right: 5%; background: rgba(10,10,10,0.92); border: 3px solid #5a2a2a; border-radius: 12px; padding: 20px; min-height: 160px; cursor: pointer; }
+#speaker { color: #ff6b6b; font-weight: bold; font-size: 1.2em; margin-bottom: 8px; }
+#dialogue { font-size: 1.1em; line-height: 1.6; }
+#progress { position: absolute; top: 10px; right: 15px; color: #aaa; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div id="title">
+  <h1>PIGGY: ECHOES OF REGRET</h1>
+  <p style="color:#ccc; max-width:680px; line-height:1.5;">The complete full story.<br>The infection does not erase who people were—it chains them to what they wish they could change.<br>From the potion that remembered to the door that stays open forever.</p>
+  <button id="start" onclick="start()">Begin the Full Story</button>
+</div>
+<div id="vn">
+  <div id="progress"></div>
+  <div id="textbox">
+    <div id="speaker"></div>
+    <div id="dialogue"></div>
+  </div>
+</div>
+<script>
+const scenes = [
+  {speaker:"Narrator", text:"In the city of Lucella, Evalia, a man named Mr. P sought only to save his wife. The potion he created was meant to heal. It was never meant to remember."},
+  {speaker:"Mr. P", text:"Just one more adjustment. For her. Only for her."},
+  {speaker:"Narrator", text:"What was meant to cure became the seed of an outbreak that forced the infected to live inside their worst regrets."},
+  {speaker:"Player", text:"Georgie Piggy. Eight years old. Missing for three days. The house feels wrong."},
+  {speaker:"Penny", text:"Georgie... I shouldn't have yelled... I should have held his hand..."},
+  {speaker:"Narrator", text:"The infection does not erase who people were. It chains them to what they wish they could change."},
+  {speaker:"Georgie", text:"I drew the woman on the bench. And the treehouse. And the locked door. The door in the picture is open anyway."},
+  {speaker:"Penny", text:"The bracelet is in my pocket. Leo can try it tomorrow. Or not. Both are true."},
+  {speaker:"Mr. P", text:"The recording stays off. The key ring stays in my pocket. The sentence is still mine."},
+  {speaker:"Player", text:"The notes stay under the badge. The log is closed. The station stays open."},
+  {speaker:"Narrator", text:"The story reaches the place it was always moving toward. Not the absence of regret. The presence of the people who remain. The chairs are occupied. The door is open. The echoes can speak. They are no longer the only voice in the room."},
+  {speaker:"System", text:"THE END. The full story is complete. The regrets have not vanished. They have learned to live beside the chairs that are occupied and the door that stays open forever. Thank you for remaining with the echoes."}
+];
+let i = 0;
+function start() {
+  document.getElementById('title').style.display = 'none';
+  document.getElementById('vn').style.display = 'block';
+  show();
+}
+function show() {
+  const s = scenes[i];
+  document.getElementById('speaker').textContent = s.speaker;
+  document.getElementById('dialogue').textContent = s.text;
+  document.getElementById('progress').textContent = (i+1) + ' / ' + scenes.length;
+  document.getElementById('textbox').onclick = next;
+}
+function next() {
+  i++;
+  if (i < scenes.length) show();
+  else {
+    document.getElementById('dialogue').textContent = "THE END. The door stays open.";
+    document.getElementById('speaker').textContent = "System";
+    document.getElementById('textbox').onclick = null;
+  }
+}
+</script>
+</body>
+</html>

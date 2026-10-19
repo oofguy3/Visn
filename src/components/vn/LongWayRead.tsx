@@ -190,7 +190,7 @@ export function LongWayRead({
     void (async () => {
       if (!useLongWay.getState().hydrated) await useLongWay.persist.rehydrate();
       if (token !== bootToken) return;
-      useLongWay.getState().setSlot(slot);
+      useLongWay.getState().setStory(slot);
       try {
         await ensureLongWayScript(slot);
       } catch {
