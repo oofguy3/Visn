@@ -3,8 +3,6 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-// @ts-expect-error JS plugin alongside the TS vite config
-import { privateStoriesPlugin } from "./scripts/private-stories-plugin.mjs";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 
@@ -27,5 +25,5 @@ export default defineConfig({
       { find: "@", replacement: path.join(root, "src") },
     ],
   },
-  plugins: [privateStoriesPlugin(), tailwindcss(), react()],
+  plugins: [tailwindcss(), react()],
 });

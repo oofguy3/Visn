@@ -12,14 +12,8 @@ import {
   type Script,
 } from "./engine";
 
-export type Edition = "public" | "private";
-
-type Saves = { public: Runtime | null; private: Runtime | null };
-
 type LongState = {
   hydrated: boolean;
-  edition: Edition;
-  saves: Saves;
   script: Script | null;
   runtime: Runtime | null;
   beat: Beat | null;
@@ -30,67 +24,59 @@ type LongState = {
   toggleLog: () => void;
   toggleGallery: () => void;
   closePanels: () => void;
-  setEdition: (edition: Edition) => void;
   advance: () => void;
   choose: (key: string) => void;
   restart: () => void;
   resumeOrStart: () => void;
 };
 
-let loadedFor: Edition | null = null;
-let loading: { edition: Edition; promise: Promise<Script> } | null = null;
+/**
+ * These scenes gained steps when the extra routes were spliced in, so an
+ * older cursor index no longer points at the same line. Anywhere else, the
+ * scene ids and step lists match the previous public script.
+ */
+const SHIFTED_SCENES = new Set([
+  "ch09_s04",
+  "ch11_end_true_04",
+  "ch11_end_true_06",
+  "ch11_end_good_03",
+]);
 
-function emptySaves(): Saves {
-  return { public: null, private: null };
-}
+let loading: Promise<Script> | null = null;
 
-export function ensureLongWayScript(edition: Edition = "public"): Promise<Script> {
-  if (edition === "private" && import.meta.env.VITE_ENABLE_PRIVATE_STORIES !== "true") {
-    edition = "public";
+export function ensureLongWayScript(): Promise<Script> {
+  const ready = useLongWay.getState().script;
+  if (ready) return Promise.resolve(ready);
+  if (!loading) {
+    loading = fetch(longWayStoryUrl())
+      .then(async (res) => {
+        if (!res.ok) throw new Error("The story file didn't load.");
+        return prepareScript(await res.json());
+      })
+      .then((script) => {
+        useLongWay.setState({ script, error: null });
+        return script;
+      })
+      .catch((err: unknown) => {
+        loading = null;
+        const message = err instanceof Error ? err.message : "The story didn't open.";
+        useLongWay.setState({ error: message });
+        throw err;
+      });
   }
-  const state = useLongWay.getState();
-  if (state.script && loadedFor === edition) return Promise.resolve(state.script);
-  if (loading?.edition === edition) return loading.promise;
-
-  loadedFor = edition;
-  if (state.script) useLongWay.setState({ script: null });
-
-  const promise = fetch(longWayStoryUrl(edition))
-    .then(async (res) => {
-      if (!res.ok) throw new Error("The story file didn't load.");
-      return prepareScript(await res.json());
-    })
-    .then((script) => {
-      if (loadedFor === edition) useLongWay.setState({ script, error: null });
-      return script;
-    })
-    .catch((err: unknown) => {
-      if (loadedFor === edition) loadedFor = null;
-      if (loading?.edition === edition) loading = null;
-      const message = err instanceof Error ? err.message : "The story didn't open.";
-      useLongWay.setState({ error: message });
-      throw err;
-    });
-  loading = { edition, promise };
-  return promise;
+  return loading;
 }
 
-function put(runtime: Runtime, beat: Beat, extra?: Partial<LongState>) {
-  const edition = useLongWay.getState().edition;
-  useLongWay.setState({
-    runtime,
-    beat,
-    saves: { ...useLongWay.getState().saves, [edition]: runtime },
-    ...extra,
-  });
+function fresh() {
+  const script = useLongWay.getState().script;
+  if (!script) return null;
+  return createRuntime(script);
 }
 
 export const useLongWay = create<LongState>()(
   persist(
     (set, get) => ({
       hydrated: false,
-      edition: "public",
-      saves: emptySaves(),
       script: null,
       runtime: null,
       beat: null,
@@ -101,48 +87,27 @@ export const useLongWay = create<LongState>()(
       toggleLog: () => set((state) => ({ logOpen: !state.logOpen, galleryOpen: false })),
       toggleGallery: () => set((state) => ({ galleryOpen: !state.galleryOpen, logOpen: false })),
       closePanels: () => set({ logOpen: false, galleryOpen: false }),
-      setEdition: (edition) => {
-        const state = get();
-        if (state.edition === edition) return;
-        const saves = { ...state.saves, [state.edition]: state.runtime };
-        set({
-          edition,
-          saves,
-          runtime: saves[edition],
-          beat: null,
-          script: loadedFor === edition ? state.script : null,
-          error: null,
-          logOpen: false,
-          galleryOpen: false,
-        });
-      },
       advance: () => {
-        const { script, runtime, edition } = get();
-        if (!script || !runtime || runtime.ending || loadedFor !== edition) return;
+        const { script, runtime } = get();
+        if (!script || !runtime || runtime.ending) return;
         const next = structuredClone(runtime);
-        put(next, advanceRuntime(script, next));
+        set({ runtime: next, beat: advanceRuntime(script, next) });
       },
       choose: (key) => {
-        const { script, runtime, edition } = get();
-        if (!script || !runtime || runtime.ending || loadedFor !== edition) return;
+        const { script, runtime } = get();
+        if (!script || !runtime || runtime.ending) return;
         const next = structuredClone(runtime);
-        put(next, chooseRuntime(script, next, key));
+        set({ runtime: next, beat: chooseRuntime(script, next, key) });
       },
       restart: () => {
-        const { script, edition } = get();
-        if (!script || loadedFor !== edition) {
-          set({
-            runtime: null,
-            beat: null,
-            saves: { ...get().saves, [edition]: null },
-            restartOnLoad: true,
-            logOpen: false,
-            galleryOpen: false,
-          });
+        const created = fresh();
+        if (!created) {
+          set({ runtime: null, beat: null, restartOnLoad: true, logOpen: false, galleryOpen: false });
           return;
         }
-        const created = createRuntime(script);
-        put(created.runtime, created.beat, {
+        set({
+          runtime: created.runtime,
+          beat: created.beat,
           restartOnLoad: false,
           error: null,
           logOpen: false,
@@ -150,42 +115,40 @@ export const useLongWay = create<LongState>()(
         });
       },
       resumeOrStart: () => {
-        const { script, edition, saves, restartOnLoad } = get();
-        if (!script || loadedFor !== edition) return;
-        const runtime = saves[edition];
-        if (restartOnLoad || !runtime || !script.sceneIndex.has(runtime.cursor.sceneId)) {
+        const { script, runtime, restartOnLoad } = get();
+        if (!script) return;
+        const shifted = !!runtime && SHIFTED_SCENES.has(runtime.cursor.sceneId);
+        if (restartOnLoad || !runtime || shifted || !script.sceneIndex.has(runtime.cursor.sceneId)) {
           const created = createRuntime(script);
-          put(created.runtime, created.beat, { restartOnLoad: false, error: null });
+          set({ runtime: created.runtime, beat: created.beat, restartOnLoad: false, error: null });
           return;
         }
         const next = structuredClone(runtime);
-        put(next, settle(script, next), { restartOnLoad: false, error: null });
+        const beat = settle(script, next);
+        if (beat.kind === "error") {
+          const created = createRuntime(script);
+          set({ runtime: created.runtime, beat: created.beat, restartOnLoad: false, error: null });
+          return;
+        }
+        set({ runtime: next, beat, restartOnLoad: false, error: null });
       },
     }),
     {
       name: "zizzy-pony-long-way-v1",
       skipHydration: true,
-      version: 2,
-      partialize: (state) => ({ saves: state.saves, edition: state.edition }),
+      version: 3,
+      partialize: (state) => ({ runtime: state.runtime }),
       migrate: (persisted, version) => {
-        if (version < 2) {
-          const runtime =
-            persisted && typeof persisted === "object" && "runtime" in persisted
-              ? ((persisted as { runtime?: Runtime | null }).runtime ?? null)
-              : null;
-          return { saves: { public: runtime, private: null }, edition: "public" as const };
-        }
-        return persisted as { saves: Saves; edition: Edition };
+        const data = (persisted ?? {}) as {
+          runtime?: Runtime | null;
+          saves?: { public?: Runtime | null };
+        };
+        if (version < 2) return { runtime: data.runtime ?? null };
+        if (version < 3) return { runtime: data.saves?.public ?? data.runtime ?? null };
+        return { runtime: data.runtime ?? null };
       },
-      onRehydrateStorage: () => (state) => {
-        if (!state) {
-          useLongWay.setState({ hydrated: true });
-          return;
-        }
-        useLongWay.setState({
-          hydrated: true,
-          runtime: state.saves[state.edition] ?? null,
-        });
+      onRehydrateStorage: () => () => {
+        useLongWay.setState({ hydrated: true });
       },
     },
   ),
