@@ -22,8 +22,7 @@ export const PLACES: Record<BackgroundId, string> = {
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
-const portrait = (cast: CastId, expression: Expression) =>
-  asset(`vn/${cast}-${expression}.png`);
+const portrait = (cast: CastId, expression: Expression) => asset(`vn/${cast}-${expression}.png`);
 
 export function portraitSrc(cast: CastId, expression: Expression = "neutral"): string {
   return portrait(cast, expression);
@@ -40,7 +39,8 @@ export function stillSrc(id: StillId): string {
 export const STARTER: Story = {
   id: "door-in-the-snow",
   title: "The Door in the Snow",
-  logline: "Zizzy comes in from the snow. Pony has been sitting with a letter that still sounds like her.",
+  logline:
+    "Zizzy comes in from the snow. Pony has been sitting with a letter that still sounds like her.",
   characters: [
     { id: "zizzy", name: "Zizzy", cast: "zizzy", role: "home from the snow" },
     { id: "pony", name: "Pony", cast: "pony", role: "kept the kettle on" },
@@ -215,11 +215,22 @@ export const LANTERNS: Story = {
       id: "pier",
       background: "dock",
       lines: [
-        { speaker: "narrator", text: "The jars are already in the water, a crooked line of light toward the spire." },
-        { speaker: "fenn", expression: "neutral", text: "You lit yours before the rest of us got here." },
+        {
+          speaker: "narrator",
+          text: "The jars are already in the water, a crooked line of light toward the spire.",
+        },
+        {
+          speaker: "fenn",
+          expression: "neutral",
+          text: "You lit yours before the rest of us got here.",
+        },
         { speaker: "giraffy", expression: "tense", text: "It was getting dark. That's all." },
         { speaker: "zizzy", expression: "smile", text: "You don't waste a match on 'that's all.'" },
-        { speaker: "pony", expression: "neutral", text: "Three left. Someone says a name, or they just float." },
+        {
+          speaker: "pony",
+          expression: "neutral",
+          text: "Three left. Someone says a name, or they just float.",
+        },
       ],
       choices: [
         { label: "Ask who it's for.", goto: "name" },
@@ -230,10 +241,22 @@ export const LANTERNS: Story = {
       id: "name",
       background: "dock",
       lines: [
-        { speaker: "zizzy", expression: "neutral", text: "Say it. The water doesn't repeat things." },
-        { speaker: "giraffy", expression: "tense", text: "It's for the walk home. For whoever is still out." },
+        {
+          speaker: "zizzy",
+          expression: "neutral",
+          text: "Say it. The water doesn't repeat things.",
+        },
+        {
+          speaker: "giraffy",
+          expression: "tense",
+          text: "It's for the walk home. For whoever is still out.",
+        },
         { speaker: "fenn", expression: "smile", text: "That's a name, if you squint." },
-        { speaker: "pony", expression: "smile", text: "Then we light the rest for the same person." },
+        {
+          speaker: "pony",
+          expression: "smile",
+          text: "Then we light the rest for the same person.",
+        },
       ],
       choices: [
         { label: "Light them together.", goto: "together" },
@@ -244,10 +267,21 @@ export const LANTERNS: Story = {
       id: "quiet",
       background: "dock",
       lines: [
-        { speaker: "narrator", text: "Fenn strikes a match and doesn't speak. The jar takes the flame like it was waiting." },
+        {
+          speaker: "narrator",
+          text: "Fenn strikes a match and doesn't speak. The jar takes the flame like it was waiting.",
+        },
         { speaker: "giraffy", expression: "smile", text: "You didn't ask." },
-        { speaker: "fenn", expression: "neutral", text: "You didn't want to answer. I can work with that." },
-        { speaker: "zizzy", expression: "neutral", text: "Then we stand here until the line looks finished." },
+        {
+          speaker: "fenn",
+          expression: "neutral",
+          text: "You didn't want to answer. I can work with that.",
+        },
+        {
+          speaker: "zizzy",
+          expression: "neutral",
+          text: "Then we stand here until the line looks finished.",
+        },
       ],
       choices: [
         { label: "Stay until the last jar.", goto: "together" },
@@ -258,10 +292,26 @@ export const LANTERNS: Story = {
       id: "together",
       background: "dock",
       lines: [
-        { speaker: "narrator", text: "Fenn holds the jar. Giraffy lights it. The mill windows answer, small and orange.", still: "lanterns" },
-        { speaker: "pony", expression: "smile", text: "Looks like a street, if a street could float." },
-        { speaker: "giraffy", expression: "smile", text: "It'll do. Thank you for not making me say more." },
-        { speaker: "zizzy", expression: "smile", text: "We didn't need more. The light's enough to walk by." },
+        {
+          speaker: "narrator",
+          text: "Fenn holds the jar. Giraffy lights it. The mill windows answer, small and orange.",
+          still: "lanterns",
+        },
+        {
+          speaker: "pony",
+          expression: "smile",
+          text: "Looks like a street, if a street could float.",
+        },
+        {
+          speaker: "giraffy",
+          expression: "smile",
+          text: "It'll do. Thank you for not making me say more.",
+        },
+        {
+          speaker: "zizzy",
+          expression: "smile",
+          text: "We didn't need more. The light's enough to walk by.",
+        },
       ],
       end: true,
     },
@@ -269,7 +319,10 @@ export const LANTERNS: Story = {
       id: "alone",
       background: "room",
       lines: [
-        { speaker: "narrator", text: "The pier stays behind them. One jar burns higher than the others, as if it knows." },
+        {
+          speaker: "narrator",
+          text: "The pier stays behind them. One jar burns higher than the others, as if it knows.",
+        },
         { speaker: "giraffy", expression: "neutral", text: "You can tell them later. Or not." },
         { speaker: "fenn", expression: "smile", text: "Later's a place. I'll walk you to it." },
       ],
@@ -294,10 +347,25 @@ export const COAT: Story = {
       id: "chair",
       background: "kitchen",
       lines: [
-        { speaker: "narrator", text: "The coat is folded on the chair, still holding the shape of his shoulders. Snow ticks at the door." },
-        { speaker: "clover", expression: "tense", text: "We wait. He said he was only going to the shop." },
-        { speaker: "pia", expression: "neutral", text: "The shop closed an hour ago. And there's a note in the pocket." },
-        { speaker: "pony", expression: "neutral", text: "I didn't read it. I also didn't hide it. Those are different." },
+        {
+          speaker: "narrator",
+          text: "The coat is folded on the chair, still holding the shape of his shoulders. Snow ticks at the door.",
+        },
+        {
+          speaker: "clover",
+          expression: "tense",
+          text: "We wait. He said he was only going to the shop.",
+        },
+        {
+          speaker: "pia",
+          expression: "neutral",
+          text: "The shop closed an hour ago. And there's a note in the pocket.",
+        },
+        {
+          speaker: "pony",
+          expression: "neutral",
+          text: "I didn't read it. I also didn't hide it. Those are different.",
+        },
       ],
       choices: [
         { label: "Read the note.", goto: "note" },
@@ -308,9 +376,20 @@ export const COAT: Story = {
       id: "note",
       background: "table",
       lines: [
-        { speaker: "narrator", text: "Pia smooths the paper on the table. The crease has been folded more than once." },
-        { speaker: "pia", expression: "smile", text: "It says he'll be late, and not to let the kettle win." },
-        { speaker: "clover", expression: "smile", text: "That's just him. Late, and bossy about tea." },
+        {
+          speaker: "narrator",
+          text: "Pia smooths the paper on the table. The crease has been folded more than once.",
+        },
+        {
+          speaker: "pia",
+          expression: "smile",
+          text: "It says he'll be late, and not to let the kettle win.",
+        },
+        {
+          speaker: "clover",
+          expression: "smile",
+          text: "That's just him. Late, and bossy about tea.",
+        },
         { speaker: "pony", expression: "smile", text: "The kettle can wait its turn. So can we." },
       ],
       choices: [
@@ -322,8 +401,16 @@ export const COAT: Story = {
       id: "wait",
       background: "kitchen",
       lines: [
-        { speaker: "clover", expression: "neutral", text: "If he wanted it read, he'd have left it on the table." },
-        { speaker: "pia", expression: "tense", text: "He left it where a worried person would find it. That's a kind of table." },
+        {
+          speaker: "clover",
+          expression: "neutral",
+          text: "If he wanted it read, he'd have left it on the table.",
+        },
+        {
+          speaker: "pia",
+          expression: "tense",
+          text: "He left it where a worried person would find it. That's a kind of table.",
+        },
         { speaker: "pony", expression: "neutral", text: "Then we sit where he can see the lamp." },
       ],
       choices: [
@@ -335,7 +422,11 @@ export const COAT: Story = {
       id: "home",
       background: "room",
       lines: [
-        { speaker: "narrator", text: "The door opens on the second cup. Bruno shakes snow off his hair, and the room makes room for him.", still: "welcome" },
+        {
+          speaker: "narrator",
+          text: "The door opens on the second cup. Bruno shakes snow off his hair, and the room makes room for him.",
+          still: "welcome",
+        },
         { speaker: "bruno", expression: "smile", text: "You found the coat before you found me." },
         { speaker: "clover", expression: "smile", text: "The coat was on time. You weren't." },
         { speaker: "pia", expression: "smile", text: "Sit. The note already apologized." },
@@ -346,16 +437,54 @@ export const COAT: Story = {
       id: "step",
       background: "dock",
       lines: [
-        { speaker: "narrator", text: "He's on the pier, watching one jar turn in the current, hands in his pockets." },
-        { speaker: "bruno", expression: "tense", text: "I was coming back. I just needed the water to be louder than my head." },
-        { speaker: "pony", expression: "smile", text: "Then walk with us. The kettle is still the loudest thing in the kitchen." },
+        {
+          speaker: "narrator",
+          text: "He's on the pier, watching one jar turn in the current, hands in his pockets.",
+        },
+        {
+          speaker: "bruno",
+          expression: "tense",
+          text: "I was coming back. I just needed the water to be louder than my head.",
+        },
+        {
+          speaker: "pony",
+          expression: "smile",
+          text: "Then walk with us. The kettle is still the loudest thing in the kitchen.",
+        },
       ],
       end: true,
     },
   ],
 };
 
-export const LIBRARY: Story[] = [UNTIL_MORNING, STARTER, LANTERNS, COAT];
+export const LONG_WAY_ID = "long-way-round";
+
+export const LONG_WAY: Story = {
+  id: LONG_WAY_ID,
+  title: "The Long Way Round",
+  logline:
+    "About two hours, whichever road you take. Eleven chapters, one tandem, and four ways the race can end.",
+  characters: [
+    { id: "zizzy", name: "Zizzy", cast: "zizzy", role: "draws a partner" },
+    { id: "pony", name: "Pony", cast: "pony", role: "the other seat on the tandem" },
+    { id: "fenn", name: "Fenn", cast: "fenn", role: "knows the rules" },
+    { id: "bruno", name: "Bruno", cast: "bruno", role: "drives the support van" },
+    { id: "clover", name: "Clover", cast: "clover", role: "rides with Fenn" },
+    { id: "giraffy", name: "Giraffy", cast: "giraffy", role: "a long way up" },
+    { id: "pia", name: "Pia", cast: "pia", role: "writes the riddles" },
+  ],
+  start: "ch01_s01",
+  scenes: [
+    {
+      id: "ch01_s01",
+      background: "dock",
+      lines: [{ speaker: "narrator", text: "The Long Way Round opens in its own player." }],
+      end: true,
+    },
+  ],
+};
+
+export const LIBRARY: Story[] = [UNTIL_MORNING, STARTER, LANTERNS, COAT, LONG_WAY];
 
 export const PROMPTS = [
   "Write a new quiet night for Zizzy and Pony, still in this kitchen.",

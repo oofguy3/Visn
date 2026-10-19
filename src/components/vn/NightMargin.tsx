@@ -1,9 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, ChevronDown, PenLine, RotateCcw, ScrollText, Send, X } from "lucide-react";
+import { LongWayGallery, LongWayRead } from "@/components/vn/LongWayRead";
 import { directStory } from "@/lib/vn/direct.functions";
-import { CAST_BLURBS, LIBRARY, PLACES, PROMPTS, backgroundSrc, portraitSrc, stillSrc } from "@/lib/vn/catalog";
+import {
+  CAST_BLURBS,
+  LIBRARY,
+  LONG_WAY_ID,
+  PLACES,
+  PROMPTS,
+  STARTER,
+  backgroundSrc,
+  portraitSrc,
+  stillSrc,
+} from "@/lib/vn/catalog";
+import { ensureLongWayScript, useLongWay } from "@/lib/vn/long-way/store";
 import { useVN } from "@/lib/vn/store";
-import { BACKGROUNDS, CASTS, EXPRESSIONS, STILLS, type BackgroundId, type CastId, type Expression, type Story } from "@/lib/vn/types";
+import {
+  BACKGROUNDS,
+  CASTS,
+  EXPRESSIONS,
+  STILLS,
+  type BackgroundId,
+  type CastId,
+  type Expression,
+  type Story,
+} from "@/lib/vn/types";
 
 function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
@@ -107,11 +128,14 @@ export function NightMargin() {
 
   const [draft, setDraft] = useState("");
   const [storiesOpen, setStoriesOpen] = useState(false);
-  const [ghost, setGhost] = useState<{ cast: CastId; expression: Expression; name: string } | null>(null);
+  const [ghost, setGhost] = useState<{ cast: CastId; expression: Expression; name: string } | null>(
+    null,
+  );
   const threadRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     void useVN.persist.rehydrate();
+    void useLongWay.persist.rehydrate();
   }, []);
 
   const scene = story.scenes.find((item) => item.id === sceneId) ?? story.scenes[0];
@@ -122,7 +146,16 @@ export function NightMargin() {
   const atLast = !!scene && lineIndex >= scene.lines.length - 1;
   const choices = atLast && reveal.done && scene?.choices ? scene.choices : [];
   const ended = atLast && reveal.done && !!scene?.end && choices.length === 0;
-  const continued = sceneId !== story.start || line > 0 || log.length > 0;
+  const longRuntime = useLongWay((s) => s.runtime);
+  const longGallery = useLongWay((s) => s.galleryOpen);
+  const longActive = story.id === LONG_WAY_ID;
+  const longRead = phase === "read" && longActive;
+  const continued = longActive
+    ? !!longRuntime &&
+      (longRuntime.log.length > 0 ||
+        !!longRuntime.ending ||
+        Object.keys(longRuntime.choices).length > 0)
+    : sceneId !== story.start || line > 0 || log.length > 0;
   const place = scene ? PLACES[scene.background] : PLACES.kitchen;
 
   const stories = (() => {
@@ -152,8 +185,9 @@ export function NightMargin() {
   }, [liveKey]);
 
   useEffect(() => {
+    if (story.id === LONG_WAY_ID) return;
     if (phase === "read" && reveal.done && current) rememberLine(name || "Narrator", current.text);
-  }, [phase, reveal.done, current, name, rememberLine]);
+  }, [story.id, phase, reveal.done, current, name, rememberLine]);
 
   useEffect(() => {
     const node = threadRef.current;
@@ -176,6 +210,7 @@ export function NightMargin() {
       if (target && (target.tagName === "TEXTAREA" || target.tagName === "INPUT")) return;
       if (event.key !== " " && event.key !== "Enter") return;
       const state = useVN.getState();
+      if (state.story.id === LONG_WAY_ID) return;
       if (state.directorOpen || state.logOpen || state.phase !== "read" || storiesOpen) return;
       event.preventDefault();
       onAdvance();
@@ -185,6 +220,7 @@ export function NightMargin() {
   });
 
   function openStory(id: string) {
+    if (id === LONG_WAY_ID) void ensureLongWayScript();
     if (useVN.getState().story.id !== id) selectStory(id);
     useVN.getState().play();
     setStoriesOpen(false);
@@ -195,11 +231,12 @@ export function NightMargin() {
     if (message.length < 2 || busy) return;
     const history = useVN.getState().messages;
     const currentStory = useVN.getState().story;
+    const seed = currentStory.id === LONG_WAY_ID ? STARTER : currentStory;
     setDraft("");
     pushUser(message);
     useVN.getState().setBusy(true);
     try {
-      const result = await directStory({ data: { message, story: currentStory, history } });
+      const result = await directStory({ data: { message, story: seed, history } });
       if (!result.ok) {
         useVN.getState().setError(result.error);
         return;
@@ -226,130 +263,161 @@ export function NightMargin() {
         ))}
       </div>
 
-      <Backdrop id={scene?.background ?? "kitchen"} />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/30" />
+      {!longRead && (
+        <>
+          <Backdrop id={scene?.background ?? "kitchen"} />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/30" />
 
-      {current?.still && phase === "read" && (
-        <img
-          key={current.still}
-          src={stillSrc(current.still)}
-          alt=""
-          className="absolute inset-0 z-[12] h-full w-full object-cover"
-        />
-      )}
+          {current?.still && phase === "read" && (
+            <img
+              key={current.still}
+              src={stillSrc(current.still)}
+              alt=""
+              className="absolute inset-0 z-[12] h-full w-full object-cover"
+            />
+          )}
 
-      {figure && !current?.still && (
-        <div className="pointer-events-none absolute inset-x-0 top-16 bottom-40 z-10 flex items-end justify-center sm:justify-start sm:pl-[6%]">
-          <img
-            key={`${figure.cast}-${figure.expression}`}
-            src={portraitSrc(figure.cast, figure.expression)}
-            alt=""
-            className={cn(
-              "h-[min(70dvh,40rem)] w-auto max-w-[min(100%,26rem)] object-contain object-bottom transition-opacity duration-300",
-              speaking ? "opacity-100" : "opacity-40",
-            )}
-          />
-        </div>
-      )}
-
-      <header className="absolute inset-x-0 top-0 z-40 flex items-center justify-between gap-3 px-3 py-3">
-        <button type="button" onClick={toTitle} className="min-h-11 min-w-0 text-left">
-          <span className="block truncate font-display text-lg leading-none italic text-fg">Zizzy & Pony</span>
-          <span className="mt-1 block truncate text-xs text-fg/80">{place}</span>
-        </button>
-        <div className="flex shrink-0 gap-1">
-          <button
-            type="button"
-            onClick={() => {
-              setStoriesOpen(true);
-              openDirector(false);
-            }}
-            className="inline-flex min-h-11 items-center rounded-full bg-lamp px-3 text-sm font-medium text-ink"
-          >
-            Stories
-          </button>
-          <button
-            type="button"
-            aria-label="Read log"
-            onClick={toggleLog}
-            className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
-          >
-            <ScrollText className="size-5" />
-          </button>
-          <button
-            type="button"
-            aria-label="Ask Grok"
-            onClick={() => openDirector(true)}
-            className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
-          >
-            <PenLine className="size-5" />
-          </button>
-        </div>
-      </header>
-
-      {phase === "read" && current && (
-        <div className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 sm:px-6 sm:pb-5">
-          {choices.length > 0 && (
-            <div className="mx-auto mb-2 flex max-w-3xl flex-col gap-2">
-              {choices.map((choice) => (
-                <button
-                  key={choice.label}
-                  type="button"
-                  onClick={() => choose(choice.goto)}
-                  className="min-h-12 rounded-2xl border border-line bg-ink/80 px-4 text-left text-fg transition-transform duration-150 ease-out active:scale-[0.98]"
-                >
-                  {choice.label}
-                </button>
-              ))}
+          {figure && !current?.still && (
+            <div className="pointer-events-none absolute inset-x-0 top-16 bottom-40 z-10 flex items-end justify-center sm:justify-start sm:pl-[6%]">
+              <img
+                key={`${figure.cast}-${figure.expression}`}
+                src={portraitSrc(figure.cast, figure.expression)}
+                alt=""
+                className={cn(
+                  "h-[min(70dvh,40rem)] w-auto max-w-[min(100%,26rem)] object-contain object-bottom transition-opacity duration-300",
+                  speaking ? "opacity-100" : "opacity-40",
+                )}
+              />
             </div>
           )}
-          {ended && (
-            <div className="mx-auto mb-2 flex max-w-3xl gap-2">
+
+          <header className="absolute inset-x-0 top-0 z-40 flex items-center justify-between gap-3 px-3 py-3">
+            <button type="button" onClick={toTitle} className="min-h-11 min-w-0 text-left">
+              <span className="block truncate font-display text-lg leading-none italic text-fg">
+                Zizzy & Pony
+              </span>
+              <span className="mt-1 block truncate text-xs text-fg/80">{place}</span>
+            </button>
+            <div className="flex shrink-0 gap-1">
               <button
                 type="button"
-                onClick={toTitle}
-                className="inline-flex min-h-12 items-center rounded-full bg-lamp px-5 font-medium text-ink"
+                onClick={() => {
+                  setStoriesOpen(true);
+                  openDirector(false);
+                }}
+                className="inline-flex min-h-11 items-center rounded-full bg-lamp px-3 text-sm font-medium text-ink"
               >
                 Stories
               </button>
               <button
                 type="button"
-                onClick={restart}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line bg-ink/70 px-4 text-fg"
+                aria-label="Read log"
+                onClick={toggleLog}
+                className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
               >
-                <RotateCcw className="size-4" />
-                Again
+                <ScrollText className="size-5" />
+              </button>
+              <button
+                type="button"
+                aria-label="Ask Grok"
+                onClick={() => openDirector(true)}
+                className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
+              >
+                <PenLine className="size-5" />
+              </button>
+            </div>
+          </header>
+
+          {phase === "read" && current && (
+            <div className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 sm:px-6 sm:pb-5">
+              {choices.length > 0 && (
+                <div className="mx-auto mb-2 flex max-w-3xl flex-col gap-2">
+                  {choices.map((choice) => (
+                    <button
+                      key={choice.label}
+                      type="button"
+                      onClick={() => choose(choice.goto)}
+                      className="min-h-12 rounded-2xl border border-line bg-ink/80 px-4 text-left text-fg transition-transform duration-150 ease-out active:scale-[0.98]"
+                    >
+                      {choice.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {ended && (
+                <div className="mx-auto mb-2 flex max-w-3xl gap-2">
+                  <button
+                    type="button"
+                    onClick={toTitle}
+                    className="inline-flex min-h-12 items-center rounded-full bg-lamp px-5 font-medium text-ink"
+                  >
+                    Stories
+                  </button>
+                  <button
+                    type="button"
+                    onClick={restart}
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line bg-ink/70 px-4 text-fg"
+                  >
+                    <RotateCcw className="size-4" />
+                    Again
+                  </button>
+                </div>
+              )}
+              <button
+                type="button"
+                aria-label="Advance"
+                onClick={onAdvance}
+                className="mx-auto block w-full max-w-3xl rounded-2xl border border-line border-t-lamp bg-paper/95 px-5 py-4 text-left shadow-xl backdrop-blur-md"
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span
+                    className={cn(
+                      "font-display text-lg italic",
+                      name === "Narrator" ? "text-muted" : "text-lamp",
+                    )}
+                  >
+                    {name || " "}
+                  </span>
+                  {!ended && choices.length === 0 && reveal.done && (
+                    <ChevronDown className="size-4 text-lamp motion-safe:animate-bounce" />
+                  )}
+                </span>
+                <span className="mt-1 block min-h-16 font-display text-lg leading-relaxed text-pretty text-fg sm:min-h-20 sm:text-xl">
+                  {reveal.shown}
+                </span>
               </button>
             </div>
           )}
-          <button
-            type="button"
-            aria-label="Advance"
-            onClick={onAdvance}
-            className="mx-auto block w-full max-w-3xl rounded-2xl border border-line border-t-lamp bg-paper/95 px-5 py-4 text-left shadow-xl backdrop-blur-md"
-          >
-            <span className="flex items-center justify-between gap-3">
-              <span className={cn("font-display text-lg italic", name === "Narrator" ? "text-muted" : "text-lamp")}>
-                {name || " "}
-              </span>
-              {!ended && choices.length === 0 && reveal.done && (
-                <ChevronDown className="size-4 text-lamp motion-safe:animate-bounce" />
-              )}
-            </span>
-            <span className="mt-1 block min-h-16 font-display text-lg leading-relaxed text-pretty text-fg sm:min-h-20 sm:text-xl">
-              {reveal.shown}
-            </span>
-          </button>
-        </div>
+        </>
+      )}
+
+      {longRead && (
+        <LongWayRead
+          paused={storiesOpen || directorOpen}
+          onTitle={toTitle}
+          onStories={() => {
+            setStoriesOpen(true);
+            openDirector(false);
+          }}
+          onDirector={() => openDirector(true)}
+        />
       )}
 
       {phase === "title" && (
         <div className="absolute inset-0 z-30 flex flex-col overflow-y-auto bg-ink/75 px-5 pt-20 pb-8 sm:items-center">
           <div className="mx-auto flex w-full max-w-lg flex-col">
-            <p className="text-xs font-medium tracking-widest text-lamp uppercase">A visual novel</p>
-            <h1 className="mt-2 font-display text-5xl leading-none text-balance text-fg sm:text-6xl">{story.title}</h1>
-            <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-fg/90">{story.logline}</p>
-            <h2 className="mt-5 text-xs font-medium tracking-widest text-muted uppercase">Stories</h2>
+            <p className="text-xs font-medium tracking-widest text-lamp uppercase">
+              A visual novel
+            </p>
+            <h1 className="mt-2 font-display text-5xl leading-none text-balance text-fg sm:text-6xl">
+              {story.title}
+            </h1>
+            <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-fg/90">
+              {story.logline}
+            </p>
+            <h2 className="mt-5 text-xs font-medium tracking-widest text-muted uppercase">
+              Stories
+            </h2>
             <ul className="mt-2 flex flex-col gap-2">
               {stories.map((item) => {
                 const selected = item.id === story.id;
@@ -364,7 +432,9 @@ export function NightMargin() {
                         selected ? "border-lamp bg-ink/80" : "border-line bg-ink/45",
                       )}
                     >
-                      <span className="font-display text-lg leading-tight italic text-fg">{item.title}</span>
+                      <span className="font-display text-lg leading-tight italic text-fg">
+                        {item.title}
+                      </span>
                       <span className="mt-1 line-clamp-2 text-sm text-muted">{item.logline}</span>
                     </button>
                   </li>
@@ -379,14 +449,19 @@ export function NightMargin() {
                     alt={CAST_BLURBS[cast].name}
                     className="mx-auto h-16 w-full object-contain object-bottom sm:h-24"
                   />
-                  <figcaption className="truncate text-center text-[11px] text-fg">{CAST_BLURBS[cast].name}</figcaption>
+                  <figcaption className="truncate text-center text-[11px] text-fg">
+                    {CAST_BLURBS[cast].name}
+                  </figcaption>
                 </figure>
               ))}
             </div>
             <div className="mt-5 flex flex-col gap-2 sm:flex-row">
               <button
                 type="button"
-                onClick={play}
+                onClick={() => {
+                  if (longActive) void ensureLongWayScript();
+                  play();
+                }}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-lamp px-6 font-medium text-ink transition-transform duration-150 ease-out active:scale-[0.96]"
               >
                 <BookOpen className="size-4" />
@@ -401,10 +476,23 @@ export function NightMargin() {
                 Ask Grok to write
               </button>
             </div>
+            {longActive && longRuntime?.chapter.title && (
+              <p className="mt-3 text-sm text-muted">
+                Chapter {longRuntime.chapter.number} · {longRuntime.chapter.title}
+                {longRuntime.ending ? ` · ${longRuntime.ending.title}` : ""}
+              </p>
+            )}
             {continued && (
               <button
                 type="button"
-                onClick={restart}
+                onClick={() => {
+                  if (longActive) {
+                    useLongWay.getState().restart();
+                    play();
+                    return;
+                  }
+                  restart();
+                }}
                 className="mt-3 self-start text-sm text-muted underline-offset-2 hover:underline"
               >
                 From the top
@@ -452,11 +540,16 @@ export function NightMargin() {
         </div>
       )}
 
-      {logOpen && (
+      {logOpen && !longRead && (
         <div className="absolute inset-0 z-30 overflow-y-auto bg-ink/85 px-5 pt-20 pb-8">
           <div className="mx-auto flex max-w-lg items-center justify-between">
             <p className="font-display text-lg italic">Log</p>
-            <button type="button" onClick={toggleLog} className="inline-flex size-11 items-center justify-center" aria-label="Close log">
+            <button
+              type="button"
+              onClick={toggleLog}
+              className="inline-flex size-11 items-center justify-center"
+              aria-label="Close log"
+            >
               <X className="size-5" />
             </button>
           </div>
@@ -502,7 +595,9 @@ export function NightMargin() {
                 alt={CAST_BLURBS[cast].name}
                 className="cast-face h-16 w-16 rounded-full border border-line bg-surface"
               />
-              <figcaption className="mt-1 text-center text-xs text-muted">{CAST_BLURBS[cast].name}</figcaption>
+              <figcaption className="mt-1 text-center text-xs text-muted">
+                {CAST_BLURBS[cast].name}
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -586,6 +681,9 @@ export function NightMargin() {
           </button>
         </div>
       </div>
+      {longGallery && !longRead && (
+        <LongWayGallery onClose={() => useLongWay.getState().closePanels()} />
+      )}
     </main>
   );
 }
