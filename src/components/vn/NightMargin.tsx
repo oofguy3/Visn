@@ -4,16 +4,18 @@ import { LongWayGallery, LongWayRead } from "@/components/vn/LongWayRead";
 import { directStory } from "@/lib/vn/direct.functions";
 import {
   CAST_BLURBS,
+  ECHOES_ID,
   LIBRARY,
   LONG_WAY_ID,
   PLACES,
   PROMPTS,
   STARTER,
   backgroundSrc,
+  isScriptedStory,
   portraitSrc,
   stillSrc,
 } from "@/lib/vn/catalog";
-import { ensureLongWayScript, useLongWay, type Edition } from "@/lib/vn/long-way/store";
+import { ensureLongWayScript, useLongWay, type ScriptSlot } from "@/lib/vn/long-way/store";
 import { registerOptInStory, useVN } from "@/lib/vn/store";
 import {
   BACKGROUNDS,
@@ -178,12 +180,18 @@ export function NightMargin() {
   const longGallery = useLongWay((s) => s.galleryOpen);
   const privateEnabled = import.meta.env.VITE_ENABLE_PRIVATE_STORIES === "true";
   const privatePlay = privateEnabled && story.optIn === true;
-  const longEdition: Edition | null =
-    story.id === LONG_WAY_ID ? "public" : privatePlay ? "private" : null;
-  const longActive = longEdition !== null;
+  const scriptedSlot: ScriptSlot | null =
+    story.id === LONG_WAY_ID
+      ? "public"
+      : privatePlay
+        ? "private"
+        : story.id === ECHOES_ID
+          ? "echoes"
+          : null;
+  const longActive = scriptedSlot !== null;
   const privateBlocked = privatePlay && !adultOk;
   const longRead = phase === "read" && longActive && !privateBlocked;
-  const longSave = useLongWay((s) => (privatePlay ? s.saves.private : s.saves.public));
+  const longSave = useLongWay((s) => (scriptedSlot ? s.saves[scriptedSlot] : null));
   const continued = longActive
     ? !!longSave &&
       (longSave.log.length > 0 || !!longSave.ending || Object.keys(longSave.choices).length > 0)
@@ -219,7 +227,7 @@ export function NightMargin() {
   }, [liveKey]);
 
   useEffect(() => {
-    if (story.id === LONG_WAY_ID || story.optIn) return;
+    if (isScriptedStory(story.id) || story.optIn) return;
     if (phase === "read" && reveal.done && current) rememberLine(name || "Narrator", current.text);
   }, [story.id, story.optIn, phase, reveal.done, current, name, rememberLine]);
 
@@ -244,7 +252,7 @@ export function NightMargin() {
       if (target && (target.tagName === "TEXTAREA" || target.tagName === "INPUT")) return;
       if (event.key !== " " && event.key !== "Enter") return;
       const state = useVN.getState();
-      if (state.story.id === LONG_WAY_ID || state.story.optIn) return;
+      if (isScriptedStory(state.story.id) || state.story.optIn) return;
       if (state.directorOpen || state.logOpen || state.phase !== "read" || storiesOpen) return;
       event.preventDefault();
       onAdvance();
@@ -253,14 +261,14 @@ export function NightMargin() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  function startLongWay(edition: Edition) {
-    if (edition === "private" && !adultConfirmed()) {
+  function startScripted(slot: ScriptSlot) {
+    if (slot === "private" && !adultConfirmed()) {
       setGateOpen(true);
       setStoriesOpen(false);
       return;
     }
-    useLongWay.getState().setEdition(edition);
-    void ensureLongWayScript(edition);
+    useLongWay.getState().setSlot(slot);
+    void ensureLongWayScript(slot);
     useVN.getState().play();
     setStoriesOpen(false);
   }
@@ -273,11 +281,15 @@ export function NightMargin() {
     if (chosen?.optIn && !privateEnabled) return;
     if (useVN.getState().story.id !== id) selectStory(id);
     if (id === LONG_WAY_ID) {
-      startLongWay("public");
+      startScripted("public");
+      return;
+    }
+    if (id === ECHOES_ID) {
+      startScripted("echoes");
       return;
     }
     if (chosen?.optIn) {
-      startLongWay("private");
+      startScripted("private");
       return;
     }
     useVN.getState().play();
@@ -290,7 +302,7 @@ export function NightMargin() {
       mod.confirmAdult();
       setAdultOk(true);
       setGateOpen(false);
-      useLongWay.getState().setEdition("private");
+      useLongWay.getState().setSlot("private");
       void ensureLongWayScript("private");
       useVN.getState().play();
     });
@@ -301,7 +313,7 @@ export function NightMargin() {
     if (message.length < 2 || busy) return;
     const history = useVN.getState().messages;
     const currentStory = useVN.getState().story;
-    const seed = currentStory.id === LONG_WAY_ID || currentStory.optIn ? STARTER : currentStory;
+    const seed = isScriptedStory(currentStory.id) || currentStory.optIn ? STARTER : currentStory;
     setDraft("");
     pushUser(message);
     useVN.getState().setBusy(true);
@@ -461,8 +473,9 @@ export function NightMargin() {
         </>
       )}
 
-      {longRead && (
+      {longRead && scriptedSlot && (
         <LongWayRead
+          slot={scriptedSlot}
           paused={storiesOpen || directorOpen}
           onTitle={toTitle}
           onStories={() => {
@@ -529,8 +542,8 @@ export function NightMargin() {
               <button
                 type="button"
                 onClick={() => {
-                  if (longEdition) {
-                    startLongWay(longEdition);
+                  if (scriptedSlot) {
+                    startScripted(scriptedSlot);
                     return;
                   }
                   play();
@@ -559,14 +572,14 @@ export function NightMargin() {
               <button
                 type="button"
                 onClick={() => {
-                  if (longEdition) {
-                    if (longEdition === "private" && !adultConfirmed()) {
+                  if (scriptedSlot) {
+                    if (scriptedSlot === "private" && !adultConfirmed()) {
                       setGateOpen(true);
                       return;
                     }
-                    useLongWay.getState().setEdition(longEdition);
+                    useLongWay.getState().setSlot(scriptedSlot);
                     useLongWay.getState().restart();
-                    void ensureLongWayScript(longEdition);
+                    void ensureLongWayScript(scriptedSlot);
                     play();
                     return;
                   }

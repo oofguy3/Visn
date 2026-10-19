@@ -1,6 +1,6 @@
 # Visn
 
-Zizzy & Pony, a visual novel you play in the browser. The story list includes the short nights, Until Morning, and The Long Way Round.
+Zizzy & Pony, a visual novel you play in the browser. The story list includes the short nights, Until Morning, The Long Way Round, and Echoes of Regret.
 
 The Long Way Round (18+) is a separate telling. It stays out of the story list and out of the build unless you opt in:
 

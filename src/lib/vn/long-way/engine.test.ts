@@ -517,3 +517,72 @@ describe("The Long Way Round (18+)", () => {
     );
   });
 });
+
+describe("echoes of regret", () => {
+  const echoesPath = fileURLToPath(
+    new URL("../../../../public/vn/echoes/story.json", import.meta.url),
+  );
+
+  function loadEchoes(): Script {
+    return prepareScript(JSON.parse(readFileSync(echoesPath, "utf8")));
+  }
+
+  test("plays from the prologue through the final chapter", () => {
+    const script = loadEchoes();
+    assert.equal(script.title, "Echoes of Regret");
+    assert.equal(script.chapters.length, 52);
+    assert.equal(script.chapters[0]?.title.startsWith("PROLOGUE"), true);
+    const last = script.chapters[script.chapters.length - 1];
+    assert.match(last?.title ?? "", /CHAPTER 45/);
+    assert.equal(script.sceneIndex.has(script.start), true);
+
+    const opened = createRuntime(script);
+    assert.equal(opened.beat.kind, "line");
+    if (opened.beat.kind === "line") {
+      assert.equal(opened.beat.name, "System Message");
+      assert.match(opened.beat.text, /Echoes of Regret/);
+      assert.equal(opened.runtime.bg, "bg_room");
+    }
+
+    const picks = new Proxy({} as Record<string, string>, { get: () => "A" });
+    const { runtime, beat } = autoplay(script, picks);
+    assert.equal(beat.kind, "ending");
+    if (beat.kind === "ending") {
+      assert.equal(beat.id, "echoes");
+      assert.equal(beat.title, "The Door That Stays Open");
+    }
+    assert.equal(runtime.chapter.number, 52);
+    assert.match(runtime.chapter.title, /CHAPTER 45/);
+
+    let words = 0;
+    const prose: string[] = [];
+    for (const chapter of script.chapters) {
+      assert.ok(chapter.scenes.length > 0);
+      for (const scene of chapter.scenes) {
+        assert.equal(script.sceneIndex.has(scene.id), true);
+        for (const step of scene.steps) {
+          if (step.type === "narrate" || step.type === "say") {
+            prose.push(step.text);
+            words += step.text.split(/\s+/).filter(Boolean).length;
+          } else if (step.type === "choice") {
+            assert.ok(step.options.length > 0);
+            for (const option of step.options) {
+              assert.equal(typeof option.goto, "string");
+              assert.equal(script.sceneIndex.has(option.goto ?? ""), true);
+              words += option.label.split(/\s+/).filter(Boolean).length;
+            }
+          } else if (step.type === "jump") {
+            assert.equal(script.sceneIndex.has(step.target), true);
+          } else if (step.type === "bg") {
+            assert.equal(typeof script.assets[step.id], "string");
+          }
+        }
+      }
+    }
+    const joined = prose.join("\n");
+    assert.equal(words, 17545);
+    assert.match(joined, /THE END OF BOOK THREE/);
+    assert.match(joined, /The door in the picture is open anyway/);
+    assert.equal(joined.includes("Author's Note"), false);
+  });
+});

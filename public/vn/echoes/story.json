@@ -1,0 +1,5736 @@
+{
+ "format": "lwr-vn-story",
+ "version": 1,
+ "meta": {
+  "title": "Echoes of Regret",
+  "source": "Piggy_AU_FULL_STORY_COMPLETE.txt (through THE END OF BOOK THREE) plus the fullest chapters 37-45",
+  "sprite_expressions": [
+   "neutral",
+   "smile",
+   "tense"
+  ]
+ },
+ "start": "ch01_s01",
+ "cast": [
+  "extra"
+ ],
+ "meters": [],
+ "flags": [],
+ "derived": {},
+ "endings": [],
+ "assets": {
+  "bg_kitchen": "vn/bg-kitchen.jpg",
+  "bg_table": "vn/bg-table.jpg",
+  "bg_room": "vn/bg-room.jpg",
+  "bg_dock": "vn/bg-dock.jpg",
+  "bg_snow": "vn/bg-snow.jpg",
+  "bg_dawn": "vn/bg-dawn.jpg"
+ },
+ "chapters": [
+  {
+   "id": "ch01",
+   "number": 1,
+   "title": "PROLOGUE: The Potion That Wasn't",
+   "scenes": [
+    {
+     "id": "ch01_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Welcome to *Echoes of Regret*. Your choices will shape the memories that remain. The infection does not erase who people were—it chains them to what they wish they could change."
+      },
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: Dimly lit laboratory in the Lucella General Hospital annex. Glass vials line the shelves, some glowing with an unnatural green, others already turning a sickly red. Rain taps against the high windows. Mr. P, a tired man in a stained lab coat, stands before a bubbling apparatus. His hands shake as he adjusts a dial."
+      },
+      {
+       "type": "narrate",
+       "text": "In the city of Lucella, Evalia, a man named Mr. P sought only to save his wife. The disease that ravaged her body left little time. The potion he created... was meant to heal. It was never meant to remember."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(whispering, almost to the empty air beside him) Just one more adjustment. For her. Only for her. If it works, she can come home. If it works, I can stop saying \"I'm sorry\" to an empty bed."
+      },
+      {
+       "type": "narrate",
+       "text": "He pours a measured amount of the substance into a final vial. It bubbles violently, then settles into a deep, unnatural red. The liquid seems to pulse, as if it has a heartbeat."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mrs. P (distant memory, voiceover)",
+       "text": "Don't stay so late again, love. The house is too quiet without you."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(closing his eyes) I know. I'm sorry. I'm always sorry."
+      },
+      {
+       "type": "narrate",
+       "text": "But perfection is a lie. What was meant to cure the body became the seed of an outbreak that would consume everything—bodies, minds, and the very regrets that define us. The potion did not erase pain. It amplified it. It forced the infected to live inside their worst \"what if\" until nothing else remained."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The outbreak begins not with a scream, but with a whisper of regret. Your story starts three days later."
+      },
+      {
+       "type": "jump",
+       "target": "ch02_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch02",
+   "number": 2,
+   "title": "CHAPTER 1: THE HOUSE",
+   "scenes": [
+    {
+     "id": "ch02_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Rainy night outside the Piggy Residence. Streetlights flicker. The Player, a young police officer, steps out of a patrol car. Flashlight in hand, rain dripping from the brim of their hat. The house is dark except for a single light upstairs."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(internal monologue) Georgie Piggy. Eight years old. Missing for three days. Parents say he wandered off after an argument. But the call came from a neighbor who heard screaming. The house feels... wrong. Too quiet."
+      },
+      {
+       "type": "narrate",
+       "text": "You approach the door. It creaks open before you touch it, as if the house itself is inviting you in—or warning you away."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Sound",
+       "text": "A low, wet snort from deep inside. Then the faint sound of a child's music box playing \"Twinkle Twinkle.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Hello? Police. I'm here about Georgie. If anyone's inside, respond."
+      },
+      {
+       "type": "narrate",
+       "text": "You step inside. The living room is chaotic—furniture overturned, family photos smashed on the floor, glass glittering in the flashlight beam. A baseball bat lies near the stairs, smeared with something dark. Upstairs, a light flickers."
+      },
+      {
+       "type": "choice",
+       "id": "ch02_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Investigate the kitchen for signs of struggle",
+         "goto": "ch02_s02"
+        },
+        {
+         "key": "B",
+         "label": "Head upstairs immediately toward the light",
+         "goto": "ch02_s02"
+        },
+        {
+         "key": "C",
+         "label": "Call for backup before entering further",
+         "goto": "ch02_s02"
+        },
+        {
+         "key": "D",
+         "label": "Search the living room for Georgie's belongings",
+         "goto": "ch02_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch02_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Investigate carefully, then head upstairs."
+      },
+      {
+       "type": "narrate",
+       "text": "You move toward the stairs. Halfway up, something lunges from the shadows."
+      },
+      {
+       "type": "narrate",
+       "text": "Penny Piggy, infected, swings a baseball bat with terrifying strength. Her eyes glow crimson. Her mouth is open in a snarl, but beneath it, her voice cracks with something else."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny (infected, distorted)",
+       "text": "Georgie... I shouldn't have yelled... I should have held his hand..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(dodging) Penny! Stop! I'm police—I'm here to help!"
+      },
+      {
+       "type": "narrate",
+       "text": "The bat grazes your shoulder. You tumble down the last few steps. Darkness rushes in."
+      },
+      {
+       "type": "narrate",
+       "text": "[Fade to black]"
+      },
+      {
+       "type": "narrate",
+       "text": "You awaken in a bedroom. The door is locked from outside. A note is pinned to the wall with a child's safety pin."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Note",
+       "text": "\"They're not gone. They're just... remembering differently. Don't let them make you remember too.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(groaning, sitting up) What... happened? My head..."
+      },
+      {
+       "type": "narrate",
+       "text": "Outside the door, heavy footsteps. Then silence. Then a whisper."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny (through the door, almost clear)",
+       "text": "Georgie... where are you? I'm sorry I got angry. Please come out."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(quietly) She's still in there. Somewhere."
+      },
+      {
+       "type": "narrate",
+       "text": "You find a key under the bed, next to a half-finished drawing of a family. You unlock the door carefully. Escaping the house takes every ounce of focus. The infected Penny patrols the hallway, but fragments of her voice echo—not only snarls, but whispers of a sister's name and a promise she broke."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(escaping through a side window, rain soaking through) I have to get to the station. Warn them. This isn't just a missing child. This is something else. Something that remembers."
+      },
+      {
+       "type": "narrate",
+       "text": "As you run into the night, the house behind you is silent again—except for the music box, still playing for a brother who is no longer there."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 1"
+      },
+      {
+       "type": "jump",
+       "target": "ch03_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch03",
+   "number": 3,
+   "title": "CHAPTER 2: STATION",
+   "scenes": [
+    {
+     "id": "ch03_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Police Station. Fluorescent lights buzz. Officer Doggy stands behind the desk, radio crackling with static. Rain drips from the Player's coat onto the floor."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Player! You made it. Where's the kid? Dispatch said the house was a mess."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The house is compromised. Georgie's family... they're infected. Something's turning people. I saw Penny. She wasn't... herself. But she kept saying his name. She was sorry."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(ears twitching, radio static growing louder) Infected? Like the reports from the outskirts? Mr. P's been handing out \"medicine\" door to door. Said it would help the sick. Free of charge. Too good to be true, but people were desperate."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Medicine that turns people into monsters who can still talk about what they regret?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "We need supplies. Gas for the car. Then we head out, find answers. And find Georgie if he's still alive. I've got a bad feeling about this."
+      },
+      {
+       "type": "narrate",
+       "text": "You search the station. Infected begin to appear outside—neighbors, former officers, a delivery driver still holding a clipboard. Doggy grabs his baton, eyes hard."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Stick close. We clear the armory, then the garage. If any of them are still talking, don't listen too long. It gets in your head."
+      },
+      {
+       "type": "choice",
+       "id": "ch03_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Prioritize finding fuel and leave immediately",
+         "goto": "ch03_s02"
+        },
+        {
+         "key": "B",
+         "label": "Search for any survivors or uninfected officers first",
+         "goto": "ch03_s02"
+        },
+        {
+         "key": "C",
+         "label": "Barricade the doors and wait for more information",
+         "goto": "ch03_s02"
+        },
+        {
+         "key": "D",
+         "label": "Check the radio logs for Mr. P's distribution routes",
+         "goto": "ch03_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch03_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Speed, but with caution."
+      },
+      {
+       "type": "narrate",
+       "text": "In the garage, Doggy sips from a canteen left with the supply drop. His eyes flash red for a moment. He freezes."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(coughing, gripping the counter) Tastes... off. The supply drop from Mr. P... he said it was just electrolyte water for the officers on long shifts."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Doggy? Don't drink that! Spit it out!"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Too late. We move. Now. Before I can't."
+      },
+      {
+       "type": "narrate",
+       "text": "You escape in the patrol car as the station falls. Infected officers smash against the garage door as you reverse out. Doggy drives, but his grip is unsteady. Rain streaks the windshield."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "If I turn... don't hesitate. Promise me. I've got a partner waiting at home. I told her I'd be back by midnight. I always tell her that."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You're not turning. Not if I can help it. We'll find a way to stop this."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(voice already strained) Just... keep driving. And if you see my badge later... give it to her. Tell her I tried."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 2"
+      },
+      {
+       "type": "jump",
+       "target": "ch04_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch04",
+   "number": 4,
+   "title": "CHAPTER 3: GALLERY",
+   "scenes": [
+    {
+     "id": "ch04_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dawn"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Abandoned art gallery on the edge of the city. Paintings of peaceful family life hang crooked, some slashed. The patrol car sputters and dies in the parking lot. Dawn is still hours away."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Out of gas. We'll have to go on foot. The gallery was supposed to be a temporary shelter for the early cases. Looks like it didn't hold."
+      },
+      {
+       "type": "narrate",
+       "text": "Inside, infected artists and visitors roam the halls. Some stand still, staring at their own paintings as if trying to remember why they made them. A cipher on a whiteboard reads: \"We remember who we were. It hurts more.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(reading) They keep their memories? The infection doesn't wipe them clean?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(voice strained, one hand pressed to his temple) Makes it worse. I can still hear my partner's voice. She's asking when I'm coming home. I should have called her."
+      },
+      {
+       "type": "narrate",
+       "text": "You solve puzzles to open exits—aligning paintings that form a family portrait when correct, finding keys hidden in frames. Each correct alignment causes an infected nearby to pause, as if the completed image eases something."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Player... my head. It's splitting. The regret... I left someone behind once. Years ago. A kid in a flood. I told myself I couldn't reach him. Is this punishment? Is that what this is?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Stay with me. We're getting out. You're not alone in this."
+      },
+      {
+       "type": "narrate",
+       "text": "You reach the forest edge as Doggy collapses briefly, then rises with glowing eyes—but still speaking, still fighting."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "Go. Find the truth. Find the kid. I'll... hold them. Just this once, I won't leave anyone behind."
+      },
+      {
+       "type": "narrate",
+       "text": "For a moment, he fights the infection through sheer will and the weight of every promise he ever made. Then he turns, buying you time as the infected close in."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(running into the trees) I'll come back for you. I swear. I'll come back."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 3"
+      },
+      {
+       "type": "jump",
+       "target": "ch05_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch05",
+   "number": 5,
+   "title": "CHAPTER 4: FOREST",
+   "scenes": [
+    {
+     "id": "ch05_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dawn"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Dense forest at dawn. Mist clings to the trees. The Player stumbles through undergrowth, flashlight beam cutting through fog. Distant growls echo, but some of them sound like words."
+      },
+      {
+       "type": "narrate",
+       "text": "The forest remembers every footstep that never returned. Every promise broken under these boughs. Every child who was told \"stay close\" and didn't."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(breathing hard) Doggy... I left him. He asked me not to hesitate. But I ran. Just like everyone else runs from their regrets."
+      },
+      {
+       "type": "narrate",
+       "text": "You find a clearing. A small campsite—abandoned backpacks, a half-eaten sandwich, a child's shoe. A radio crackles."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Radio",
+       "text": "—anyone still out there? The infection's spreading from the city. If you hear this, head to the old school. Survivors are regrouping. Avoid the main roads. Avoid anyone who starts apologizing for things that already happened. Over—"
+      },
+      {
+       "type": "narrate",
+       "text": "Static cuts it off."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "School. Georgie might have gone that way. Kids love the woods... or fear them. Either way, he would have looked for somewhere familiar."
+      },
+      {
+       "type": "narrate",
+       "text": "Infected deer-like figures (Bunny variants) patrol between trees. Their eyes glow, but one pauses, staring at a photo dropped on the ground—a picture of a family picnic. It reaches down, almost gently."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Bunny (whisper)",
+       "text": "Why did I leave...? I was only gone for a minute..."
+      },
+      {
+       "type": "narrate",
+       "text": "Even the animals carry fragments. Regret doesn't discriminate."
+      },
+      {
+       "type": "choice",
+       "id": "ch05_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Approach the whispering infected carefully",
+         "goto": "ch05_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sneak past toward the radio tower for better signal",
+         "goto": "ch05_s02"
+        },
+        {
+         "key": "C",
+         "label": "Search the campsite for supplies and the map first",
+         "goto": "ch05_s02"
+        },
+        {
+         "key": "D",
+         "label": "Call out to see if any uninfected are nearby",
+         "goto": "ch05_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch05_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Search campsite, then sneak."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(whispering) If they remember, maybe some can be saved. But not now. Not alone."
+      },
+      {
+       "type": "narrate",
+       "text": "You grab a map from the backpack. It marks the Lucella School, with a note in a child's handwriting: \"Georgie was here. Scared of the dark. Left a teddy. Going to the school because Penny said the lights stay on.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He's alive. Or was. I have to keep going."
+      },
+      {
+       "type": "narrate",
+       "text": "As you move, an infected lunges. You fight it off with a branch, but its last words haunt you as it falls."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected",
+       "text": "I should have stayed... with her... I should have stayed..."
+      },
+      {
+       "type": "narrate",
+       "text": "Every infection is a story unfinished. Every regret a door that won't close."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(running toward the school path) I'm coming, Georgie. And I'm coming back for you too, Doggy. I won't make the same mistake twice."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 4"
+      },
+      {
+       "type": "jump",
+       "target": "ch06_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch06",
+   "number": 6,
+   "title": "CHAPTER 5: SCHOOL",
+   "scenes": [
+    {
+     "id": "ch06_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dawn"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Elementary School. Hallways lined with faded drawings of families. Lockers hang open. The sound of a child's music box plays from somewhere deep inside the building. Morning light filters through broken windows."
+      },
+      {
+       "type": "narrate",
+       "text": "Schools hold the purest regrets—the friends we outgrew, the words we never said, the futures we abandoned before they began. The infection loves this place."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Georgie... if you're here, I'm a friend. Not one of them. I'm here to take you somewhere safe."
+      },
+      {
+       "type": "narrate",
+       "text": "You enter the cafeteria. Tables overturned. An infected teacher paces, holding a report card covered in red marks."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Teacher",
+       "text": "(muttering) Should have listened... should have protected them... I told them it was just a cold..."
+      },
+      {
+       "type": "narrate",
+       "text": "On a bulletin board: Missing posters. Georgie's is circled in red crayon. Next to it, a child's drawing of a smiling pig family. Underneath, a note."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(reading) \"If anyone finds Georgie, tell him Mommy and Daddy are sorry. We didn't mean to scare him. We just wanted him to be careful.\""
+      },
+      {
+       "type": "narrate",
+       "text": "The parents' regret reached him before the infection did."
+      },
+      {
+       "type": "narrate",
+       "text": "You hear a small voice from a classroom at the end of the hall."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie (distant)",
+       "text": "Penny? Is that you? I don't want to play this game anymore... I'm sorry I ran. Please come back."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Georgie! It's the police. I'm here to help! You're not in trouble!"
+      },
+      {
+       "type": "narrate",
+       "text": "You rush in. Georgie is hiding under a desk, clutching a teddy bear. His eyes are normal—for now. But his arm has a faint red rash, and he flinches at every sound."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(scared) The monsters... they look like my family. But they say mean things. About how they regret having me. About how I made everything harder."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(kneeling) That's the infection talking. They love you. We're going to fix this. Together."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Mr. P said the medicine would make everyone better. He gave some to Penny. Then she... changed. She started saying sorry all the time. Even when nothing was wrong."
+      },
+      {
+       "type": "choice",
+       "id": "ch06_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Reassure Georgie and escape immediately",
+         "goto": "ch06_s02"
+        },
+        {
+         "key": "B",
+         "label": "Search the principal's office for more info on Mr. P",
+         "goto": "ch06_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask Georgie what else he remembers about the day he left",
+         "goto": "ch06_s02"
+        },
+        {
+         "key": "D",
+         "label": "Check the nurse's office for any uninfected staff or medical supplies",
+         "goto": "ch06_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch06_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Reassure, gather info, and move."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Stay close. We're getting out of here. Tell me everything you remember while we walk."
+      },
+      {
+       "type": "narrate",
+       "text": "As you exit, an infected student blocks the way, whispering about a forgotten birthday party."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Student",
+       "text": "You never came... I waited..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(clinging to you) Make them stop remembering the bad things. Please."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "I will. Or I'll stop the one who started this. Mr. P is going to answer for what he did."
+      },
+      {
+       "type": "narrate",
+       "text": "In the school, innocence meets its first real regret—and chooses to keep moving anyway."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 5"
+      },
+      {
+       "type": "jump",
+       "target": "ch07_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch07",
+   "number": 7,
+   "title": "CHAPTER 6: HOSPITAL",
+   "scenes": [
+    {
+     "id": "ch07_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella General Hospital. The place where it began. Lights flicker over empty beds. IV bags hang like vines. A familiar lab coat is draped over a chair in the lobby. Georgie holds the Player's hand tightly."
+      },
+      {
+       "type": "narrate",
+       "text": "Hospitals are temples of regret. Every \"if only\" is written in the charts. Every unfinished goodbye lives in the waiting rooms."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(with Georgie) This is where Mr. P worked. Where he tried to save his wife. Where he decided the rest of the city could live with the cost."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(quiet) Penny said Mrs. P was nice. She gave me candy once. She said sorry a lot too. Even before she got sick."
+      },
+      {
+       "type": "narrate",
+       "text": "You find Mr. P's office. Notes everywhere. One journal entry stands out, written in increasingly shaky handwriting:"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Journal",
+       "text": "\"The potion works on the body. But the mind... the mind remembers what it lost. My wife... she whispered my name even as her eyes changed. She kept saying she was sorry she got sick. Sorry she made me work so hard. I couldn't bear it. I kept going. I had to. If I can perfect the formula, maybe I can make the memories kind again. Maybe I can give her back the years we lost.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He knew. He knew it kept their memories—and their regrets—and he kept distributing it. He thought he could fix the side effect later."
+      },
+      {
+       "type": "narrate",
+       "text": "An infected nurse approaches, holding a baby rattle. She stops when she sees Georgie."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Nurse",
+       "text": "I should have been there... for my daughter... I told her I'd come after my shift..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(hiding behind you) They all sound so sad."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The infection doesn't erase who they were. It amplifies what they wish they could change. It turns every \"I should have\" into a chain."
+      },
+      {
+       "type": "narrate",
+       "text": "You find a sample of the original potion—red, glowing faintly. And a recording left on the desk."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mrs. P (recording)",
+       "text": "My love... if this works, we can be together. If it doesn't... don't blame yourself. Live. For both of us. Don't spend the rest of your life saying sorry to a ghost."
+      },
+      {
+       "type": "narrate",
+       "text": "The greatest regret in the city belongs to the man who started it all. And he is still trying to outrun it."
+      },
+      {
+       "type": "choice",
+       "id": "ch07_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Take the potion sample for study",
+         "goto": "ch07_s02"
+        },
+        {
+         "key": "B",
+         "label": "Destroy the remaining samples",
+         "goto": "ch07_s02"
+        },
+        {
+         "key": "C",
+         "label": "Look for a way to reverse the memory effect in the research notes",
+         "goto": "ch07_s02"
+        },
+        {
+         "key": "D",
+         "label": "Play the recording for Georgie so he understands",
+         "goto": "ch07_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch07_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Take the sample and the recording. Vow to find a cure that addresses the regret, not just the body."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "We're not just fighting monsters. We're fighting the weight of every unfinished goodbye."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Can we make them forget the sad parts? Or... remember the good ones more?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(smiling faintly) That's the plan, kid. Now let's move. The city is calling. And Mr. P is somewhere in it."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 6"
+      },
+      {
+       "type": "jump",
+       "target": "ch08_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch08",
+   "number": 8,
+   "title": "CHAPTER 7: METRO",
+   "scenes": [
+    {
+     "id": "ch08_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Underground metro station. Trains sit silent on the tracks. Flickering signs advertise \"Escape the City—Start Fresh!\" Posters are torn. The air is cold and still."
+      },
+      {
+       "type": "narrate",
+       "text": "The metro was meant to carry people toward new beginnings. Now it only echoes the ones they left behind. Every delayed train is a life that never arrived."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(holding Georgie's hand) Stay between the lights. If we get separated, go to the surface exit and wait. Don't go looking for me."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Okay. I won't run this time. I promise."
+      },
+      {
+       "type": "narrate",
+       "text": "Infected commuters wander the platforms, some still holding briefcases, muttering about missed meetings, forgotten anniversaries, children they didn't pick up from school."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Commuter",
+       "text": "I said I'd be home by six... I said I'd call..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Every one of them had somewhere else to be. And now they're stuck here, saying sorry to no one."
+      },
+      {
+       "type": "narrate",
+       "text": "You find a control room. A map shows the infection spreading fastest along the train lines—Mr. P used the metro to distribute \"medicine\" to the outer districts. Delivery schedules are marked in red."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He didn't just create it. He delivered it. Door to door. Station to station. He made sure no one was left out."
+      },
+      {
+       "type": "narrate",
+       "text": "A train suddenly activates, doors opening. Inside, an infected conductor grips the controls."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Conductor",
+       "text": "All aboard... to the life you should have lived... the one you were supposed to have..."
+      },
+      {
+       "type": "choice",
+       "id": "ch08_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Board the train to reach the city center faster",
+         "goto": "ch08_s02"
+        },
+        {
+         "key": "B",
+         "label": "Disable the train and walk the tracks",
+         "goto": "ch08_s02"
+        },
+        {
+         "key": "C",
+         "label": "Use the PA system to try reasoning with the infected",
+         "goto": "ch08_s02"
+        },
+        {
+         "key": "D",
+         "label": "Search the conductor's cabin for more distribution records",
+         "goto": "ch08_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch08_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Disable and proceed carefully, gathering more of Georgie's trust."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Player... do you have regrets?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(after a pause) Yeah. Leaving Doggy. Not getting to your house sooner. Promising people I'd come back when I don't know if I can. And now... promising you I'll get you home when I'm not sure what home looks like anymore."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Then don't make new ones. Stay with me. And when we find Penny, don't let her say sorry anymore. Just let her be my sister."
+      },
+      {
+       "type": "narrate",
+       "text": "In the dark tunnels, a small voice becomes the anchor against the tide of collective regret."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 7"
+      },
+      {
+       "type": "jump",
+       "target": "ch09_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch09",
+   "number": 9,
+   "title": "CHAPTER 8: CARNIVAL",
+   "scenes": [
+    {
+     "id": "ch09_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Abandoned carnival grounds. Lights still spin on the Ferris wheel, casting rainbows over empty stalls. The smell of stale popcorn mixes with something metallic. Georgie stops walking when he sees the prize booths."
+      },
+      {
+       "type": "narrate",
+       "text": "Carnivals sell the illusion of perfect moments. The infection sells the memory of every moment that wasn't. Both promise you can go back."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Georgie, have you been here before?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(nodding) With Penny. She won me the big bear. Then we got lost on the way home. She was so mad at herself. She kept saying she should have held my hand tighter."
+      },
+      {
+       "type": "narrate",
+       "text": "An infected carnival worker operates a game booth, throwing balls at targets that never fall. Each miss makes him whisper louder."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Worker",
+       "text": "Almost... if I'd just aimed better... if I'd just been better... if I'd just stayed..."
+      },
+      {
+       "type": "narrate",
+       "text": "You find Penny's prize—the teddy bear, slightly torn, left on a bench. A note in Georgie's handwriting is pinned to it: \"For Penny. So she doesn't feel bad anymore. I love you.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(tearing up) I wanted her to stop saying sorry. Now she can't stop. It's all she does."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "We're going to find a way to quiet the regrets. For her. For everyone. You're not alone in this."
+      },
+      {
+       "type": "narrate",
+       "text": "The Ferris wheel starts moving on its own. At the top, a figure stands—looking out over the city as if searching for someone who isn't there."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Figure (distant echo)",
+       "text": "I should have stayed on the ground... with them... I should have said no to the late shift..."
+      },
+      {
+       "type": "choice",
+       "id": "ch09_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Climb the Ferris wheel for a better view of the city and Mr. P's possible location",
+         "goto": "ch09_s02"
+        },
+        {
+         "key": "B",
+         "label": "Search the prize booths for useful items and more of Georgie's notes",
+         "goto": "ch09_s02"
+        },
+        {
+         "key": "C",
+         "label": "Follow the sound of music toward the main tent",
+         "goto": "ch09_s02"
+        },
+        {
+         "key": "D",
+         "label": "Ask Georgie to tell you more about the day he and Penny got lost",
+         "goto": "ch09_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch09_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Search booths, find a clue about Mr. P's next location—the Plant."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Mr. P is heading to the old chemical plant. That's where he made the first batches. If we get there, we can stop the source. We can stop the whispers."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Will that bring Penny back? Really back?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "I don't know. But it's the only chance we have. And I won't leave you behind to find out."
+      },
+      {
+       "type": "narrate",
+       "text": "Under the carnival lights, hope and regret dance in the same circle."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 8"
+      },
+      {
+       "type": "jump",
+       "target": "ch10_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch10",
+   "number": 10,
+   "title": "CHAPTER 9: CITY",
+   "scenes": [
+    {
+     "id": "ch10_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella City streets. Cars abandoned mid-traffic. Billboards for Mr. P's \"Miracle Cure\" still stand, now torn and dripping with rain. Sirens wail in the distance but never arrive."
+      },
+      {
+       "type": "narrate",
+       "text": "The city was built on ambition. Now it stands as a monument to every dream deferred. Every street is a path someone meant to take and didn't."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(navigating with Georgie) Stick to the alleys. The main roads are swarming. If anyone starts talking about what they should have done, keep walking."
+      },
+      {
+       "type": "narrate",
+       "text": "Groups of infected move in patterns that almost resemble their old routines—commuting, shopping, waiting for buses that will never come."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Citizen",
+       "text": "I was going to propose today... the ring is still in my pocket..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Another",
+       "text": "My daughter's recital... I missed it again... I always miss it..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(quiet) They sound like my parents. Before they got sick. Always saying they were sorry for working late."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The infection didn't create the regret. It just made it impossible to ignore. Mr. P thought he could control that. He was wrong."
+      },
+      {
+       "type": "narrate",
+       "text": "You pass a pharmacy where Mr. P's distribution vans are parked, doors open, empty crates scattered. A map inside one van shows the final delivery point: the chemical plant on the edge of the industrial district."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He's not trying to cure them anymore. He's trying to erase the regrets. Or drown in them. Either way, we have to reach the Plant before he finishes whatever he's building."
+      },
+      {
+       "type": "choice",
+       "id": "ch10_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Search the vans for more samples or notes",
+         "goto": "ch10_s02"
+        },
+        {
+         "key": "B",
+         "label": "Move quickly through the city toward the industrial district",
+         "goto": "ch10_s02"
+        },
+        {
+         "key": "C",
+         "label": "Try to help a small group of infected who seem less aggressive",
+         "goto": "ch10_s02"
+        },
+        {
+         "key": "D",
+         "label": "Leave a message for other survivors using the pharmacy's radio",
+         "goto": "ch10_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch10_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Gather what you can and keep moving."
+      },
+      {
+       "type": "narrate",
+       "text": "Above the city of unfinished lives, two figures walk toward the source of every echo."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 9"
+      },
+      {
+       "type": "jump",
+       "target": "ch11_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch11",
+   "number": 11,
+   "title": "CHAPTER 10: MALL",
+   "scenes": [
+    {
+     "id": "ch11_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Shopping Mall. Escalators frozen. Mannequins stand in shop windows, some now infected and twitching. The food court is a battlefield of overturned tables. Georgie recognizes a store."
+      },
+      {
+       "type": "narrate",
+       "text": "Malls promise everything you could want. The infection reminds you of everything you already lost. Both are full of things people meant to buy and never did."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Penny and I came here for bracelets once. Matching ones. She said if we got lost, we could find each other by the color."
+      },
+      {
+       "type": "narrate",
+       "text": "You find the jewelry store. Most of the cases are smashed, but one display remains intact—two simple bracelets, one red, one blue. A note is taped to the glass in Mr. P's handwriting: \"For those who want to remember only the good years. Final batch.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He's still distributing. Even now."
+      },
+      {
+       "type": "narrate",
+       "text": "An infected shopper stands in front of a mannequin, adjusting its scarf over and over."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Shopper",
+       "text": "I should have bought it for her... she asked so many times..."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(putting on the blue bracelet) When we find Penny, I'll give her the red one. So she knows I don't regret being her brother. So she can stop saying sorry."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "That's the best cure I've heard all day."
+      },
+      {
+       "type": "choice",
+       "id": "ch11_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Take the bracelets and essential supplies",
+         "goto": "ch11_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sabotage the mall's power to slow any pursuit",
+         "goto": "ch11_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave a message for other survivors",
+         "goto": "ch11_s02"
+        },
+        {
+         "key": "D",
+         "label": "Search the security office for camera footage of Mr. P",
+         "goto": "ch11_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch11_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Take supplies and bracelets, then exit toward the Plant."
+      },
+      {
+       "type": "narrate",
+       "text": "In the temple of want, a small act of remembrance becomes resistance."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 10"
+      },
+      {
+       "type": "jump",
+       "target": "ch12_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch12",
+   "number": 12,
+   "title": "CHAPTER 11: OUTPOST",
+   "scenes": [
+    {
+     "id": "ch12_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Military outpost on the edge of the city. Barricades of sandbags and vehicles. A few uninfected soldiers remain, exhausted. Radios buzz with desperate calls. Georgie stays close to the Player."
+      },
+      {
+       "type": "narrate",
+       "text": "Even soldiers carry regrets—orders followed, lives not saved, families left behind. The infection has reached them too."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Soldier",
+       "text": "You made it through the city? With a kid? Impressive. Or stupid. Either way, you're here."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "We're heading to the Plant. Mr. P is there. He's the source. He created the potion and he won't stop."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Soldier",
+       "text": "We know. We've been trying to contain it. But every time we \"neutralize\" one, they whisper something that makes the next shot harder. \"I was going to call my mom.\" \"I never told her I loved her.\" \"I should have come home.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(quietly) They remember too. Just like Penny."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Soldier",
+       "text": "Yeah. Command wants us to burn the Plant. But if there's a real cure in there... we need it. Half my unit is already turning. They're locking themselves in cells so they don't hurt anyone. They're still saying sorry through the doors."
+      },
+      {
+       "type": "narrate",
+       "text": "You meet a scientist who escaped the Plant earlier. Her hands shake as she speaks."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Scientist",
+       "text": "Mr. P's latest formula doesn't just infect. It forces the host to relive their deepest regret on loop. He thinks if he can perfect it, he can make his wife \"remember\" only their happy years. But it's destroying him. He's talking to her constantly now. Even when she's not there."
+      },
+      {
+       "type": "choice",
+       "id": "ch12_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Request military escort to the Plant",
+         "goto": "ch12_s02"
+        },
+        {
+         "key": "B",
+         "label": "Take whatever anti-infection gear they have and go alone with Georgie",
+         "goto": "ch12_s02"
+        },
+        {
+         "key": "C",
+         "label": "Help secure the outpost first",
+         "goto": "ch12_s02"
+        },
+        {
+         "key": "D",
+         "label": "Ask the scientist for any notes on a possible neutralizer",
+         "goto": "ch12_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch12_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Take gear—gas masks, a sample of potential neutralizer—and proceed with Georgie."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "If I don't come back, get this kid to safety. His name is Georgie. His sister is Penny. They both deserve better than this. Tell them I tried."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Soldier",
+       "text": "We'll try. Good luck. And... if you see any of my people in there... tell them it's not their fault. Tell them they can stop saying sorry."
+      },
+      {
+       "type": "narrate",
+       "text": "At the edge of order, one more promise is made against the tide of regret."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 11"
+      },
+      {
+       "type": "jump",
+       "target": "ch13_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch13",
+   "number": 13,
+   "title": "CHAPTER 12: PLANT",
+   "scenes": [
+    {
+     "id": "ch13_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The chemical plant. Vats of red liquid bubble. Pipes hiss. Mr. P stands at the central console, lab coat stained, talking to an empty space beside him. Georgie and the Player step into the light."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(softly) You always hated the smell of the lab. I should have worked from home. I should have been there when the pain started. I'm sorry. I'm so sorry. I can fix it. I just need a little more time."
+      },
+      {
+       "type": "narrate",
+       "text": "Here, at the heart of the outbreak, the first regret still speaks. And it has never stopped."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(stepping forward, Georgie behind) Mr. P. It's over. Stop the production. The potion doesn't save anyone. It chains them."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(turning, eyes flickering between normal and crimson) Player. You don't understand. I can fix it. I can make the memories kind again. My wife... she doesn't have to suffer the \"what ifs\" anymore. None of them do. If I can just adjust the formula one more time—"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "But they can't stop saying sorry! Penny keeps saying she's sorry she got lost! I don't want her to be sorry. I want her to be my sister! I want her to come home!"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(looking at Georgie, recognition dawning) You're the boy. From the house. Your sister... she was one of the first after my wife. She fought it. Kept saying your name. Even when she couldn't see you anymore."
+      },
+      {
+       "type": "narrate",
+       "text": "Infected workers begin to close in, but slowly, as if reluctant. Some of them stop when they hear Georgie's voice."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The potion doesn't erase regret. It chains people to it. You're not saving anyone. You're trapping them in the worst moment of their lives. Your wife didn't want this. She told you to live."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(voice cracking) Then what do I do? Let her go? Let all of them go? I can't. I won't regret not trying. I won't be the man who gave up."
+      },
+      {
+       "type": "choice",
+       "id": "ch13_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Destroy the main vat",
+         "goto": "ch13_s02"
+        },
+        {
+         "key": "B",
+         "label": "Try to reason and offer the neutralizer sample",
+         "goto": "ch13_s02"
+        },
+        {
+         "key": "C",
+         "label": "Confront him with Mrs. P's recording",
+         "goto": "ch13_s02"
+        },
+        {
+         "key": "D",
+         "label": "Let Georgie speak to him",
+         "goto": "ch13_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch13_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Play the recording and offer a different path."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(playing the recording) Listen. She already told you what she wanted."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mrs. P (recording)",
+       "text": "...don't blame yourself. Live. For both of us. Don't spend the rest of your life saying sorry to a ghost."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(falling to his knees) She... she said that? She really said that?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "She didn't want this. None of them do. Help me shut it down. Help me find a way to let them rest—or remember without the chains. You can still choose something else."
+      },
+      {
+       "type": "narrate",
+       "text": "Mr. P stares at the console for a long moment. Then, with shaking hands, he begins the shutdown sequence. The red glow in the vats begins to fade."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(whispering) I'm sorry. To all of you. And to you, my love. I'll try to live. I'll try."
+      },
+      {
+       "type": "narrate",
+       "text": "The vats power down. Across the city, the infected pause. Some collapse. Some simply... stop whispering. For the first time in weeks, the air is quiet."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(running to a nearby figure) Penny?"
+      },
+      {
+       "type": "narrate",
+       "text": "Penny stands there, eyes clearing, though tears remain. She looks at Georgie, then at the bracelet in his hand."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(hoarse) Georgie...? I... I was so scared I lost you. I'm sorry. I'm so—"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(hugging her, holding out the bracelet) Don't be sorry. Just be here. I don't regret you. I never did."
+      },
+      {
+       "type": "narrate",
+       "text": "Not every regret vanishes. But some can be answered. Some can be met with something stronger than an apology."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 12"
+      },
+      {
+       "type": "jump",
+       "target": "ch14_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch14",
+   "number": 14,
+   "title": "EPILOGUE: ECHOES THAT REMAIN",
+   "scenes": [
+    {
+     "id": "ch14_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dawn"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Weeks later. The Piggy Residence, cleaned but still scarred. Morning light through repaired windows. Georgie and Penny sit on the porch. The Player stands nearby, Doggy's old badge in hand. The city is quieter now."
+      },
+      {
+       "type": "narrate",
+       "text": "The outbreak ended, but the echoes did not. Some infected recovered enough to speak their regrets aloud and then let them go. Others remained changed, carrying quieter versions of who they were. The city began to rebuild—not by forgetting, but by choosing what to carry forward."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(looking at her bracelet) I still hear it sometimes. The \"what if I had held his hand tighter.\" But then I look at him, and it's quieter. He won't let me say sorry for being his sister."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Player comes by every week. Says the station is open again. Doggy... he didn't make it all the way back. But he left a note. \"Don't hesitate to live.\" We put it on the wall."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(joining them) Mr. P is helping the scientists. He's not the same. None of us are. But he's trying to make something that eases the memories instead of sharpening them. He listens to the recording every morning."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Will it work?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "I don't know. But for the first time, the question isn't only about what we regret. It's about what we do next. And who we choose to stay with while we figure it out."
+      },
+      {
+       "type": "narrate",
+       "text": "A breeze moves through the trees. Somewhere in the distance, a Ferris wheel turns slowly, lights off, waiting for someone to climb it again."
+      },
+      {
+       "type": "narrate",
+       "text": "In Lucella, the regrets remain—as they always will. But they no longer rule. They are simply part of the story. And stories, unlike potions, can be rewritten by the ones who keep living them."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Thank you for playing *Echoes of Regret*. Your choices shaped the memories that remain. The story continues in every life that chooses to answer its echoes instead of being defined by them."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END"
+      },
+      {
+       "type": "jump",
+       "target": "ch15_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch15",
+   "number": 15,
+   "title": "EXTENDED INTERLUDE: THE WEIGHT OF MEMORY",
+   "scenes": [
+    {
+     "id": "ch15_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Between the chapters, time bends. The infection does not only infect the body; it infects the timeline of regret. The Player finds themselves in a place that is neither past nor present—a corridor of locked doors, each one labeled with a name and a date."
+      },
+      {
+       "type": "narrate",
+       "text": "Every choice leaves an echo. Every path not taken becomes a room the infected cannot leave. Here, in the space between the House and the Plant, the weight of every \"what if\" gathers like fog."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "You have entered the Memory Corridor. Some doors open to scenes that never happened. Some open to scenes that still could."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(touching a door labeled \"Doggy - Midnight\") What is this place?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Voice (unseen, familiar)",
+       "text": "The place where regrets go when they are too heavy to carry alone. Open a door. Or walk past them all. The story continues either way."
+      },
+      {
+       "type": "choice",
+       "id": "ch15_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Open the door marked Doggy",
+         "goto": "ch15_s02"
+        },
+        {
+         "key": "B",
+         "label": "Open the door marked Mrs. P",
+         "goto": "ch15_s02"
+        },
+        {
+         "key": "C",
+         "label": "Open the door marked Georgie and Penny",
+         "goto": "ch15_s02"
+        },
+        {
+         "key": "D",
+         "label": "Walk the full length of the corridor without opening anything",
+         "goto": "ch15_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch15_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path continues below. All paths reconverge."
+      },
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "Door: Doggy"
+      },
+      {
+       "type": "narrate",
+       "text": "The door opens onto a quiet apartment at midnight. A woman sits on a couch, phone in hand, waiting. The clock reads 12:07. A key turns in the lock. Doggy steps inside, still in uniform, badge gleaming. He is not infected. This is the night that did not happen."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(smiling, tired) Told you I'd be back by midnight. Traffic was nothing. The station was quiet for once."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Partner",
+       "text": "(standing, relief in every line of her body) You always say that. One day you're going to be late and I'm going to worry myself sick."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(pulling her close) Then I'll just have to never be late again. Come on. Let's eat. I brought those noodles you like from the place on 5th."
+      },
+      {
+       "type": "narrate",
+       "text": "They move to the kitchen. The lights are warm. No rain. No red eyes. For one stolen night, the promise is kept."
+      },
+      {
+       "type": "narrate",
+       "text": "In the corridor, the Player watches through the doorway. The scene does not last. The clock jumps. The rain begins. The badge on the table is the only thing that remains."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(softly) He tried."
+      },
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Door: Mrs. P"
+      },
+      {
+       "type": "narrate",
+       "text": "A hospital room. Sunlight. Mrs. P sits up in bed, color in her cheeks for the first time in weeks. Mr. P stands beside her, no lab coat, just a man holding her hand."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mrs. P",
+       "text": "The doctors say the new treatment is working. You don't have to stay so late anymore. Come home."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(voice thick) I will. I promise. No more nights in the lab. No more potions. Just us."
+      },
+      {
+       "type": "narrate",
+       "text": "She smiles. The monitors beep steadily. Outside, the city is whole."
+      },
+      {
+       "type": "narrate",
+       "text": "This is the ending Mr. P wrote in his head every night before he poured the next vial. It never left the page."
+      },
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Door: Georgie and Penny"
+      },
+      {
+       "type": "narrate",
+       "text": "The Piggy Residence. Afternoon. Penny ties a bracelet around Georgie's wrist. It is blue and red, the colors of his favorite team."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "There. Now you can't get lost. If you wander off, the bracelet will lead you back to me. Always."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(grinning) I'm not going to wander off. I'm staying right here. Race you to the treehouse?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "You're on. And no cheating this time!"
+      },
+      {
+       "type": "narrate",
+       "text": "They run. Laughter fills the yard. The front door is open. No one is missing."
+      },
+      {
+       "type": "narrate",
+       "text": "Some regrets are small. Some are the size of a little brother's hand slipping out of reach. Both can fill a house."
+      },
+      {
+       "type": "narrate",
+       "text": "The corridor stretches on. More doors. More nights that never came. The Player steps back into the rain of the real Lucella, the weight of every unopened door settling on their shoulders like a second uniform."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The echoes are longer than any single night. The story is not finished simply because the last chapter has been written. It continues in every door that remains closed—and in every one that someone finally opens."
+      },
+      {
+       "type": "narrate",
+       "text": "To be continued in the living."
+      },
+      {
+       "type": "jump",
+       "target": "ch16_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch16",
+   "number": 16,
+   "title": "CHAPTER 13: THE STATION REBUILT",
+   "scenes": [
+    {
+     "id": "ch16_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Three months after the plant. The Lucella Police Station has been cleaned. New windows. Fresh paint over the old claw marks. The Player stands at the front desk where Doggy once stood. Georgie and Penny visit after school. The city is quieter, but not silent."
+      },
+      {
+       "type": "narrate",
+       "text": "Rebuilding is slower than destruction. Every board replaced is a choice not to let the regret stay in the walls."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(looking around) It doesn't smell like the bad night anymore. It smells like new paper and coffee."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(quietly) Doggy's badge is on the wall. Next to the note. I read it every time we come. \"Don't hesitate to live.\" I think he meant it for all of us."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(setting down a folder of recovered reports) Mr. P sent these over. Notes on the neutralizer trials. Some of the early infected are starting to remember their names without the pain. Not all of them. But some."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Will Penny stop hearing the sorry-voice?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(touching her bracelet) Some days it's loud. Some days it's just a whisper. When Georgie holds my hand, it gets quieter. That's enough for now."
+      },
+      {
+       "type": "narrate",
+       "text": "A radio crackles on the desk. Not an emergency. Just the weather. Clear skies over Lucella for the first time in weeks."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "There's still work. The outpost wants a liaison. The school needs someone to talk to the kids who saw too much. And somewhere out there, more people are still walking around inside their worst night. We don't have to save all of them. We just have to keep answering the ones who call."
+      },
+      {
+       "type": "choice",
+       "id": "ch16_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Accept the liaison role at the outpost",
+         "goto": "ch16_s02"
+        },
+        {
+         "key": "B",
+         "label": "Spend the afternoon at the school with Georgie and Penny",
+         "goto": "ch16_s02"
+        },
+        {
+         "key": "C",
+         "label": "Visit Mr. P in the lab and ask about the new formula",
+         "goto": "ch16_s02"
+        },
+        {
+         "key": "D",
+         "label": "Walk the old routes alone and listen for remaining echoes",
+         "goto": "ch16_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch16_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Whatever path is chosen, the station remains open. The badge stays on the wall."
+      },
+      {
+       "type": "narrate",
+       "text": "The story does not end when the last infected falls or the last vat is emptied. It ends—or continues—when the people who survived decide what they will carry, and what they will set down."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The full story of Echoes of Regret has been written. Its chapters live in the folder. Its echoes live in the choices still being made."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END (and the beginning of what comes after)"
+      },
+      {
+       "type": "jump",
+       "target": "ch17_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch17",
+   "number": 17,
+   "title": "FULL EXPANDED SCENE: THE NIGHT BEFORE THE HOUSE",
+   "scenes": [
+    {
+     "id": "ch17_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The Piggy Residence, two days before the outbreak reaches the street. Evening. Penny is in the kitchen packing Georgie's lunch for the next day. Georgie sits at the table drawing. Their parents are in the living room, voices low. Outside, the first infected have not yet appeared, but the news is already talking about \"isolated cases\" and \"strange behavior\" at the hospital."
+      },
+      {
+       "type": "narrate",
+       "text": "Every story has a night before. A last ordinary evening that will later be remembered as the moment everything was still possible."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(calling) Georgie, did you finish your math? Mom said if it's not done you can't watch the show after dinner."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(without looking up) Almost! I'm drawing the treehouse first. See? I put you in it. You're the one with the long hair."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(smiling, coming over) That's not me. That's you with long hair. You always do that."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(giggling) No, look—see the bracelet? I drew the bracelet. That means it's you."
+      },
+      {
+       "type": "narrate",
+       "text": "He holds up the paper. Crayon lines. A small figure with a red-and-blue bracelet standing on a platform of sticks. Next to him, a taller figure with no bracelet, arms open."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(soft) It's good. Really good. Put it on the fridge so Mom and Dad can see it."
+      },
+      {
+       "type": "narrate",
+       "text": "She pins it up. From the living room, their mother's voice rises slightly, then falls."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mother (distant)",
+       "text": "We should keep him home tomorrow. Just in case. The school sent that letter about the hospital cases."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Father (distant)",
+       "text": "It's three blocks away. And they said it was contained. If we keep him home every time the news says something, he'll never go anywhere."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mother",
+       "text": "I just have a feeling. Like the house is already too quiet. Like something's listening."
+      },
+      {
+       "type": "narrate",
+       "text": "Regret does not always announce itself with screams. Sometimes it begins as a feeling in a mother's chest on an ordinary Tuesday night."
+      },
+      {
+       "type": "narrate",
+       "text": "Penny returns to the kitchen. She opens a drawer and takes out the bracelet—real this time, not crayon. She turns it over in her hands."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(to herself) If I give it to him tonight, he'll wear it tomorrow. Then if anything happens... he'll have it. He'll know I'm looking for him."
+      },
+      {
+       "type": "narrate",
+       "text": "She walks back to the table. Georgie is still drawing, tongue between his teeth in concentration."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Hey. Close your eyes."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Why?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Just do it. Trust me."
+      },
+      {
+       "type": "narrate",
+       "text": "He does. She ties the bracelet around his wrist, carefully, not too tight."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(opening his eyes) It's the real one! The one from the carnival last year! You said I couldn't have it until I was older!"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "You're old enough tonight. Promise me something. If you ever get lost—if anything ever feels wrong—you look at this. And you remember I'm coming to find you. No matter what. Okay?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(serious for once) Okay. I promise. But I'm not gonna get lost. I'm staying right here."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(hugging him) I know. Just... promise anyway."
+      },
+      {
+       "type": "narrate",
+       "text": "From the living room, the television volume rises. A news anchor's calm voice. The word \"outbreak\" is used for the first time on the local channel. Neither child hears it clearly. Their parents do."
+      },
+      {
+       "type": "narrate",
+       "text": "In two days the house will be dark. The drawings will still be on the fridge. The bracelet will be the only thing Georgie has left when he runs. And Penny will spend every moment after saying the word \"sorry\" to a little brother who cannot hear her anymore."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "This is the night the story almost didn't need to happen. It happened anyway."
+      },
+      {
+       "type": "jump",
+       "target": "ch18_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch18",
+   "number": 18,
+   "title": "CHAPTER 14: THE MALL THAT REMEMBERS",
+   "scenes": [
+    {
+     "id": "ch18_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The Lucella Mall, six months after the outbreak. Most stores are boarded. A few have reopened with limited hours. The food court is half-empty. The Player walks through with Georgie and Penny. They came for school supplies. The escalators are running again. Somewhere, an old carnival jingle plays from a broken speaker in the arcade."
+      },
+      {
+       "type": "narrate",
+       "text": "Places remember too. The mall remembers the night the lights went out and the infected walked the corridors looking for the people they had lost. Some of those people are still here—working, shopping, trying to be ordinary again."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(pointing) That's the store where we got the bracelet. The one that closed. They have a new sign now. \"Open for survivors.\" That's a weird sign."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(quiet) A lot of signs are weird now. At least they're open."
+      },
+      {
+       "type": "narrate",
+       "text": "An infected woman stands near the fountain. She is not aggressive. She is simply standing, hands open, whispering to the water. Her eyes are still faintly red at the edges. A recovery bracelet—new design, blue instead of the old red—circles her wrist."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Woman",
+       "text": "(soft) I told him I'd meet him by the fountain at six. I was late. The line at the bakery was long. I was only ten minutes late. He wasn't there. He wasn't anywhere. I'm sorry. I'm so sorry I was late."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(approaching carefully) Ma'am? The outbreak is over. The fountain is just a fountain now. You don't have to wait here."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Woman",
+       "text": "(looking up, recognition flickering) Is he coming? My son. He was six. He had a red hat. I bought him the hat here. At the store with the balloons. He loved balloons."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(stepping forward, voice gentle) Maybe he's waiting somewhere else. Maybe he's waiting for you to stop saying sorry and go look for him instead."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Woman",
+       "text": "(tears, the red in her eyes dimming) I don't know how to stop. Every time I try to walk away, I hear him calling. \"Mom, where are you?\" And I have to answer. I have to say I'm sorry."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(holding up his own bracelet) My sister gave me this so I wouldn't get lost. She found me anyway. Even when I was really lost. Maybe your son is looking for you too. But he can't find you if you stay by the fountain forever."
+      },
+      {
+       "type": "narrate",
+       "text": "The woman stares at the bracelet. Her hands lower. For the first time, she steps back from the water."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Woman",
+       "text": "(whispering) If I leave... and he's not there... what do I do with the sorry?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You carry it. Like the rest of us. And you keep walking until you find something louder than the apology."
+      },
+      {
+       "type": "narrate",
+       "text": "She nods, slowly. She turns. She walks toward the exit. The red in her eyes is still there, but it is no longer the only color."
+      },
+      {
+       "type": "narrate",
+       "text": "Not every recovery is a cure. Some are simply the decision to stop standing in the same place and calling the same name into empty air."
+      },
+      {
+       "type": "choice",
+       "id": "ch18_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Follow the woman to make sure she reaches the exit safely",
+         "goto": "ch18_s02"
+        },
+        {
+         "key": "B",
+         "label": "Stay with Georgie and Penny and finish the school supply run",
+         "goto": "ch18_s02"
+        },
+        {
+         "key": "C",
+         "label": "Check the arcade for more lingering infected who might still be reachable",
+         "goto": "ch18_s02"
+        },
+        {
+         "key": "D",
+         "label": "Call the recovery team and report the woman's location",
+         "goto": "ch18_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch18_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The group continues. The woman is seen later, outside, looking at the sky instead of the fountain."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(after a long silence) Do you think she finds him?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "I don't know. But she left the fountain. That's more than a lot of people manage."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "If she doesn't find him, maybe she can find someone else who needs a mom. There's a lot of kids at school who don't have anyone left. Mrs. Henderson says some of them still wait by the doors at the end of the day."
+      },
+      {
+       "type": "narrate",
+       "text": "The mall remembers the night everything broke. It also remembers the afternoon a woman finally walked away from a fountain and a little boy suggested that waiting was not the only kind of love left in the world."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 14"
+      },
+      {
+       "type": "jump",
+       "target": "ch19_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch19",
+   "number": 19,
+   "title": "THE LONG ROAD: SCENES FROM THE YEAR AFTER",
+   "scenes": [
+    {
+     "id": "ch19_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "A year passes. The city of Lucella does not return to what it was. It becomes something that knows the shape of its own scars. The following scenes are not chapters in the old sense. They are the ordinary days that follow the extraordinary night. They are the story continuing because the people in it refused to let the last page be the end."
+      },
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The School Reopens"
+      },
+      {
+       "type": "narrate",
+       "text": "Lucella Elementary. New locks on the doors. A counselor in every hallway for the first month. Georgie sits at his old desk. The drawing of the treehouse is still taped inside his notebook. Penny waits for him outside after the final bell, bracelet visible on her wrist."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Teacher",
+       "text": "(to the class) Today we are writing about something we are glad we still have. It can be a person. A place. A thing. It does not have to be perfect. It only has to be true."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(writing slowly) I am glad I still have my sister. She found me when I was lost. She still finds me when the sorry-voice gets loud. I am glad the bracelet is real."
+      },
+      {
+       "type": "narrate",
+       "text": "After class, he shows Penny the paper. She reads it twice."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(voice thick) I'm glad I still have you too. Even on the days I hear myself saying sorry for things that already happened. Especially on those days."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Then don't say it. Just be here. That's what the Player said. That's what Doggy's note said. Don't hesitate to live."
+      },
+      {
+       "type": "narrate",
+       "text": "They walk home together. The path is longer than it used to be because some streets are still closed. They take the long way on purpose. It gives them more time."
+      },
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Mr. P's New Laboratory"
+      },
+      {
+       "type": "narrate",
+       "text": "A smaller room now. No bubbling red vats. Glass jars of clear liquid. Recordings of recovered patients playing softly in the background. Mr. P sits with headphones on, listening to his wife's voice from the old message. The Player knocks and enters."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(removing the headphones) The neutralizer is stable. We gave it to twelve volunteers this week. Nine of them reported the regrets becoming... quieter. Not gone. Quieter. Like a radio turned down instead of a scream in the same room."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "And the other three?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "Still loud. One of them asked to stop the trial. Said the quiet felt worse than the noise because at least the noise proved the person they lost had been real. I don't have an answer for that yet."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You don't have to have all the answers. You just have to keep trying something that doesn't chain people to the worst night of their lives."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(looking at the empty chair beside him) She would have liked that. The trying. She always said I spent too much time looking for the perfect formula and not enough time sitting in the imperfect room with her."
+      },
+      {
+       "type": "narrate",
+       "text": "He presses play on the recording again. Mrs. P's voice fills the small lab: \"Don't stay so late again, love. The house is too quiet without you.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(soft) I'm not staying late tonight. I'm going home. Even if the house is still quiet. Even if I have to sit in the quiet on purpose."
+      },
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The Carnival Lights"
+      },
+      {
+       "type": "narrate",
+       "text": "The old carnival grounds. The Ferris wheel has been repaired. It turns slowly, lights on for the first time in over a year. A small crowd has gathered. Not many. Enough. Georgie and Penny stand in line. The Player is with them, Doggy's badge clipped to their belt."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Do you think Doggy would have ridden it?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He would have complained about the height the whole way up. Then he would have smiled at the top and pretended he hadn't been scared."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(looking at the lights) I used to be scared of heights. After the outbreak I was scared of everything else more. Heights don't seem so bad now."
+      },
+      {
+       "type": "narrate",
+       "text": "They board. The wheel lifts them above the city. Lucella spreads out below—some streets dark, some bright, all of them still standing."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(pointing) There's the house. There's the school. There's the mall. There's the station. We're higher than all of them."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(leaning on the rail) And we're still here. All three of us. That's the part that matters."
+      },
+      {
+       "type": "narrate",
+       "text": "From the top of the wheel, the regrets of the city are still visible. They are also smaller. Distance does that. So does time. So does the choice to keep climbing even when the ground below is full of things that hurt."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The story of Echoes of Regret is no longer only the story of the outbreak. It is the story of the year that followed, and the years that will follow that. It is finished in the sense that the first book has been written. It is unfinished in the sense that every person who survived is still writing their own next page."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END OF THE FIRST BOOK"
+      },
+      {
+       "type": "narrate",
+       "text": "THE BEGINNING OF EVERYTHING AFTER"
+      },
+      {
+       "type": "jump",
+       "target": "ch20_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch20",
+   "number": 20,
+   "title": "BOOK TWO: THE WEIGHT OF QUIET",
+   "scenes": [
+    {
+     "id": "ch20_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Book One complete. Book Two begins. The infection is quieter. The regrets are not."
+      },
+      {
+       "type": "jump",
+       "target": "ch21_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch21",
+   "number": 21,
+   "title": "CHAPTER 15: THE REOPENED STATION",
+   "scenes": [
+    {
+     "id": "ch21_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Police Station, one year later. Boards have been removed from most windows. The fluorescent lights still buzz, but some bulbs have been replaced. A new sign hangs above the front desk: \"Recovery Desk — Speak First.\" Doggy's old badge is mounted in a glass case. The Player stands behind the counter now, wearing a different uniform. Georgie sits in a chair nearby, drawing. Penny stands by the window, watching the street."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(not looking up) Mrs. Henderson says the school counselor wants to talk to me again. About the treehouse. About the night."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You don't have to go if you don't want to."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I know. I just don't like when they ask if I still hear her voice. I do. But it's not the bad voice anymore. It's just... her. The one who used to read to me."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(quietly) Sometimes I still hear myself yelling. In the house. Before everything. I don't know how to make that stop."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You don't make it stop. You make something else louder. That's what we've been doing."
+      },
+      {
+       "type": "narrate",
+       "text": "A radio crackles. A new report from the outskirts. Someone found an old vial of the original potion. Red. Still sealed."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Radio",
+       "text": "Recovery team requesting backup. Old lab site. Possible residual activation. Over."
+      },
+      {
+       "type": "choice",
+       "id": "ch21_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Go with the recovery team yourself",
+         "goto": "ch21_s02"
+        },
+        {
+         "key": "B",
+         "label": "Send Penny and stay with Georgie",
+         "goto": "ch21_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask Mr. P to join the team",
+         "goto": "ch21_s02"
+        },
+        {
+         "key": "D",
+         "label": "Monitor from the station and prepare the neutralizer",
+         "goto": "ch21_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch21_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The Player goes. Penny insists on coming. Georgie stays with a trusted officer."
+      },
+      {
+       "type": "narrate",
+       "text": "The station remembers the night Doggy turned. It also remembers the morning the boards came down. Both memories stay. One does not cancel the other."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 15 opening"
+      },
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "CHAPTER 15 CONTINUED: THE OLD LAB"
+      },
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The ruins of Mr. P's original laboratory annex. Half the roof is gone. Rain falls through the gaps. Glass vials, long empty, lie cracked on the floor. A sealed red vial sits on a metal table, still glowing faintly. Three recovery team members stand back. One of them is an infected who has not fully recovered—eyes half-red, hands shaking."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Recovery Lead",
+       "text": "We haven't touched it. Orders were to wait for you."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Good. Don't. That liquid doesn't just infect the body. It feeds on the last thing you wished you could undo."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(staring at the vial) It looks like the color of the night I lost him. The first night. Before the bat. Before the house."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Penny. Look at me, not the vial."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "I'm looking. I just... I remember the exact sound of my voice when I told him to go to his room. I remember thinking it was the right thing. I was wrong. The potion would have made me live inside that wrong forever."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Infected Team Member",
+       "text": "(whispering) Mine is the day I didn't call my mother back. She left a message. I was busy. The red made me hear the message on a loop. For months. Even after the neutralizer, I still hear the end of it. \"Call me when you can.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "We're not opening the vial. We're destroying it. Properly. Mr. P developed a method."
+      },
+      {
+       "type": "narrate",
+       "text": "You carefully place the vial inside a containment case. As the lid seals, the faint glow dims."
+      },
+      {
+       "type": "narrate",
+       "text": "Some regrets cannot be burned. They can only be sealed and carried somewhere they cannot spread. The Player knows this. So does Penny. The difference is that they have learned to walk while carrying them."
+      },
+      {
+       "type": "choice",
+       "id": "ch21_c02",
+       "options": [
+        {
+         "key": "A",
+         "label": "Destroy the vial on site with the neutralizer compound",
+         "goto": "ch21_s03"
+        },
+        {
+         "key": "B",
+         "label": "Take it back to Mr. P's new lab for study",
+         "goto": "ch21_s03"
+        },
+        {
+         "key": "C",
+         "label": "Bury it deep in the forest where no one will find it",
+         "goto": "ch21_s03"
+        },
+        {
+         "key": "D",
+         "label": "Ask the infected team member what they need before deciding",
+         "goto": "ch21_s03"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch21_s03",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Take it to Mr. P. He needs to see it to confirm the formula is fully neutralized in the wild."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(as you leave) Do you ever wonder if we should have just left all of them sealed? The old labs. The old houses. The old nights."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "No. Because Georgie is still drawing pictures of the treehouse. And you're still here to look at them. Sealing everything would have sealed him too."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 15"
+      },
+      {
+       "type": "jump",
+       "target": "ch22_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch22",
+   "number": 22,
+   "title": "CHAPTER 16: THE MALL FOUNTAIN, AGAIN",
+   "scenes": [
+    {
+     "id": "ch22_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Mall, central fountain. The water runs clear now. No red tint. A few recovered people sit on the edges. The woman from a year ago is not there. A new person sits alone—a man in a faded carnival worker vest. He stares at the water."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "(not looking up) I used to run the Ferris wheel. The night it stopped, a kid got scared halfway up. I told him to stay in the car. I went down to check the motor. When I came back... the cars were empty. The infection had reached the grounds. I never found the kid. I still hear him calling for his mom from the top."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The wheel runs again. People ride it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "I know. I watched from outside last month. I couldn't go in. What if I hear him again? What if the sound is real this time and I still can't reach him?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Then you walk toward the sound instead of away from it. That's the only thing that worked for me. Running made the voice louder. Standing still made it louder. Walking made it... smaller. Not gone. Smaller."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "(finally looking up, eyes mostly clear) Did it work?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "I'm still walking. My brother is still here. That's as close to \"worked\" as we get."
+      },
+      {
+       "type": "choice",
+       "id": "ch22_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Offer to ride the Ferris wheel with him",
+         "goto": "ch22_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sit with him until he decides to leave on his own",
+         "goto": "ch22_s02"
+        },
+        {
+         "key": "C",
+         "label": "Tell him about Doggy's note",
+         "goto": "ch22_s02"
+        },
+        {
+         "key": "D",
+         "label": "Leave him the location of the recovery counselor",
+         "goto": "ch22_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch22_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Sit with him. After twenty minutes he stands. He does not ride the wheel. He walks out of the mall. The next day the recovery team reports he checked in voluntarily."
+      },
+      {
+       "type": "narrate",
+       "text": "Not every person who sits at the fountain leaves healed. Some leave walking. That is enough for the story to continue."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 16"
+      },
+      {
+       "type": "jump",
+       "target": "ch23_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch23",
+   "number": 23,
+   "title": "CHAPTER 17: GEORGIE'S TREEHOUSE",
+   "scenes": [
+    {
+     "id": "ch23_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The backyard of the old Piggy house. The house itself is boarded and marked for demolition, but the treehouse remains. Georgie climbs the ladder carefully. The Player and Penny wait below. A new rope ladder has been added. Inside the treehouse, old drawings are still taped to the walls. One shows a family of four. The faces have been redrawn so many times the paper is thin."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(calling down) The drawing is still here. The one I made before. The one with all of us."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Can I come up?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Yeah. But only if you don't say sorry when you see it."
+      },
+      {
+       "type": "narrate",
+       "text": "Penny climbs. The treehouse creaks but holds. She sits across from Georgie. The Player stays below, listening."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(pointing) That's you. That's me. That's Mom. That's Dad. I drew Dad even though he wasn't home much. I wanted him in the picture anyway."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(voice careful) I used to think if I just said the right sorry, the picture would go back to normal. It doesn't work like that."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I know. Mrs. Henderson says pictures don't fix things. People do. Or they don't. But we can still look at the picture."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(from below) You two okay up there?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "We're okay. We're just looking."
+      },
+      {
+       "type": "narrate",
+       "text": "The treehouse does not erase the night the house filled with red light. It simply remains. Georgie remains. Penny remains. The Player remains on the ground, ready if the ladder breaks. That is the shape of the story now."
+      },
+      {
+       "type": "choice",
+       "id": "ch23_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Climb up and look at the drawing with them",
+         "goto": "ch23_s02"
+        },
+        {
+         "key": "B",
+         "label": "Stay below and keep watch",
+         "goto": "ch23_s02"
+        },
+        {
+         "key": "C",
+         "label": "Suggest taking the drawing back to the new apartment",
+         "goto": "ch23_s02"
+        },
+        {
+         "key": "D",
+         "label": "Ask Georgie if he wants to rebuild the treehouse somewhere safer",
+         "goto": "ch23_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch23_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The Player climbs up. The three of them sit in the small space. No one speaks for a long time. When they climb down, Georgie carries the drawing. He does not fold it."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 17"
+      },
+      {
+       "type": "jump",
+       "target": "ch24_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch24",
+   "number": 24,
+   "title": "CHAPTER 18: MR. P AND THE EMPTY CHAIR",
+   "scenes": [
+    {
+     "id": "ch24_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Mr. P's new laboratory. Smaller. Cleaner. The empty chair still sits beside his desk. A fresh recording of Mrs. P plays at low volume. The Player enters with the containment case from the old lab."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "You found one. Intact."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Sealed. We didn't open it. Penny was with me. She didn't look away."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(taking the case carefully) Good. The formula is stable enough now that exposure shouldn't trigger full regression if the person has already had the neutralizer. Still. Better not to test it."
+      },
+      {
+       "type": "narrate",
+       "text": "He places the case in a locked cabinet. Then he sits. The empty chair is still empty."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "She recorded that message the week before she got sick. I used to play it to remember her voice. Then I played it because the potion made me hear it wrong. Now I play it because I choose to. The difference is small. It still matters."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Are you going home tonight?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "I am. The house is still quiet. I bought a second chair for the kitchen. I don't sit in it. I just... have it. In case."
+      },
+      {
+       "type": "narrate",
+       "text": "Mr. P does not get his wife back. No one in Lucella gets the exact thing they lost returned unchanged. What they get is the chance to sit in a room that is no longer only filled with the sound of what they cannot fix."
+      },
+      {
+       "type": "choice",
+       "id": "ch24_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Ask to hear the full recording",
+         "goto": "ch24_s02"
+        },
+        {
+         "key": "B",
+         "label": "Leave him to go home",
+         "goto": "ch24_s02"
+        },
+        {
+         "key": "C",
+         "label": "Offer to sit in the second chair for a while",
+         "goto": "ch24_s02"
+        },
+        {
+         "key": "D",
+         "label": "Ask about the next batch of neutralizer",
+         "goto": "ch24_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch24_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The Player sits in the second chair. They do not speak. The recording ends. Mr. P turns it off. They leave the lab together. The second chair stays."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 18"
+      },
+      {
+       "type": "jump",
+       "target": "ch25_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch25",
+   "number": 25,
+   "title": "CHAPTER 19: THE CARNIVAL, NIGHT SHIFT",
+   "scenes": [
+    {
+     "id": "ch25_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Carnival grounds after closing. The Ferris wheel is still. Lights are off except for the maintenance lamps. The man from the mall fountain is there, wearing his old vest. He stands at the base of the wheel, looking up."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "I came back. I don't know why. The kid's not here. I know that. But the sound... it was so clear for so long. I thought if I stood in the same place, maybe I could answer him this time."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Did you?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "No. The sound isn't here. It's just in me. Standing here doesn't make it louder. It also doesn't make it go away. It just... is."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(arriving with Georgie, who insisted on coming) We brought the drawing. Georgie wanted to show you something."
+      },
+      {
+       "type": "narrate",
+       "text": "Georgie holds up a new drawing. It shows the Ferris wheel. A small figure stands at the bottom. Another small figure is at the top, waving. Both figures are smiling."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I drew him waving. Not calling. Just waving. In case that helps."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "(taking the drawing carefully) It does. Thank you. I don't know if I'll hang it up. But I'll keep it."
+      },
+      {
+       "type": "narrate",
+       "text": "The carnival remembers the night the cars emptied. It also remembers the night a man stood under a dark wheel and accepted a drawing of a wave instead of a call. Both nights stay. The man walks home with the paper folded once, not crumpled."
+      },
+      {
+       "type": "choice",
+       "id": "ch25_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Stay until he leaves",
+         "goto": "ch25_s02"
+        },
+        {
+         "key": "B",
+         "label": "Help him lock up the grounds",
+         "goto": "ch25_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask if he wants to ride the wheel tomorrow when it opens",
+         "goto": "ch25_s02"
+        },
+        {
+         "key": "D",
+         "label": "Leave the drawing and go",
+         "goto": "ch25_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch25_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: They help him lock the gates. He thanks them. He does not ride the wheel the next day. He does hang the drawing in his apartment. The recovery counselor notes the change."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 19"
+      },
+      {
+       "type": "jump",
+       "target": "ch26_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch26",
+   "number": 26,
+   "title": "CHAPTER 20: THE LAST SEALED VIAL",
+   "scenes": [
+    {
+     "id": "ch26_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: A storage room beneath the new hospital. Shelves of containment cases. Most are empty. One remains. The last known intact sample of the original red potion. Mr. P, the Player, Penny, and a small recovery team stand in front of it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "This is the last one we know of. After this, any remaining samples are either destroyed or too degraded to activate. If we neutralize this one, the original formula ends here."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "And if we keep it?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "Then someone, someday, might open it because they think they can control what it does. They will be wrong. The potion does not care about control. It only cares about the last thing you cannot forgive yourself for."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Then we end it. Not because it fixes anything. Because it stops the next person from having to learn the same lesson the hard way."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(who was not supposed to be there but followed) Can I watch? I want to see it stop."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "You can watch. You don't have to."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I want to."
+      },
+      {
+       "type": "narrate",
+       "text": "Mr. P opens the containment case. He pours the neutralizer compound over the vial. The red liquid inside turns clear, then cloudy, then still. The glow dies."
+      },
+      {
+       "type": "narrate",
+       "text": "The last vial does not explode. It does not scream. It simply stops being red. Somewhere in the city, a person who has been hearing the same apology for a year hears it one less time. They do not know why. They only know the room is slightly quieter."
+      },
+      {
+       "type": "choice",
+       "id": "ch26_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Destroy the empty vial as well",
+         "goto": "ch26_s02"
+        },
+        {
+         "key": "B",
+         "label": "Keep the neutralized sample for records",
+         "goto": "ch26_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask Georgie how he feels",
+         "goto": "ch26_s02"
+        },
+        {
+         "key": "D",
+         "label": "Leave the storage room and lock it",
+         "goto": "ch26_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch26_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: They destroy the vial. Georgie watches. He does not cry. He asks if they can go get ice cream after. They do."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 20"
+      },
+      {
+       "type": "jump",
+       "target": "ch27_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch27",
+   "number": 27,
+   "title": "CHAPTER 21: THE QUIET HOUSE",
+   "scenes": [
+    {
+     "id": "ch27_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The new apartment where Penny and Georgie live now. Smaller than the old house. Two bedrooms. A kitchen table with three chairs. The drawing from the treehouse is framed on the wall. The Player is visiting. Rain taps the window, the same sound as the night everything started, but softer."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(setting the table) Mrs. Henderson says I can stop seeing the counselor if I want. I told her I might keep going. Not because I have to. Because sometimes I like having someone to tell the treehouse story to who wasn't there."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(pouring water) I still say sorry sometimes. In my head. For the yelling. For the bat. For not finding you faster. It doesn't stop. It just doesn't run the whole house anymore."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "That's the difference the neutralizer couldn't make. Only time and choosing to stay could."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Are you staying for dinner?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "If you want me to."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I want you to. We have an extra chair."
+      },
+      {
+       "type": "narrate",
+       "text": "They eat. The rain continues. No one mentions the old house. No one needs to. The framed drawing is enough."
+      },
+      {
+       "type": "narrate",
+       "text": "The story does not end with a cure. It ends with a table that has three chairs and people who sit in them on purpose. The regrets are still in the room. They are no longer the only thing in the room. That is the finished shape of *Echoes of Regret*."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Book Two complete. The full story of PIGGY: ECHOES OF REGRET has reached its ending. The city of Lucella continues. The people in it continue. The writing stops here."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END"
+      },
+      {
+       "type": "jump",
+       "target": "ch28_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch28",
+   "number": 28,
+   "title": "BOOK THREE: THE ECHOES THAT REMAIN",
+   "scenes": [
+    {
+     "id": "ch28_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Continuing the Visual Novel - Years After the Quiet House"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The table has three chairs. The city has quieted. But echoes do not vanish when the last chapter ends. They wait in the corners of ordinary days. Book Three begins when the ordinary starts to remember again."
+      },
+      {
+       "type": "narrate",
+       "text": "Two years after the night the rain stopped being only rain, Lucella has rebuilt most of its streets. The plant is sealed. The carnival runs again in summer. The station keeps Doggy's badge on the wall. Penny and Georgie go to school. The Player still answers calls that sound too much like the old ones. Mr. P still keeps the second chair empty. The story continues because people do."
+      },
+      {
+       "type": "jump",
+       "target": "ch29_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch29",
+   "number": 29,
+   "title": "CHAPTER 22: THE CALL THAT SOUNDED LIKE BEFORE",
+   "scenes": [
+    {
+     "id": "ch29_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Police Station, late afternoon. Fluorescent lights. The Player is at the desk filling out a report about a missing dog when the radio crackles with a familiar static."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Radio",
+       "text": "Unit 4, respond to 14 Maple Street. Neighbor reports screaming. Child involved. Possible... (static) ...regret pattern."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(freezing, pen still) Say again. Maple Street?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Radio",
+       "text": "Confirmed. 14 Maple. Be advised, subject may still be verbal."
+      },
+      {
+       "type": "narrate",
+       "text": "Maple Street is two blocks from the old Piggy house. The boarded windows are still there. The treehouse is gone now. Georgie took the drawings when they moved."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(internal) It can't be starting again. The neutralizer was distributed. The last sealed vials were destroyed. We checked."
+      },
+      {
+       "type": "narrate",
+       "text": "You grab the keys. The new car starts on the first try. On the way, you call Penny."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Stay inside. Both of you. I'm checking something. Don't open the door for anyone until I call back."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(voice tight) Is it... is it red again?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "I don't know yet. Just stay."
+      },
+      {
+       "type": "choice",
+       "id": "ch29_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Drive straight to Maple Street with lights on",
+         "goto": "ch29_s02"
+        },
+        {
+         "key": "B",
+         "label": "Stop at the old house first to check the boards",
+         "goto": "ch29_s02"
+        },
+        {
+         "key": "C",
+         "label": "Call Mr. P on the way and ask if any samples are missing",
+         "goto": "ch29_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell dispatch to send backup and wait",
+         "goto": "ch29_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch29_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You drive to Maple Street. The house looks ordinary. A woman stands on the porch in a bathrobe, holding a phone. She is crying but her eyes are clear."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "It's my husband. He came home from work and started talking to someone who wasn't there. He keeps saying \"I'm sorry I didn't answer when you called.\" Our son is upstairs. He locked himself in the bathroom. Please. He's not violent. He just... won't stop apologizing to the empty chair."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(stepping carefully inside) Sir? Police. Can you hear me?"
+      },
+      {
+       "type": "narrate",
+       "text": "The man sits at the kitchen table. An empty chair across from him. He looks up. His eyes are red from crying, not from infection."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "She called. From the hospital. The night she died. I was in the garage. I didn't hear the phone. I've been saying it for three years. Tonight it just... got louder. Like someone turned the volume up on the whole house."
+      },
+      {
+       "type": "narrate",
+       "text": "Not the potion. Not the red. Just a man who has been carrying the same sentence for three years, and a night when the sentence decided to fill the room again."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(quietly) The volume can be turned down. It takes more than one night. But it can."
+      },
+      {
+       "type": "narrate",
+       "text": "You sit in the empty chair. You do not speak for a long time. The man stops repeating the sentence. He starts to cry differently. The son comes downstairs. No one is infected. The call is still answered."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 22"
+      },
+      {
+       "type": "jump",
+       "target": "ch30_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch30",
+   "number": 30,
+   "title": "CHAPTER 23: GEORGIE'S DRAWING CLASS",
+   "scenes": [
+    {
+     "id": "ch30_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Elementary, after school. Art room. Georgie is nine now. He stays late to finish a project. Penny waits in the hallway, reading. The Player stops by on the way back from Maple Street."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(holding up a paper) Look. I drew the station. With the badge. And the three chairs. I put the empty one too, but I drew a coat on it so it doesn't look lonely."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "That's good. Mrs. Henderson would like that."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "She said I can draw whatever I want as long as I tell her what it means. This one means the station is still open. Even if Doggy isn't there. The badge is."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(from the doorway) Ready? Mom's making the pasta you like."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Almost. I want to add the treehouse. Even though it's gone. In the corner. Small. So we remember it was real."
+      },
+      {
+       "type": "narrate",
+       "text": "He draws a small platform in the background. A figure with a bracelet stands on it, waving."
+      },
+      {
+       "type": "narrate",
+       "text": "Georgie does not draw the red. He draws the things that stayed after the red left. The drawing is not a cure. It is a record of what was chosen instead."
+      },
+      {
+       "type": "choice",
+       "id": "ch30_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Ask Georgie if he wants to show the drawing to Mr. P",
+         "goto": "ch30_s02"
+        },
+        {
+         "key": "B",
+         "label": "Help him add the music box that still plays sometimes",
+         "goto": "ch30_s02"
+        },
+        {
+         "key": "C",
+         "label": "Tell him about the man on Maple Street without the details",
+         "goto": "ch30_s02"
+        },
+        {
+         "key": "D",
+         "label": "Just watch him finish and walk them both home",
+         "goto": "ch30_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch30_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You watch. He finishes. The three of you walk home. The drawing stays in his backpack. Later it will go on the fridge. The extra chair at the table will have a place for it to lean against."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 23"
+      },
+      {
+       "type": "jump",
+       "target": "ch31_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch31",
+   "number": 31,
+   "title": "CHAPTER 24: MR. P'S SECOND CHAIR",
+   "scenes": [
+    {
+     "id": "ch31_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Mr. P's house. Evening. The kitchen has two chairs now. One is pulled out. Mrs. P's recording plays from a small speaker on the counter, volume low. The Player sits in the second chair without being asked."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "You heard about Maple Street."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "He wasn't infected. Just loud. The sentence got loud."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(nodding) The neutralizer stops the potion from making the sentence the only thing a person can say. It does not stop the sentence from existing. I still have mine. \"I'm sorry I stayed late.\" It doesn't run the house. It sits in the chair sometimes. I let it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Does it get quieter when someone else sits in the other chair?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "Some nights. Not because the sentence changes. Because the room has more than one sound in it."
+      },
+      {
+       "type": "narrate",
+       "text": "The recording ends. Neither of them restarts it. They eat leftovers. The second chair remains occupied until the Player leaves. Mr. P does not move it back under the table right away."
+      },
+      {
+       "type": "narrate",
+       "text": "The empty chair is no longer only empty. It is sometimes filled by someone who chooses to sit there and listen to a recording that is not their own. That is a different kind of quiet."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 24"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Book Three has begun. The echoes continue. The writing continues. The chairs remain."
+      },
+      {
+       "type": "jump",
+       "target": "ch32_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch32",
+   "number": 32,
+   "title": "CHAPTER 25: THE CARNIVAL RETURNS",
+   "scenes": [
+    {
+     "id": "ch32_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Carnival, opening night of the summer season. The Ferris wheel turns slowly. Lights are bright but not harsh. Families walk the midway. The man from the fountain stands near the base of the wheel, not looking up this time. He holds Georgie's drawing in one hand. Penny and Georgie are ahead, buying cotton candy. The Player walks with them."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "I came back. Not to wait. Just to see if the wheel still makes the same sound. It does. The kid isn't calling. The sound is just the wheel. I can hear the difference now."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(running back) Do you want to ride? We have an extra ticket. I asked."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "(looking at the ticket) I don't know if I should. Last time I stood under it for hours."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "You don't have to stand under it. You can sit in a seat. With us. Or not. The ticket is just a ticket."
+      },
+      {
+       "type": "narrate",
+       "text": "The carnival does not erase the night the man heard a child calling from the top of a wheel that was not moving. It simply runs again. People choose whether to stand under it or ride it. Both are allowed."
+      },
+      {
+       "type": "choice",
+       "id": "ch32_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Ride the Ferris wheel with Georgie, Penny, and the man",
+         "goto": "ch32_s02"
+        },
+        {
+         "key": "B",
+         "label": "Stay on the ground and watch them go up",
+         "goto": "ch32_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask the man if he wants to keep the drawing or give it back",
+         "goto": "ch32_s02"
+        },
+        {
+         "key": "D",
+         "label": "Walk the midway and listen for any other echoes among the games",
+         "goto": "ch32_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch32_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: They ride. The man sits across from Georgie. Halfway up, the city spreads below them. No one is calling. The man laughs once, short and surprised. When they get off, he folds the drawing carefully and puts it in his pocket. He does not look back at the wheel."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 25"
+      },
+      {
+       "type": "jump",
+       "target": "ch33_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch33",
+   "number": 33,
+   "title": "CHAPTER 26: THE SCHOOL ASSEMBLY",
+   "scenes": [
+    {
+     "id": "ch33_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Elementary gymnasium. Morning assembly. The principal stands at the podium. Behind her, a screen shows a simple slide: \"If you hear someone talking to a person who isn't there, tell a teacher. You are not in trouble. They are not in trouble. We will listen.\" Georgie sits with his class. Penny is in the row behind, visiting for the assembly because the Player asked her to come."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Principal",
+       "text": "We have learned that some nights get loud. Not because of monsters. Because of sentences people have been saying for a long time. If a sentence gets too loud in your house, you can tell us. We will sit with you until it gets quieter. That is all."
+      },
+      {
+       "type": "narrate",
+       "text": "Some of the younger children fidget. A few of the older ones look at their shoes. Georgie raises his hand."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "What if the sentence is sorry? And the person already said it a lot?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Principal",
+       "text": "Then we still sit. Sometimes sorry needs company more than it needs another sorry. You don't have to fix it. You just have to stay in the room."
+      },
+      {
+       "type": "narrate",
+       "text": "The assembly is not a lesson about the infection. The infection is gone. It is a lesson about the ordinary weight that remains when the extraordinary leaves. Georgie already knows the lesson. He is checking that the adults know it too."
+      },
+      {
+       "type": "choice",
+       "id": "ch33_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Speak to the principal afterward about adding a counselor visit to every classroom",
+         "goto": "ch33_s02"
+        },
+        {
+         "key": "B",
+         "label": "Walk Georgie and Penny home and ask what they thought",
+         "goto": "ch33_s02"
+        },
+        {
+         "key": "C",
+         "label": "Visit the art room and look at the drawings on the wall",
+         "goto": "ch33_s02"
+        },
+        {
+         "key": "D",
+         "label": "Call Mr. P and tell him the school is teaching the difference between loud and red",
+         "goto": "ch33_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch33_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You walk them home. Georgie says the principal got it right. Penny says she might volunteer to help with the younger kids next time. The extra chair at dinner has Georgie's backpack on it until he moves it."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 26"
+      },
+      {
+       "type": "jump",
+       "target": "ch34_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch34",
+   "number": 34,
+   "title": "CHAPTER 27: THE LAST VIAL THAT WASN'T",
+   "scenes": [
+    {
+     "id": "ch34_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The sealed storage room beneath the old plant. The Player and Mr. P stand outside the locked door. A maintenance worker reported a light on inside. The light is off now. The door is still sealed. The containment case from years ago is empty. Everything was neutralized."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "There is nothing left that can turn red. I checked the inventory twice. The light was probably a sensor. Or a reflection."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Or someone who still thinks a vial can fix the sentence they keep hearing."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "If they break the seal, they will find empty shelves. The potion is gone. The regret is not. They will have to learn the difference the long way."
+      },
+      {
+       "type": "narrate",
+       "text": "You both listen. No sound from inside. No heartbeat in a liquid that is no longer there."
+      },
+      {
+       "type": "narrate",
+       "text": "The plant does not hold the cure or the curse anymore. It holds the proof that both were once possible. The proof stays sealed. The people who need it already have the quieter version."
+      },
+      {
+       "type": "choice",
+       "id": "ch34_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Leave the seal intact and post a new sign",
+         "goto": "ch34_s02"
+        },
+        {
+         "key": "B",
+         "label": "Open the door once to confirm the shelves are empty",
+         "goto": "ch34_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask Mr. P if he wants to keep a single empty vial for the records",
+         "goto": "ch34_s02"
+        },
+        {
+         "key": "D",
+         "label": "Walk the perimeter and listen for anyone who might return",
+         "goto": "ch34_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch34_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You leave the seal. You post a sign that says \"Empty. The sentence is not inside.\" Mr. P does not ask to take anything. You drive back to the station. The badge is still on the wall."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 27"
+      },
+      {
+       "type": "jump",
+       "target": "ch35_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch35",
+   "number": 35,
+   "title": "CHAPTER 28: PENNY'S BRACELET",
+   "scenes": [
+    {
+     "id": "ch35_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The new apartment. Night. Penny sits on the couch tying and untying the blue-and-red bracelet she once put on Georgie's wrist. Georgie is asleep. The Player is on the phone in the kitchen, finishing a report. Penny speaks softly so she does not wake him."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "I used to think if I never took it off, he couldn't get lost again. Then I thought if I took it off, I was saying I didn't care. Now I just wear it when I want to. Tonight I wanted to."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(coming in, phone down) He still has the drawing with the bracelet on it. He showed me today."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "I know. He puts it on the fridge every morning and takes it down every night so it doesn't get sauce on it. He is careful with the things that stayed."
+      },
+      {
+       "type": "narrate",
+       "text": "Penny does not apologize for the night she swung the bat. She has said the words. They are in the room. They are not the only words. The bracelet is not a lock. It is a choice she makes when she wants the color of it against her wrist."
+      },
+      {
+       "type": "choice",
+       "id": "ch35_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Sit with her until she decides whether to leave the bracelet on",
+         "goto": "ch35_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask if she wants to make a new one for Georgie that matches",
+         "goto": "ch35_s02"
+        },
+        {
+         "key": "C",
+         "label": "Tell her about the man at the carnival who kept the drawing",
+         "goto": "ch35_s02"
+        },
+        {
+         "key": "D",
+         "label": "Make tea and let the silence stay soft",
+         "goto": "ch35_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch35_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You make tea. She leaves the bracelet on. Georgie wakes once, sees it, and goes back to sleep without saying anything. The three chairs are all occupied by morning."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 28"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The chapters continue. The chairs stay filled when someone chooses to sit. The echoes remain, but they share the room. The writing has not stopped."
+      },
+      {
+       "type": "jump",
+       "target": "ch36_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch36",
+   "number": 36,
+   "title": "CHAPTER 29: THE TREEHOUSE THAT MOVED",
+   "scenes": [
+    {
+     "id": "ch36_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: A small park on the edge of Lucella, six months after the old treehouse was taken down. A new platform has been built in a different tree. It is lower. The rope ladder is new. Georgie climbs it without looking down. Penny stands at the bottom holding the framed drawing from the apartment. The Player watches from the bench."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(calling) It doesn't creak the same. That's okay. The old one creaked because it was old. This one is new. We can make it creak later if we want."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Do you want the drawing up there?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Not yet. I want to draw a new one first. Of this tree. With the three of us. You can be on the ground this time if you want. You don't have to climb."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "I'll climb. Just not today. Today I want to see you from down here so I know the ladder holds."
+      },
+      {
+       "type": "narrate",
+       "text": "The new treehouse does not replace the old one. It does not erase the night the old house filled with footsteps that were not Georgie's. It is simply a place that exists now, in a park where the city can see it. Georgie draws it because it is real. Penny stays on the ground because she chooses the view. Both are allowed."
+      },
+      {
+       "type": "choice",
+       "id": "ch36_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Help Georgie measure the platform so the new drawing is accurate",
+         "goto": "ch36_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sit on the bench and let them decide the height of the ladder",
+         "goto": "ch36_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask if they want to invite the man from the carnival to see it",
+         "goto": "ch36_s02"
+        },
+        {
+         "key": "D",
+         "label": "Walk the path around the park and listen for any other children calling names",
+         "goto": "ch36_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch36_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You sit. Georgie finishes the climb. He waves. Penny waves back. The drawing stays in her hands until they walk home. Later it will hang next to the old one. The new treehouse will get its own drawing by the end of the week."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 29"
+      },
+      {
+       "type": "jump",
+       "target": "ch37_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch37",
+   "number": 37,
+   "title": "CHAPTER 30: THE STATION AT NIGHT",
+   "scenes": [
+    {
+     "id": "ch37_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Police Station, after midnight. The Player is the only one on duty. The badge on the wall catches the light from the desk lamp. A radio call comes in—quiet, no emergency. Just a woman who wants to know if anyone else has ever heard their dead mother's voice in the kitchen at 2 a.m. and whether that means the potion is back."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(into the radio) The potion is not back. The voice is. You can turn the light on. You can sit at the table. You can call someone who is still alive and ask them to stay on the phone until the voice gets quieter. Do you want me to stay on the line?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "(small) Yes. Please. She keeps saying she left the pie in the oven. I know she didn't. The oven is off. But she keeps saying it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Then we will sit with the pie that is not there until the sentence finishes. I am not going anywhere."
+      },
+      {
+       "type": "narrate",
+       "text": "The call lasts forty minutes. The woman cries. Then she laughs once when the Player describes Doggy's badge and the note under it. When she hangs up, the station is quiet again. The badge is still there."
+      },
+      {
+       "type": "narrate",
+       "text": "Not every call is Maple Street. Some are just a woman and a pie that was never left in the oven. The station answers both. The difference between red and ordinary is the difference between a sentence that cannot stop and a sentence that can be sat with until it rests."
+      },
+      {
+       "type": "choice",
+       "id": "ch37_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Write the call into the night log under \"echo, non-infectious\"",
+         "goto": "ch37_s02"
+        },
+        {
+         "key": "B",
+         "label": "Call Penny in the morning and tell her the station is still open",
+         "goto": "ch37_s02"
+        },
+        {
+         "key": "C",
+         "label": "Sit with the badge for a while before going home",
+         "goto": "ch37_s02"
+        },
+        {
+         "key": "D",
+         "label": "Leave a note for the day shift about the pie",
+         "goto": "ch37_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch37_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You write the log. You sit with the badge. You go home when the sun starts to show. The note under the badge still says \"Don't hesitate to live.\" You do not add anything to it. It is already enough."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 30"
+      },
+      {
+       "type": "jump",
+       "target": "ch38_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch38",
+   "number": 38,
+   "title": "CHAPTER 31: GEORGIE'S FIRST SLEEPOVER",
+   "scenes": [
+    {
+     "id": "ch38_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The new apartment. Friday night. Georgie has a friend over from school. The friend is named Leo. Leo has never seen the drawing of the treehouse. Georgie shows it to him carefully. Penny makes popcorn in the kitchen. The Player is not there tonight. The extra chair has Leo's backpack on it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "This is the old treehouse. The one that got taken down. I drew it so we would remember the platform was real. See the bracelet? That's Penny. She still has it."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Leo",
+       "text": "Did you fall out of it?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "No. I just got lost once. Not from the treehouse. From the house. Penny found me. That's why the bracelet is in the picture."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Leo",
+       "text": "Cool. Can we draw a new one? With my house in it too?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Yeah. But only if we put the station in the background. The badge has to be there. It's important."
+      },
+      {
+       "type": "narrate",
+       "text": "Georgie does not tell Leo about the bat or the red eyes or the night the music box played for a brother who was not in the room. He tells him about the bracelet and the station. Leo does not ask for the rest. They draw. The popcorn is ready. The sleepover continues. The old story is not the only story in the apartment tonight."
+      },
+      {
+       "type": "choice",
+       "id": "ch38_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "The scene continues without the Player; they find out in the morning",
+         "goto": "ch38_s02"
+        },
+        {
+         "key": "B",
+         "label": "Penny calls the Player to say the sleepover is going well",
+         "goto": "ch38_s02"
+        },
+        {
+         "key": "C",
+         "label": "Georgie asks Penny if she wants to add herself to the new drawing",
+         "goto": "ch38_s02"
+        },
+        {
+         "key": "D",
+         "label": "They all three sit at the table and the extra chair is just a chair",
+         "goto": "ch38_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch38_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: Penny does not call. In the morning Georgie shows the Player the new drawing. The station is in the background. The badge is a small gold square. Leo's house is next to the treehouse. No one is missing from the picture. The Player puts it on the fridge beside the others."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 31"
+      },
+      {
+       "type": "jump",
+       "target": "ch39_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch39",
+   "number": 39,
+   "title": "CHAPTER 32: THE RECORDING THAT STAYS OFF",
+   "scenes": [
+    {
+     "id": "ch39_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_kitchen"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Mr. P's kitchen. Sunday afternoon. The Player has brought leftovers from the station potluck. The second chair is pulled out. The speaker on the counter is silent. Mrs. P's recording has not played in three weeks."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "I stopped starting it. Not because I don't want to hear her. Because I already know what she says. \"Don't stay so late.\" I hear it when I want to. I don't need the speaker to say it for me anymore."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Does the chair still feel empty?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "Some days. Today it has your coat on it. That's different. The coat is not hers. It doesn't have to be."
+      },
+      {
+       "type": "narrate",
+       "text": "They eat. The speaker stays off. When the Player leaves, Mr. P does not turn it on. He washes the dishes. The second chair stays where it is."
+      },
+      {
+       "type": "narrate",
+       "text": "The recording is not destroyed. It is simply not playing. Mr. P can start it whenever he chooses. Tonight he chooses the sound of water in the sink and the memory of a voice he no longer needs a machine to carry. Both are real. Only one is in the room."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 32"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Book Three continues. The ordinary days keep arriving. The echoes share space with popcorn, drawings, and coats on chairs. The writing remains open."
+      },
+      {
+       "type": "jump",
+       "target": "ch40_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch40",
+   "number": 40,
+   "title": "CHAPTER 33: THE MALL FOUNTAIN",
+   "scenes": [
+    {
+     "id": "ch40_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dock"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: Lucella Mall, afternoon. The fountain in the center court runs again. Coins glitter at the bottom. The man from the carnival sits on the edge, not looking at the water. He has Georgie's Ferris wheel drawing in his lap. Penny and Georgie are nearby, looking at a store window. The Player stands a short distance away, watching the ordinary movement of people."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "I used to come here and wait for the sound to get louder. Now I come because the benches are comfortable and no one asks why I'm sitting alone. The drawing helps. When the sound tries to start, I look at the waving figure instead of the water."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(sitting beside him) Does it still try?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Man",
+       "text": "Less. When it does, I can tell it the kid is not at the top of anything. He's at school. Or at the park. Or drawing. The sound doesn't argue. It just gets quieter when I say it out loud."
+      },
+      {
+       "type": "narrate",
+       "text": "The fountain does not remember the night a man stood in it fully clothed, listening for a child who was never there. The water only runs. The man chooses what he listens to instead. The drawing is creased from being folded and unfolded. It is still whole."
+      },
+      {
+       "type": "choice",
+       "id": "ch40_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Ask if he wants to walk with Georgie and Penny for a while",
+         "goto": "ch40_s02"
+        },
+        {
+         "key": "B",
+         "label": "Leave him with the fountain and the drawing",
+         "goto": "ch40_s02"
+        },
+        {
+         "key": "C",
+         "label": "Tell him the station has a bench if the mall gets too loud",
+         "goto": "ch40_s02"
+        },
+        {
+         "key": "D",
+         "label": "Buy a new notebook so he can write the sentences down when they arrive",
+         "goto": "ch40_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch40_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You sit until he folds the drawing again. He puts it in his pocket. He says he might go to the park later to see the new treehouse. You do not offer to go with him. He does not ask. Both of you stand when Georgie waves from the window."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 33"
+      },
+      {
+       "type": "jump",
+       "target": "ch41_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch41",
+   "number": 41,
+   "title": "CHAPTER 34: PENNY AT THE OUTPOST",
+   "scenes": [
+    {
+     "id": "ch41_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The old military outpost on the edge of the city. It has been turned into a community center. The fences are still there but the gates are open. Penny volunteers on Saturdays, helping sort donated clothes. Georgie is at a friend's house. The Player stops by with coffee."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(folding a small jacket) Some of these still have names written in the collars. I used to think if I found the right name I could give something back. Now I just make sure the jackets are clean. The names can stay. Or not. The kids who wear them will write new ones."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Do you ever hear the old sorry when you're here?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "Sometimes. When I pick up something small. It says \"I should have held his hand.\" I answer it. I say \"I am holding it now.\" Then I keep folding. It doesn't fill the room. The room is full of jackets."
+      },
+      {
+       "type": "narrate",
+       "text": "The outpost is no longer a place where people waited for the infection to reach them. It is a place where jackets are sorted and coffee is drunk and a sentence is answered without becoming the only sound. Penny does not wear the bracelet today. It is in her pocket. She can put it on if she wants. She has not wanted to yet."
+      },
+      {
+       "type": "choice",
+       "id": "ch41_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Help her sort the rest of the bin",
+         "goto": "ch41_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask if she wants the bracelet out of her pocket",
+         "goto": "ch41_s02"
+        },
+        {
+         "key": "C",
+         "label": "Tell her Georgie drew the outpost last week with the gates open",
+         "goto": "ch41_s02"
+        },
+        {
+         "key": "D",
+         "label": "Sit on the loading dock and watch the city from the hill",
+         "goto": "ch41_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch41_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You help sort. She finds a jacket with no name. She writes \"open\" in the collar with a marker someone left behind. She does not explain. You do not ask. The coffee gets cold. Neither of you minds."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 34"
+      },
+      {
+       "type": "jump",
+       "target": "ch42_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch42",
+   "number": 42,
+   "title": "CHAPTER 35: THE QUIET THAT IS CHOSEN",
+   "scenes": [
+    {
+     "id": "ch42_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_table"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The apartment. Late evening. All three chairs are occupied. Georgie is drawing at the table. Penny is reading. The Player is finishing a report on a laptop. The rain has started again, soft against the window. No one has spoken for twenty minutes. The silence is not empty."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(without looking up) I finished the new treehouse drawing. Do you want to see it?"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "After this chapter."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "After this paragraph."
+      },
+      {
+       "type": "narrate",
+       "text": "Georgie waits. He does not repeat the question. When Penny closes her book and the Player saves the file, he turns the paper around. The new treehouse is in the center. Three figures stand on the platform. One is smaller. One has a bracelet. One wears a coat that looks like the Player's. In the background, the station. The badge. The mall fountain. The carnival wheel. All small. All present. No red. No empty chairs."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I didn't leave anyone out this time."
+      },
+      {
+       "type": "narrate",
+       "text": "The drawing is not a promise that nothing will ever get loud again. It is a record of a night when three people sat in three chairs and no one had to fill the silence with a sentence they had already said. The rain continues. The drawing stays on the table until someone decides where it will hang. The story does not end. It simply reaches a place where it can rest."
+      },
+      {
+       "type": "choice",
+       "id": "ch42_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Hang the drawing above the table",
+         "goto": "ch42_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask Georgie if he wants to take it to the new treehouse",
+         "goto": "ch42_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave it on the table for the night",
+         "goto": "ch42_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell them both that the station log from last week had no red calls",
+         "goto": "ch42_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch42_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The drawing stays on the table. In the morning it will move to the wall. Tonight it is enough that it exists and that all three of them have seen it. The rain keeps tapping. No one turns on the old music box. No one needs to."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 35"
+      },
+      {
+       "type": "jump",
+       "target": "ch43_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch43",
+   "number": 43,
+   "title": "CHAPTER 36: A NOTE UNDER THE BADGE",
+   "scenes": [
+    {
+     "id": "ch43_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Scene: The station. Morning. The Player arrives to find a new note pinned beneath Doggy's badge. The handwriting is careful. It is not Doggy's. It is not the Player's."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Note",
+       "text": "\"The pie was never in the oven. Thank you for sitting with it anyway. —The woman from the 2 a.m. call.\""
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(reading it twice) She came in."
+      },
+      {
+       "type": "narrate",
+       "text": "The note does not replace the one that says \"Don't hesitate to live.\" It sits beside it. Both are true. The station keeps them both. The Player does not take either one down."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "Book Three reaches a resting place. The echoes have not vanished. They have learned to share the walls with new notes, new drawings, and chairs that are sometimes empty and sometimes not. The city of Lucella continues. The writing can continue. For now, the table has three chairs and the badge has two notes. That is enough for this chapter of the living."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END OF BOOK THREE"
+      },
+      {
+       "type": "jump",
+       "target": "ch44_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch44",
+   "number": 44,
+   "title": "CHAPTER 37: THE TABLE WITH THREE CHAIRS",
+   "scenes": [
+    {
+     "id": "ch44_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_dawn"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The apartment. Morning light through the window. The rain has stopped. The drawing Georgie finished the night before still sits on the table, creased but whole. Three chairs. Penny pours coffee. Georgie is already at the table with a new sheet of paper. The Player stands at the window, watching the street."
+      },
+      {
+       "type": "narrate",
+       "text": "The night passed without the music box. No one turned it on. The silence stayed. In the morning the drawing is still there. It has not moved itself. Someone will have to decide where it hangs."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "(holding up the new paper) I started another one. This one is just the table. With the chairs. And us. But smaller. So it can fit in my pocket if I want to take it somewhere."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(setting a mug in front of him) You can hang the big one first. Then the pocket one can travel."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(turning from the window) The note at the station is still there. Both of them. Doggy's and the woman's. I didn't take either down."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Can I see the station one day? The real one. Not just in the drawing."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "When the log stays quiet for a full week. Then yes."
+      },
+      {
+       "type": "narrate",
+       "text": "The condition is not a refusal. It is a measure. The echoes still speak sometimes. They do not fill the room anymore. The room has three chairs and a drawing that includes everyone who is still here."
+      },
+      {
+       "type": "choice",
+       "id": "ch44_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Hang Georgie's drawing above the table now",
+         "goto": "ch44_s02"
+        },
+        {
+         "key": "B",
+         "label": "Take Georgie to the station today anyway",
+         "goto": "ch44_s02"
+        },
+        {
+         "key": "C",
+         "label": "Ask Penny if she wants the bracelet on the table too",
+         "goto": "ch44_s02"
+        },
+        {
+         "key": "D",
+         "label": "Write a note of your own and pin it beside the others at the station",
+         "goto": "ch44_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch44_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You hang the drawing. Georgie watches to make sure it is straight. Penny steps back. The three of you look at it. No one says the word \"sorry.\" The coffee cools. The street outside is ordinary. That is the ending that is still being written."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 37"
+      },
+      {
+       "type": "jump",
+       "target": "ch45_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch45",
+   "number": 45,
+   "title": "CHAPTER 38: THE WEEK THAT STAYED QUIET",
+   "scenes": [
+    {
+     "id": "ch45_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The station. One week later. The log on the desk has no red entries. The two notes under the badge are still there. The Player sits across from Doggy's empty desk. The chair is not empty. A woman from the 2 a.m. call sits in it, holding a thermos."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "I came back. Not for the pie. For the bench outside. It faces the street. I can sit there without anyone asking me if I am still waiting."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The log is quiet. Georgie can visit now. If you want company on the bench, the door is open."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "I might. Not every day. Some mornings the voice is louder. Some mornings it is just weather."
+      },
+      {
+       "type": "narrate",
+       "text": "The station does not close. It does not need to. The echoes still arrive. They arrive with names now. The woman does not ask the Player to take the note down. The Player does not offer. Both notes stay. The thermos steams. Outside, the street is ordinary."
+      },
+      {
+       "type": "choice",
+       "id": "ch45_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Invite Georgie and Penny to the station this afternoon",
+         "goto": "ch45_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sit with the woman on the bench for a while",
+         "goto": "ch45_s02"
+        },
+        {
+         "key": "C",
+         "label": "Add a third note: \"The door stays open.\"",
+         "goto": "ch45_s02"
+        },
+        {
+         "key": "D",
+         "label": "Call Mr. P and tell him the plant is still empty",
+         "goto": "ch45_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch45_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You call Georgie. He brings the pocket drawing. Penny comes with coffee for three. The woman stays on the bench. No one fills the silence with an old sentence. The week stays quiet enough."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 38"
+      },
+      {
+       "type": "jump",
+       "target": "ch46_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch46",
+   "number": 46,
+   "title": "CHAPTER 39: MR. P'S EMPTY VIAL",
+   "scenes": [
+    {
+     "id": "ch46_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The old laboratory annex. Dust on the shelves. The apparatus is cold. Mr. P stands with his hands in his pockets. The Player waits by the door. No red liquid remains."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "I keep the recording off. Not because I have stopped missing her. Because the sentence is already mine. I can say it without the speaker."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The city is still here. The chairs are still here. The plant is empty. That is the part that stays true."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "(looking at an empty vial) I poured the rest out. I do not regret the pouring. I regret the nights I did not come home. Those nights are not in the vial. They are in the room I still walk through."
+      },
+      {
+       "type": "narrate",
+       "text": "The laboratory does not need to be destroyed. It needs to stay empty. Mr. P locks the door when he leaves. He does not throw the key away. He puts it on the same ring as the house key. Both rooms remain. Neither one is the only one."
+      },
+      {
+       "type": "choice",
+       "id": "ch46_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Walk with him back to the apartment",
+         "goto": "ch46_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask if he wants to meet Georgie",
+         "goto": "ch46_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave the key where it is",
+         "goto": "ch46_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell him the woman from the station is still sitting on the bench",
+         "goto": "ch46_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch46_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You walk. He does not turn the recording on. The apartment has four chairs now. The fourth one is for whoever needs it. The drawing hangs above the table. The echoes share the wall. They do not own it."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 39"
+      },
+      {
+       "type": "jump",
+       "target": "ch47_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch47",
+   "number": 47,
+   "title": "CHAPTER 40: THE DOOR THAT STAYS OPEN",
+   "scenes": [
+    {
+     "id": "ch47_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The apartment. Evening. Four chairs. Georgie, Penny, the Player, and Mr. P. The drawing hangs on the wall. The pocket version sits on the table. Outside, the streetlights are on. No music box. No red. No empty seats that demand to be filled."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I drew the station with the door open. And the bench. And the woman. She can be in the picture if she wants. Or not. The door is open either way."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "The bracelet is in my pocket. I can put it on. Or I can leave it. Both are true."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "The recording stays off. The sentence is still mine."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The notes stay under the badge. The log can stay quiet. Or it can get loud again. We will sit with it either way."
+      },
+      {
+       "type": "narrate",
+       "text": "The story reaches the place it was always moving toward. Not the absence of regret. The presence of the people who remain. The chairs are occupied. The door is open. The echoes can speak. They are no longer the only voice in the room. The city of Lucella continues. The table has room. The station keeps the notes. That is the ending that holds."
+      },
+      {
+       "type": "choice",
+       "id": "ch47_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Leave the door open",
+         "goto": "ch47_s02"
+        },
+        {
+         "key": "B",
+         "label": "Hang the pocket drawing beside the large one",
+         "goto": "ch47_s02"
+        },
+        {
+         "key": "C",
+         "label": "Sit until the streetlights come on",
+         "goto": "ch47_s02"
+        },
+        {
+         "key": "D",
+         "label": "Thank them for staying",
+         "goto": "ch47_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch47_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You sit. No one turns anything on. The rain does not come tonight. The drawing stays on the wall. The notes stay at the station. The story rests here. It is finished because the people in the room are still here. The echoes remain. They share the space. That is enough."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The full story is complete. The regrets have not vanished. They have learned to live beside the chairs that are occupied and the door that stays open. Thank you for remaining with the echoes."
+      },
+      {
+       "type": "jump",
+       "target": "ch48_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch48",
+   "number": 48,
+   "title": "CHAPTER 41: THE WOMAN ON THE BENCH",
+   "scenes": [
+    {
+     "id": "ch48_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The station platform. Late afternoon. The rain has returned lightly. The woman from the 2 a.m. call sits on the bench. The door of the station is open behind her. A paper bag rests beside her. No red light. No music box."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "You left the note under the badge. I read it. The pie was never in the oven. I still came."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(sitting beside her, not too close) The station stays open either way."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "My daughter used to wait here. She would draw on the back of the tickets. I still have one. It has a treehouse on it. And three figures. One of them is waving."
+      },
+      {
+       "type": "narrate",
+       "text": "The echoes do not leave. They learn the shape of the bench. The woman does not ask the Player to make the drawing real. She only asks if the station still keeps the notes."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "Both notes are still there. The one about the pie. The one about living. They sit next to each other."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Woman",
+       "text": "Good. Then I can sit here without having to fill the empty seat with a sentence I already said."
+      },
+      {
+       "type": "choice",
+       "id": "ch48_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Ask if she wants to meet Georgie",
+         "goto": "ch48_s02"
+        },
+        {
+         "key": "B",
+         "label": "Sit in silence until the next train",
+         "goto": "ch48_s02"
+        },
+        {
+         "key": "C",
+         "label": "Offer her the pocket drawing",
+         "goto": "ch48_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell her the door will stay open",
+         "goto": "ch48_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch48_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You sit. The train arrives. No one gets off who needs to be apologized to. The woman folds the ticket drawing and puts it in her pocket. The station log does not record the hour. Some hours do not need to be written down."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 41"
+      },
+      {
+       "type": "jump",
+       "target": "ch49_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch49",
+   "number": 49,
+   "title": "CHAPTER 42: GEORGIE'S TREEHOUSE",
+   "scenes": [
+    {
+     "id": "ch49_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The apartment backyard. Evening. A new treehouse sits between the old oak and the fence. Georgie is inside with a flashlight. The drawing of the station hangs on the wall of the treehouse. Four chairs are drawn on the floor in chalk."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I put the woman on the bench in the picture. She can stay or go. The door is open in the drawing too."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "(from below) Leo is coming tomorrow. He wants to see if the bracelet still fits."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(climbing up) The station note is still there. She came in."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "Then the treehouse has room for her drawing too. I left space."
+      },
+      {
+       "type": "narrate",
+       "text": "The infection did not take the ability to make space. It only made the space feel smaller until someone drew the chairs again. Georgie draws a fifth figure on the edge of the paper. The figure is holding a paper bag. It is not labeled."
+      },
+      {
+       "type": "choice",
+       "id": "ch49_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Help hang the station drawing",
+         "goto": "ch49_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask Georgie what the fifth figure is holding",
+         "goto": "ch49_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave the flashlight on for the night",
+         "goto": "ch49_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell Penny the bracelet can stay in the pocket",
+         "goto": "ch49_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch49_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: The drawing hangs. The flashlight stays on. In the morning the chalk chairs are still on the floor. No one erases them. The city of Lucella has one more treehouse that keeps the door open."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 42"
+      },
+      {
+       "type": "jump",
+       "target": "ch50_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch50",
+   "number": 50,
+   "title": "CHAPTER 43: THE KEY RING",
+   "scenes": [
+    {
+     "id": "ch50_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The locked laboratory annex. Mr. P stands outside the door. The key ring is in his hand. The house key and the lab key hang together. He does not open the door. The recording device is in his other hand. It is off."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "I still hear her when I want to. The speaker is not required. The sentence is mine."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The woman from the station is sitting on the bench. She has a ticket drawing of a treehouse."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "Then the keys can stay on the ring. The door can stay locked. Both rooms remain. Neither one has to be the only one."
+      },
+      {
+       "type": "narrate",
+       "text": "He puts the key ring in his pocket. The laboratory does not need to be destroyed. It needs to stay empty. The echoes share the wall with the apartment. They do not own it."
+      },
+      {
+       "type": "choice",
+       "id": "ch50_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Walk back to the apartment with him",
+         "goto": "ch50_s02"
+        },
+        {
+         "key": "B",
+         "label": "Ask if he wants to see the treehouse",
+         "goto": "ch50_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave the key where it is",
+         "goto": "ch50_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell him the recording can stay off",
+         "goto": "ch50_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch50_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You walk. He does not turn the recording on. The apartment has four chairs. The fifth is for whoever needs it. The drawing hangs above the table. The echoes share the wall. They do not own it."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 43"
+      },
+      {
+       "type": "jump",
+       "target": "ch51_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch51",
+   "number": 51,
+   "title": "CHAPTER 44: THE LIVING LOG",
+   "scenes": [
+    {
+     "id": "ch51_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_room"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The police station. Morning. The log book is open on the desk. Two notes are under Doggy's badge. The Player writes one line and then stops."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "(writing) Station remains open. No red calls. The woman from the 2 a.m. call sat on the bench. She left with the ticket drawing."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Doggy",
+       "text": "(from the doorway) You don't have to fill every line. Some hours are just hours."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The pie note is still there. So is the one about living. They sit next to each other."
+      },
+      {
+       "type": "narrate",
+       "text": "The log does not need to get loud again. It can stay quiet. The station keeps both notes. The city of Lucella continues. The table has room. The treehouse has chalk chairs. The laboratory stays locked. The door of the station stays open."
+      },
+      {
+       "type": "choice",
+       "id": "ch51_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Close the log",
+         "goto": "ch51_s02"
+        },
+        {
+         "key": "B",
+         "label": "Pin a new note about the treehouse",
+         "goto": "ch51_s02"
+        },
+        {
+         "key": "C",
+         "label": "Leave the desk as it is",
+         "goto": "ch51_s02"
+        },
+        {
+         "key": "D",
+         "label": "Tell Doggy the bracelet is still in Penny's pocket",
+         "goto": "ch51_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch51_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You close the log. The notes stay under the badge. In the evening the streetlights come on. No one turns anything on that does not need to be on. The story rests because the people are still here."
+      },
+      {
+       "type": "narrate",
+       "text": "End of Chapter 44"
+      },
+      {
+       "type": "jump",
+       "target": "ch52_s01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch52",
+   "number": 52,
+   "title": "CHAPTER 45: THE DOOR THAT STAYS OPEN FOREVER",
+   "scenes": [
+    {
+     "id": "ch52_s01",
+     "steps": [
+      {
+       "type": "bg",
+       "id": "bg_snow"
+      },
+      {
+       "type": "narrate",
+       "text": "Background: The apartment. Night. Four chairs around the table. Georgie, Penny, the Player, and Mr. P. The drawing hangs on the wall. The pocket drawing sits beside the large one. Outside, the streetlights are on. The rain has stopped. No music box. No red. No empty seats that demand to be filled."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Georgie",
+       "text": "I drew the woman on the bench. And the treehouse. And the locked door. The door in the picture is open anyway."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Penny",
+       "text": "The bracelet is in my pocket. Leo can try it tomorrow. Or not. Both are true."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Mr. P",
+       "text": "The recording stays off. The key ring stays in my pocket. The sentence is still mine."
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "Player",
+       "text": "The notes stay under the badge. The log is closed. The station stays open. We will sit with it either way."
+      },
+      {
+       "type": "narrate",
+       "text": "The story reaches the place it was always moving toward. Not the absence of regret. The presence of the people who remain. The chairs are occupied. The door is open. The echoes can speak. They are no longer the only voice in the room. The city of Lucella continues. The table has room. The station keeps the notes. The treehouse keeps the chalk. The laboratory stays empty. That is the ending that holds."
+      },
+      {
+       "type": "choice",
+       "id": "ch52_c01",
+       "options": [
+        {
+         "key": "A",
+         "label": "Leave the door open",
+         "goto": "ch52_s02"
+        },
+        {
+         "key": "B",
+         "label": "Hang both drawings together",
+         "goto": "ch52_s02"
+        },
+        {
+         "key": "C",
+         "label": "Sit until the streetlights go out",
+         "goto": "ch52_s02"
+        },
+        {
+         "key": "D",
+         "label": "Thank them for staying",
+         "goto": "ch52_s02"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ch52_s02",
+     "steps": [
+      {
+       "type": "narrate",
+       "text": "Main path: You sit. No one turns anything on. The rain does not come tonight. The drawings stay on the wall. The notes stay at the station. The story rests here. It is finished because the people in the room are still here. The echoes remain. They share the space. That is enough."
+      },
+      {
+       "type": "narrate",
+       "text": "THE END"
+      },
+      {
+       "type": "say",
+       "speaker": "extra",
+       "name": "System Message",
+       "text": "The full story is complete. The regrets have not vanished. They have learned to live beside the chairs that are occupied and the door that stays open. The treehouse has room. The station keeps the notes. Thank you for remaining with the echoes. The writing can rest."
+      },
+      {
+       "type": "ending",
+       "id": "echoes",
+       "title": "The Door That Stays Open"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

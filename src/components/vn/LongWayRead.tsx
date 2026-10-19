@@ -3,8 +3,7 @@ import { ChevronDown, Images, PenLine, RotateCcw, ScrollText, X } from "lucide-r
 import { portraitSrc } from "@/lib/vn/catalog";
 import { CASTS, type CastId, type Expression } from "@/lib/vn/types";
 import { longWayAssetUrl } from "@/lib/vn/long-way/assets";
-import { ensureLongWayScript, useLongWay, type Edition } from "@/lib/vn/long-way/store";
-import { useVN } from "@/lib/vn/store";
+import { ensureLongWayScript, useLongWay, type ScriptSlot } from "@/lib/vn/long-way/store";
 import { emphasize, plainText, sliceSpans } from "@/lib/vn/long-way/text";
 
 function cn(...parts: Array<string | false | null | undefined>) {
@@ -160,11 +159,13 @@ export function LongWayGallery({ onClose }: { onClose: () => void }) {
 let bootToken = 0;
 
 export function LongWayRead({
+  slot,
   paused,
   onTitle,
   onStories,
   onDirector,
 }: {
+  slot: ScriptSlot;
   paused: boolean;
   onTitle: () => void;
   onStories: () => void;
@@ -182,9 +183,6 @@ export function LongWayRead({
   const toggleLog = useLongWay((s) => s.toggleLog);
   const toggleGallery = useLongWay((s) => s.toggleGallery);
   const closePanels = useLongWay((s) => s.closePanels);
-  const optIn = useVN((s) => s.story.optIn === true);
-  const edition: Edition = optIn ? "private" : "public";
-
   const [ghost, setGhost] = useState<{ cast: CastId; expression: Expression } | null>(null);
 
   useEffect(() => {
@@ -192,16 +190,16 @@ export function LongWayRead({
     void (async () => {
       if (!useLongWay.getState().hydrated) await useLongWay.persist.rehydrate();
       if (token !== bootToken) return;
-      useLongWay.getState().setEdition(edition);
+      useLongWay.getState().setSlot(slot);
       try {
-        await ensureLongWayScript(edition);
+        await ensureLongWayScript(slot);
       } catch {
         return;
       }
       if (token !== bootToken) return;
       useLongWay.getState().resumeOrStart();
     })();
-  }, [edition]);
+  }, [slot]);
 
   const line =
     beat?.kind === "line"
@@ -247,6 +245,9 @@ export function LongWayRead({
     return () => window.removeEventListener("keydown", onKey);
   });
 
+  const hasPictures = script
+    ? Object.keys(script.assets).some((id) => id.startsWith("cg_"))
+    : false;
   const bgId = runtime?.bg;
   const cgId = runtime?.cg;
   const bgSrc = bgId && script?.assets[bgId] ? longWayAssetUrl(script.assets[bgId]) : null;
@@ -299,17 +300,19 @@ export function LongWayRead({
           >
             Stories
           </button>
-          <button
-            type="button"
-            aria-label="Pictures"
-            onClick={() => {
-              void ensureLongWayScript(edition);
-              toggleGallery();
-            }}
-            className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
-          >
-            <Images className="size-5" />
-          </button>
+          {hasPictures && (
+            <button
+              type="button"
+              aria-label="Pictures"
+              onClick={() => {
+                void ensureLongWayScript(slot);
+                toggleGallery();
+              }}
+              className="inline-flex size-11 items-center justify-center rounded-full bg-ink/50 text-fg"
+            >
+              <Images className="size-5" />
+            </button>
+          )}
           <button
             type="button"
             aria-label="Read log"

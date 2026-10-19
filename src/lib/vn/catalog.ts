@@ -459,6 +459,8 @@ export const COAT: Story = {
 
 export const LONG_WAY_ID = "long-way-round";
 
+export const ECHOES_ID = "echoes-of-regret";
+
 export const LONG_WAY: Story = {
   id: LONG_WAY_ID,
   title: "The Long Way Round",
@@ -484,7 +486,28 @@ export const LONG_WAY: Story = {
   ],
 };
 
-export const LIBRARY: Story[] = [UNTIL_MORNING, STARTER, LANTERNS, COAT, LONG_WAY];
+export const ECHOES: Story = {
+  id: ECHOES_ID,
+  title: "Echoes of Regret",
+  logline:
+    "Mr. P meant the potion to heal. Lucella is left with what people wish they could change.",
+  characters: [],
+  start: "ch01_s01",
+  scenes: [
+    {
+      id: "ch01_s01",
+      background: "room",
+      lines: [{ speaker: "narrator", text: "Echoes of Regret opens in its own player." }],
+      end: true,
+    },
+  ],
+};
+
+export function isScriptedStory(id: string): boolean {
+  return id === LONG_WAY_ID || id === ECHOES_ID;
+}
+
+export const LIBRARY: Story[] = [UNTIL_MORNING, STARTER, LANTERNS, COAT, LONG_WAY, ECHOES];
 
 export const PROMPTS = [
   "Write a new quiet night for Zizzy and Pony, still in this kitchen.",
