@@ -117,8 +117,7 @@ export const useLongWay = create<LongState>()(
       resumeOrStart: () => {
         const { script, runtime, restartOnLoad } = get();
         if (!script) return;
-        const shifted = !!runtime && SHIFTED_SCENES.has(runtime.cursor.sceneId);
-        if (restartOnLoad || !runtime || shifted || !script.sceneIndex.has(runtime.cursor.sceneId)) {
+        if (restartOnLoad || !runtime || !script.sceneIndex.has(runtime.cursor.sceneId)) {
           const created = createRuntime(script);
           set({ runtime: created.runtime, beat: created.beat, restartOnLoad: false, error: null });
           return;
@@ -143,9 +142,14 @@ export const useLongWay = create<LongState>()(
           runtime?: Runtime | null;
           saves?: { public?: Runtime | null };
         };
-        if (version < 2) return { runtime: data.runtime ?? null };
-        if (version < 3) return { runtime: data.saves?.public ?? data.runtime ?? null };
-        return { runtime: data.runtime ?? null };
+        let runtime: Runtime | null = null;
+        if (version < 2) runtime = data.runtime ?? null;
+        else if (version < 3) runtime = data.saves?.public ?? data.runtime ?? null;
+        else runtime = data.runtime ?? null;
+        // Step indexes in the spliced scenes moved, so an older cursor there
+        // would open on the wrong line. Drop it and start clean.
+        if (version < 3 && runtime && SHIFTED_SCENES.has(runtime.cursor?.sceneId)) runtime = null;
+        return { runtime };
       },
       onRehydrateStorage: () => () => {
         useLongWay.setState({ hydrated: true });
