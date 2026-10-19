@@ -13,8 +13,8 @@ import {
   portraitSrc,
   stillSrc,
 } from "@/lib/vn/catalog";
-import { ensureLongWayScript, useLongWay } from "@/lib/vn/long-way/store";
-import { useVN } from "@/lib/vn/store";
+import { ensureLongWayScript, useLongWay, type Edition } from "@/lib/vn/long-way/store";
+import { registerOptInStory, useVN } from "@/lib/vn/store";
 import {
   BACKGROUNDS,
   CASTS,
@@ -28,6 +28,17 @@ import {
 
 function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
+}
+
+type PrivateModule = typeof import("@/lib/vn/long-way/private");
+
+function adultConfirmed(): boolean {
+  if (import.meta.env.VITE_ENABLE_PRIVATE_STORIES !== "true") return false;
+  try {
+    return localStorage.getItem("zizzy-pony-18-ok") === "1";
+  } catch {
+    return false;
+  }
 }
 
 function speakerName(story: Story, id: string) {
@@ -128,6 +139,10 @@ export function NightMargin() {
 
   const [draft, setDraft] = useState("");
   const [storiesOpen, setStoriesOpen] = useState(false);
+  const [extraStories, setExtraStories] = useState<Story[]>([]);
+  const [AdultGate, setAdultGate] = useState<PrivateModule["AdultGate"] | null>(null);
+  const [adultOk, setAdultOk] = useState(adultConfirmed);
+  const [gateOpen, setGateOpen] = useState(false);
   const [ghost, setGhost] = useState<{ cast: CastId; expression: Expression; name: string } | null>(
     null,
   );
@@ -138,6 +153,20 @@ export function NightMargin() {
     void useLongWay.persist.rehydrate();
   }, []);
 
+  useEffect(() => {
+    if (import.meta.env.VITE_ENABLE_PRIVATE_STORIES !== "true") return;
+    let cancel = false;
+    void import("@/lib/vn/long-way/private").then((mod) => {
+      if (cancel) return;
+      registerOptInStory(mod.LONG_WAY_18);
+      setExtraStories([mod.LONG_WAY_18]);
+      setAdultGate(() => mod.AdultGate);
+    });
+    return () => {
+      cancel = true;
+    };
+  }, []);
+
   const scene = story.scenes.find((item) => item.id === sceneId) ?? story.scenes[0];
   const lineIndex = scene ? Math.min(line, Math.max(0, scene.lines.length - 1)) : 0;
   const current = scene?.lines[lineIndex];
@@ -146,27 +175,32 @@ export function NightMargin() {
   const atLast = !!scene && lineIndex >= scene.lines.length - 1;
   const choices = atLast && reveal.done && scene?.choices ? scene.choices : [];
   const ended = atLast && reveal.done && !!scene?.end && choices.length === 0;
-  const longRuntime = useLongWay((s) => s.runtime);
   const longGallery = useLongWay((s) => s.galleryOpen);
-  const longActive = story.id === LONG_WAY_ID;
-  const longRead = phase === "read" && longActive;
+  const privateEnabled = import.meta.env.VITE_ENABLE_PRIVATE_STORIES === "true";
+  const privatePlay = privateEnabled && story.optIn === true;
+  const longEdition: Edition | null =
+    story.id === LONG_WAY_ID ? "public" : privatePlay ? "private" : null;
+  const longActive = longEdition !== null;
+  const privateBlocked = privatePlay && !adultOk;
+  const longRead = phase === "read" && longActive && !privateBlocked;
+  const longSave = useLongWay((s) => (privatePlay ? s.saves.private : s.saves.public));
   const continued = longActive
-    ? !!longRuntime &&
-      (longRuntime.log.length > 0 ||
-        !!longRuntime.ending ||
-        Object.keys(longRuntime.choices).length > 0)
+    ? !!longSave &&
+      (longSave.log.length > 0 || !!longSave.ending || Object.keys(longSave.choices).length > 0)
     : sceneId !== story.start || line > 0 || log.length > 0;
   const place = scene ? PLACES[scene.background] : PLACES.kitchen;
 
   const stories = (() => {
     const seen = new Set<string>();
     const list: Story[] = [];
-    for (const item of LIBRARY) {
+    for (const item of [...LIBRARY, ...extraStories]) {
+      if (item.optIn && !privateEnabled) continue;
       seen.add(item.id);
       list.push(item.id === story.id ? story : item);
     }
     for (const item of [story, ...shelf]) {
       if (seen.has(item.id)) continue;
+      if (item.optIn && !privateEnabled) continue;
       seen.add(item.id);
       list.push(item);
     }
@@ -185,9 +219,9 @@ export function NightMargin() {
   }, [liveKey]);
 
   useEffect(() => {
-    if (story.id === LONG_WAY_ID) return;
+    if (story.id === LONG_WAY_ID || story.optIn) return;
     if (phase === "read" && reveal.done && current) rememberLine(name || "Narrator", current.text);
-  }, [story.id, phase, reveal.done, current, name, rememberLine]);
+  }, [story.id, story.optIn, phase, reveal.done, current, name, rememberLine]);
 
   useEffect(() => {
     const node = threadRef.current;
@@ -210,7 +244,7 @@ export function NightMargin() {
       if (target && (target.tagName === "TEXTAREA" || target.tagName === "INPUT")) return;
       if (event.key !== " " && event.key !== "Enter") return;
       const state = useVN.getState();
-      if (state.story.id === LONG_WAY_ID) return;
+      if (state.story.id === LONG_WAY_ID || state.story.optIn) return;
       if (state.directorOpen || state.logOpen || state.phase !== "read" || storiesOpen) return;
       event.preventDefault();
       onAdvance();
@@ -219,11 +253,47 @@ export function NightMargin() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  function openStory(id: string) {
-    if (id === LONG_WAY_ID) void ensureLongWayScript();
-    if (useVN.getState().story.id !== id) selectStory(id);
+  function startLongWay(edition: Edition) {
+    if (edition === "private" && !adultConfirmed()) {
+      setGateOpen(true);
+      setStoriesOpen(false);
+      return;
+    }
+    useLongWay.getState().setEdition(edition);
+    void ensureLongWayScript(edition);
     useVN.getState().play();
     setStoriesOpen(false);
+  }
+
+  function openStory(id: string) {
+    const chosen =
+      extraStories.find((item) => item.id === id) ??
+      LIBRARY.find((item) => item.id === id) ??
+      (useVN.getState().story.id === id ? useVN.getState().story : undefined);
+    if (chosen?.optIn && !privateEnabled) return;
+    if (useVN.getState().story.id !== id) selectStory(id);
+    if (id === LONG_WAY_ID) {
+      startLongWay("public");
+      return;
+    }
+    if (chosen?.optIn) {
+      startLongWay("private");
+      return;
+    }
+    useVN.getState().play();
+    setStoriesOpen(false);
+  }
+
+  function acceptAdult() {
+    if (import.meta.env.VITE_ENABLE_PRIVATE_STORIES !== "true") return;
+    void import("@/lib/vn/long-way/private").then((mod) => {
+      mod.confirmAdult();
+      setAdultOk(true);
+      setGateOpen(false);
+      useLongWay.getState().setEdition("private");
+      void ensureLongWayScript("private");
+      useVN.getState().play();
+    });
   }
 
   async function ask(prompt: string) {
@@ -231,7 +301,7 @@ export function NightMargin() {
     if (message.length < 2 || busy) return;
     const history = useVN.getState().messages;
     const currentStory = useVN.getState().story;
-    const seed = currentStory.id === LONG_WAY_ID ? STARTER : currentStory;
+    const seed = currentStory.id === LONG_WAY_ID || currentStory.optIn ? STARTER : currentStory;
     setDraft("");
     pushUser(message);
     useVN.getState().setBusy(true);
@@ -459,7 +529,10 @@ export function NightMargin() {
               <button
                 type="button"
                 onClick={() => {
-                  if (longActive) void ensureLongWayScript();
+                  if (longEdition) {
+                    startLongWay(longEdition);
+                    return;
+                  }
                   play();
                 }}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-lamp px-6 font-medium text-ink transition-transform duration-150 ease-out active:scale-[0.96]"
@@ -476,18 +549,24 @@ export function NightMargin() {
                 Ask Grok to write
               </button>
             </div>
-            {longActive && longRuntime?.chapter.title && (
+            {longActive && longSave?.chapter.title && (
               <p className="mt-3 text-sm text-muted">
-                Chapter {longRuntime.chapter.number} · {longRuntime.chapter.title}
-                {longRuntime.ending ? ` · ${longRuntime.ending.title}` : ""}
+                Chapter {longSave.chapter.number} · {longSave.chapter.title}
+                {longSave.ending ? ` · ${longSave.ending.title}` : ""}
               </p>
             )}
             {continued && (
               <button
                 type="button"
                 onClick={() => {
-                  if (longActive) {
+                  if (longEdition) {
+                    if (longEdition === "private" && !adultConfirmed()) {
+                      setGateOpen(true);
+                      return;
+                    }
+                    useLongWay.getState().setEdition(longEdition);
                     useLongWay.getState().restart();
+                    void ensureLongWayScript(longEdition);
                     play();
                     return;
                   }
@@ -683,6 +762,15 @@ export function NightMargin() {
       </div>
       {longGallery && !longRead && (
         <LongWayGallery onClose={() => useLongWay.getState().closePanels()} />
+      )}
+      {privateEnabled && AdultGate && (gateOpen || (privateBlocked && phase === "read")) && (
+        <AdultGate
+          onConfirm={acceptAdult}
+          onCancel={() => {
+            setGateOpen(false);
+            toTitle();
+          }}
+        />
       )}
     </main>
   );
