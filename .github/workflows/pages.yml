@@ -1,0 +1,65 @@
+# Publishes the static visual novel to GitHub Pages.
+# The site is a project page, so vite.pages.config.ts sets base to /Visn/.
+# Settings → Pages → Build and deployment → Source must be "GitHub Actions".
+# The legacy "Deploy from a branch" source serves the Jekyll README instead.
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with the Pages config
+        run: npm run build:pages
+
+      # The static output includes public/__grok (a leading underscore). Jekyll
+      # drops those paths. actions/deploy-pages does not run Jekyll; this file
+      # keeps the artifact intact if it is ever published by the legacy pipeline.
+      - name: Add .nojekyll
+        run: touch dist-pages/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
